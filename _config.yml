@@ -15,7 +15,7 @@ timezone: ''
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 # url: https://lmlpla.gitee.io/blog
 url: https://protonlml.github.io
-root: /        #这是仓库名
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
