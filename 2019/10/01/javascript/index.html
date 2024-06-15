@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>javaScript | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="javaScript   静态网页资源的三剑客：HTML（文本），CSS（样式），JavaScript（行为）。把后面两个效果，加在HTML文本上，就会呈现出很好看的网页界面。  程序设计有两种架构：1 c&#x2F;s架构，是客户端和服务器端，要开发两个程序。2 b&#x2F;s架构，是浏览器和服务端。只用浏览器来申请服务器端的资源，再展示出来就好了。只用开发服务器端一个软件。 javaWeb开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript">
+<meta property="og:url" content="https://protonlml.github.io/2019/10/01/javascript/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="javaScript   静态网页资源的三剑客：HTML（文本），CSS（样式），JavaScript（行为）。把后面两个效果，加在HTML文本上，就会呈现出很好看的网页界面。  程序设计有两种架构：1 c&#x2F;s架构，是客户端和服务器端，要开发两个程序。2 b&#x2F;s架构，是浏览器和服务端。只用浏览器来申请服务器端的资源，再展示出来就好了。只用开发服务器端一个软件。 javaWeb开">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302141892.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302141171.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302150588.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302204727.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302211570.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302211345.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302213021.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302213809.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302312704.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302317649.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302320023.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302322466.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302327561.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302328922.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302330863.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302230077.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302239426.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302240885.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302336101.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302336754.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302338259.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302339764.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302339719.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302340524.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302341187.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302347839.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302349463.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302351087.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302352011.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302354439.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302309137.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302310432.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302310594.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310008885.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310009414.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310009904.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310010681.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310011498.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310011810.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310012825.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310012327.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310015267.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310030871.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310032281.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310033920.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310033022.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310002855.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310002593.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310003451.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310003911.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310004539.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310004456.png">
+<meta property="og:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310036188.png">
+<meta property="article:published_time" content="2019-10-01T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-11T16:16:41.104Z">
+<meta property="article:author" content="𝚲𝚳𝚲">
+<meta property="article:tag" content="javaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302141892.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://protonlml.github.io/2019/10/01/javascript/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">𝚲𝚳𝚲</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">◙</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">24</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/01/01/%E6%8C%82%E5%B9%B4%E5%85%BD/" class="title">换新颜给博客网站右上角添加悬挂年兽 喜增龙年喜气源码</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-01-01T03:00:00.000Z" itemprop="datePublished">2024-01-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/17/matery%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">matery主题的使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-17T03:00:00.000Z" itemprop="datePublished">2020-03-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/3.git%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="title">3.git初始化仓库的两种方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T06:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/java/maven/">maven</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/Maven/" class="title">Maven</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T03:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/01/javascript/" class="title">javaScript</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-01T04:00:00.000Z" itemprop="datePublished">2019-10-01</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-javascript" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javaScript
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/10/01/javascript/" class="article-date">
+	  <time datetime="2019-10-01T04:00:00.000Z" itemprop="datePublished">2019-10-01</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/javaScript/" rel="tag">javaScript</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/01/javascript/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 4.6k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 16(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1><center>javaScript</center></h1>
+
+<blockquote>
+<p>静态网页资源的三剑客：HTML（文本），CSS（样式），JavaScript（行为）。把后面两个效果，加在HTML文本上，就会呈现出很好看的网页界面。</p>
+<ol>
+<li>程序设计有两种架构：1 c&#x2F;s架构，是客户端和服务器端，要开发两个程序。2 b&#x2F;s架构，是浏览器和服务端。只用浏览器来申请服务器端的资源，再展示出来就好了。只用开发服务器端一个软件。</li>
+<li>javaWeb开发，是B&#x2F;S架构的。</li>
+<li>事件：事件是什么意思？通俗的理解，HTML中的元素组件，被某个动作（事件的属性），触动后，会发生一定的变化。（执行了另一个js代码）。</li>
+<li>将HTML，CSS，JavaScript分别独立出来，可以降低耦合度，</li>
+</ol>
+<p>javaScript最初被设计用于浏览器中，他和java语言没有关系，他是客户端脚本语言</p>
+<p>javaScript语言运行出错，要在浏览器控制台上面查看。F12打开控制台。</p>
+</blockquote>
+<p>- </p>
+<h2 id="一、javaScript"><a href="#一、javaScript" class="headerlink" title="一、javaScript"></a>一、javaScript</h2><ul>
+<li>注意：在一个html的页面中，可以定义多个script的标签，而且存放的位置是任意的，但是会影响运行的先后顺序，一般都是等html页面元素全部加载完毕，再运行js代码，并且是一种等待状态。当在html中的某个位置，触发了某个事件，此时对应的js等待代码，就会执行。从而产生行为效果</li>
+</ul>
+<h3 id="1-javascript与HTML的关联方式："><a href="#1-javascript与HTML的关联方式：" class="headerlink" title="1.javascript与HTML的关联方式："></a>1.javascript与HTML的关联方式：</h3><ul>
+<li><p>内部关联</p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302141892.png" alt="image-20240130214055735"></p>
+</li>
+<li><p>外部关联</p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302141171.png" alt="image-20240130214133935"></p>
+</li>
+</ul>
+<h3 id="2-javascript的数据类型"><a href="#2-javascript的数据类型" class="headerlink" title="2.javascript的数据类型"></a>2.javascript的数据类型</h3><ul>
+<li><blockquote>
+<p>原始数据类型：</p>
+<pre><code>     1. number：数字 。 整数/小数/ NAN （not  a number 一个不是数字的数字类型）
+        2. string ：字符串。字符串 &quot;abc&quot; &quot;a&quot; &#39;abc&#39;
+        3. boolean：true 和 false
+        4. null：一个对象为空的占位符
+        5. undefined：未定义，如果一个变量没有给他初始化值，则会被默认赋值为undefined
+</code></pre>
+<p>注意：NaN是number类型，他是（不是数字的数字）。在js当中，运算符，后面的运算数，不是运算符要求的类型，js就会自动的将运算数进行类型转换。比如：numb&#x3D; +”abc”;此时：number根据”+”运算符，如果是数字，就会直接转换成数字，但是转换符后面跟的不是数字类型，则会转换成不是数字的数字类型。值为NaN.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-JavaScript的变量"><a href="#3-JavaScript的变量" class="headerlink" title="3.JavaScript的变量"></a>3.JavaScript的变量</h3><ul>
+<li><p>什么是变量：变量就是内存空间中的一小片区域。有类型，有名称，有值。比如：int a&#x3D;3;</p>
+</li>
+<li><p>JavaScript的变量是弱类型的，什么叫弱类型，就是不管定义什么类型的变量，都用var开头。</p>
+</li>
+<li><p>而java中定义整型用int，定义字符型用char 。所以java是强类型的。</p>
+</li>
+<li><p>☆ 通过typeof(变量名)可以得到变量的类型</p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302150588.png" alt="image-20240130215045915"></p>
+</li>
+<li><p>注释:你也许会问,为什么typeof运算符对于nul值会返回”object”.这实际上是javaScript最初实现中的个错误,然后被<br>ECMAScript沿用了,现在,null被认为是 对象的占位符,从而解释了这一矛盾,但从技求上来说,它仍是原始值。</p>
+</li>
+</ul>
+<h3 id="4-javascript中的运算符"><a href="#4-javascript中的运算符" class="headerlink" title="4.javascript中的运算符"></a>4.javascript中的运算符</h3><ul>
+<li><h4 id="①一元运算符：就是只有一个运运算数的运算符。"><a href="#①一元运算符：就是只有一个运运算数的运算符。" class="headerlink" title="①一元运算符：就是只有一个运运算数的运算符。"></a>①一元运算符：就是只有一个运运算数的运算符。</h4><ul>
+<li>++ 、–、+（正号）、-（负号）</li>
+<li>“++（–）”在前，先自增（自减），再运算。</li>
+<li>“++（–）”在后，先运算，再自增（自减）。</li>
+<li>+（-）（正负号）</li>
+</ul>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302204727.png" alt="Image"></p>
+</li>
+<li><h4 id="②算数运算符：“-”，“-”，“-”，“-”-，“-”（和java中使用方法相同）"><a href="#②算数运算符：“-”，“-”，“-”，“-”-，“-”（和java中使用方法相同）" class="headerlink" title="②算数运算符：“+”，“-”，“* ”，“&#x2F;” ，“%”（和java中使用方法相同）"></a>②算数运算符：“+”，“-”，“* ”，“&#x2F;” ，“%”（和java中使用方法相同）</h4></li>
+<li><h4 id="③赋值运算符：“-”，“-”“-”（和java中使用方法相同）"><a href="#③赋值运算符：“-”，“-”“-”（和java中使用方法相同）" class="headerlink" title="③赋值运算符：“+&#x3D;”，“-&#x3D;”“&#x3D;”（和java中使用方法相同）"></a>③赋值运算符：“+&#x3D;”，“-&#x3D;”“&#x3D;”（和java中使用方法相同）</h4></li>
+<li><h4 id="④-比较运算符：“-”，“-”，“"><a href="#④-比较运算符：“-”，“-”，“" class="headerlink" title="④ 比较运算符：“&gt;”，“&lt;”，“&gt;&#x3D;”，“&lt;&#x3D;”，“&#x3D;&#x3D;”，   “&#x3D; &#x3D;&#x3D;（全等于）”"></a>④ 比较运算符：“&gt;”，“&lt;”，“&gt;&#x3D;”，“&lt;&#x3D;”，“&#x3D;&#x3D;”，   “&#x3D; &#x3D;&#x3D;（全等于）”</h4><ul>
+<li>“&#x3D; &#x3D;”是比较两个数是否相等，“&#x3D;&#x3D;&#x3D;全等于”是加上了类型的比较。</li>
+</ul>
+</li>
+<li><h3 id="⑤-逻辑运算符：“-”，“-”，“！”"><a href="#⑤-逻辑运算符：“-”，“-”，“！”" class="headerlink" title="⑤ 逻辑运算符：“&amp;&amp;”，“||”，“！”"></a>⑤ 逻辑运算符：“&amp;&amp;”，“||”，“！”</h3><ul>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302211570.png" alt="Image [3]"></li>
+</ul>
+</li>
+<li><h3 id="⑥-三元运算符“-？：表达式”"><a href="#⑥-三元运算符“-？：表达式”" class="headerlink" title="⑥ 三元运算符“ ？：表达式”"></a>⑥ 三元运算符“ <u>？：表达式</u>”</h3><ul>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302211345.png" alt="Image [4]"></li>
+</ul>
+</li>
+</ul>
+<h2 id="二、javascript-中的特殊语法"><a href="#二、javascript-中的特殊语法" class="headerlink" title="二、javascript 中的特殊语法."></a>二、javascript 中的特殊语法.</h2><p>(了解一下就好，但是要和java规范一样写代码，不要省“；”，也不要省“var”，带var的变量，是局部变量，不带var的变量是全局变量 。)</p>
+<h2 id="三、流程控制语句"><a href="#三、流程控制语句" class="headerlink" title="三、流程控制语句"></a>三、流程控制语句</h2><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302213021.png" alt="Image [5]"></p>
+<h2 id="练习-：javascript（9x9乘法表）"><a href="#练习-：javascript（9x9乘法表）" class="headerlink" title="练习 ：javascript（9x9乘法表）"></a>练习 ：javascript（9x9乘法表）</h2><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302213809.png" alt="Image [6]"></p>
+<hr>
+<hr>
+<h2 id="四、BOM对象："><a href="#四、BOM对象：" class="headerlink" title="四、BOM对象："></a>四、BOM对象：</h2><ul>
+<li><h4 id="概念：Browser-object-Model-浏览器对象模型。将浏览器各个组成部分封装为对象。"><a href="#概念：Browser-object-Model-浏览器对象模型。将浏览器各个组成部分封装为对象。" class="headerlink" title="概念：Browser object Model 浏览器对象模型。将浏览器各个组成部分封装为对象。"></a>概念：Browser object Model 浏览器对象模型。将浏览器各个组成部分封装为对象。</h4></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302312704.png" alt="Image [13]"></p>
+</li>
+<li><h4 id="BOM对象有五个：窗口对象、历史记录对象、地址栏对象、浏览器对象、显示器对象。"><a href="#BOM对象有五个：窗口对象、历史记录对象、地址栏对象、浏览器对象、显示器对象。" class="headerlink" title="BOM对象有五个：窗口对象、历史记录对象、地址栏对象、浏览器对象、显示器对象。"></a>BOM对象有五个：窗口对象、历史记录对象、地址栏对象、浏览器对象、显示器对象。</h4><h3 id="①-window窗口对象。"><a href="#①-window窗口对象。" class="headerlink" title="① window窗口对象。"></a>① window窗口对象。</h3><ul>
+<li><h4 id="window窗口的第一类方法：弹窗有关的方法"><a href="#window窗口的第一类方法：弹窗有关的方法" class="headerlink" title="window窗口的第一类方法：弹窗有关的方法"></a>window窗口的第一类方法：弹窗有关的方法</h4></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302317649.png" alt="image-20240130231750600"></p>
+</li>
+<li><h4 id="window窗口的第二类方法：打开关闭窗口的方法。"><a href="#window窗口的第二类方法：打开关闭窗口的方法。" class="headerlink" title="window窗口的第二类方法：打开关闭窗口的方法。"></a>window窗口的第二类方法：打开关闭窗口的方法。</h4></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302320023.png" alt="image-20240130232026695"></p>
+</li>
+<li><h4 id="window窗口的第三类方法：与定时器有关的方法"><a href="#window窗口的第三类方法：与定时器有关的方法" class="headerlink" title="window窗口的第三类方法：与定时器有关的方法"></a>window窗口的第三类方法：与定时器有关的方法</h4></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302322466.png" alt="image-20240130232218944"></p>
+</li>
+<li><h4 id="Window窗口对象属性，可以获取其他BOM对象，和一个DOM对象document（-html文件对象）。直接写就可以用"><a href="#Window窗口对象属性，可以获取其他BOM对象，和一个DOM对象document（-html文件对象）。直接写就可以用" class="headerlink" title="Window窗口对象属性，可以获取其他BOM对象，和一个DOM对象document（.html文件对象）。直接写就可以用"></a>Window窗口对象属性，可以获取其他BOM对象，和一个DOM对象document（.html文件对象）。直接写就可以用</h4></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302327561.png" alt="Image [27]"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="②、-Location地址栏对象"><a href="#②、-Location地址栏对象" class="headerlink" title="②、 Location地址栏对象"></a>②、 Location地址栏对象</h2><ul>
+<li><p>Location 对象的方法。reload().用来刷新当前页面。 属性：href</p>
+</li>
+<li><p>Location地址栏对象，他的一个属性href。有两个作用，设置当前页面的URL和获取当前页面的完整的URL.（这里面的设置和获取URL都是针对当前页面的。设置的话，就是重新赋值，设置为新的地址，这样当前页面就会跳转到设置的地址页面中去）</p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302328922.png" alt="Image [28]"></p>
+</li>
+<li><h3 id="倒计时跳转网页案例"><a href="#倒计时跳转网页案例" class="headerlink" title="倒计时跳转网页案例"></a>倒计时跳转网页案例</h3></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302330863.png" alt="image-20240130233011287"></p>
+</li>
+</ul>
+<h2 id="③、-history当前页面历史记录对象。"><a href="#③、-history当前页面历史记录对象。" class="headerlink" title="③、 history当前页面历史记录对象。"></a>③、 history当前页面历史记录对象。</h2><ul>
+<li>属性：length：history.length；返回的是。历史记录的个数。 </li>
+<li>方法：back();加载history列表中的上一个URL。绑定单击事件，就可以做一个后退的按钮。</li>
+<li>方法： forword(); 加载history列表中的下一个URL。绑定单击事件，就可以做一个前进的按钮。</li>
+<li>方法：go(); 加载history列表中的某一个具体页面。</li>
+</ul>
+<hr>
+<hr>
+<h2 id="五、DOM对象（只要是标记语言都有DOM对象，我们这里说的是HTML-DOM对象。）"><a href="#五、DOM对象（只要是标记语言都有DOM对象，我们这里说的是HTML-DOM对象。）" class="headerlink" title="五、DOM对象（只要是标记语言都有DOM对象，我们这里说的是HTML DOM对象。）"></a>五、DOM对象（只要是标记语言都有DOM对象，我们这里说的是HTML DOM对象。）</h2><ul>
+<li><h4 id="☆-DOM对象，其实就是把html文档里面的各个标签，都看做是一个对象。"><a href="#☆-DOM对象，其实就是把html文档里面的各个标签，都看做是一个对象。" class="headerlink" title="☆ DOM对象，其实就是把html文档里面的各个标签，都看做是一个对象。"></a>☆ DOM对象，其实就是把html文档里面的各个标签，都看做是一个对象。</h4></li>
+<li><h4 id="☆操作DOM对象，就相当于，在内存层面，来写HTML的代码。没有实体的标签，每个标签，都定义成了对象，每个标签都是一个节点对象。"><a href="#☆操作DOM对象，就相当于，在内存层面，来写HTML的代码。没有实体的标签，每个标签，都定义成了对象，每个标签都是一个节点对象。" class="headerlink" title="☆操作DOM对象，就相当于，在内存层面，来写HTML的代码。没有实体的标签，每个标签，都定义成了对象，每个标签都是一个节点对象。"></a>☆操作DOM对象，就相当于，在内存层面，来写HTML的代码。没有实体的标签，每个标签，都定义成了对象，每个标签都是一个节点对象。</h4></li>
+<li><h4 id="DOM方式：就是将标记语言，把文本全部给加载到内存里面去，形成一个DOM树。（标记语言文本的解析）"><a href="#DOM方式：就是将标记语言，把文本全部给加载到内存里面去，形成一个DOM树。（标记语言文本的解析）" class="headerlink" title="DOM方式：就是将标记语言，把文本全部给加载到内存里面去，形成一个DOM树。（标记语言文本的解析）"></a>DOM方式：就是将标记语言，把文本全部给加载到内存里面去，形成一个DOM树。（标记语言文本的解析）</h4></li>
+<li><h4 id="DOM对象：通俗理解就是将HTML或者XML标记语言，各个部分封装为一个一个的对象。（一对标签可以看做一个对象，也叫节点，因为在树上）。在内存中对应着DOM树形结构。"><a href="#DOM对象：通俗理解就是将HTML或者XML标记语言，各个部分封装为一个一个的对象。（一对标签可以看做一个对象，也叫节点，因为在树上）。在内存中对应着DOM树形结构。" class="headerlink" title="DOM对象：通俗理解就是将HTML或者XML标记语言，各个部分封装为一个一个的对象。（一对标签可以看做一个对象，也叫节点，因为在树上）。在内存中对应着DOM树形结构。"></a>DOM对象：通俗理解就是将HTML或者XML标记语言，各个部分封装为一个一个的对象。（一对标签可以看做一个对象，也叫节点，因为在树上）。在内存中对应着DOM树形结构。</h4></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302230077.png" alt="Image [7]"></p>
+</li>
+<li><h3 id="①：document对象、最大的DOM对象。（html文档对象），其他的标签对象，都在他的内部，所以是通过document来，获取Element-其他标签对象-对象。或者是创建Element-其他标签对象-对象。"><a href="#①：document对象、最大的DOM对象。（html文档对象），其他的标签对象，都在他的内部，所以是通过document来，获取Element-其他标签对象-对象。或者是创建Element-其他标签对象-对象。" class="headerlink" title="①：document对象、最大的DOM对象。（html文档对象），其他的标签对象，都在他的内部，所以是通过document来，获取Element(其他标签对象)对象。或者是创建Element (其他标签对象)对象。"></a>①：document对象、最大的DOM对象。（html文档对象），其他的标签对象，都在他的内部，所以是通过document来，获取Element(其他标签对象)对象。或者是创建Element (其他标签对象)对象。</h3><ul>
+<li><h5 id="document-write-““-向页面上写出一条横线（就是往页面写出信息的）"><a href="#document-write-““-向页面上写出一条横线（就是往页面写出信息的）" class="headerlink" title="document.write(““)   向页面上写出一条横线（就是往页面写出信息的）"></a>document.write(“<hr>“)   向页面上写出一条横线（就是往页面写出信息的）</h5></li>
+<li><h4 id="1-1-document对象：获取element对象的方法。"><a href="#1-1-document对象：获取element对象的方法。" class="headerlink" title="1.1 document对象：获取element对象的方法。"></a>1.1 document对象：获取element对象的方法。</h4></li>
+<li><blockquote>
+<ol>
+<li>getElementById（） ：根据id属性值获取元素对象。id属性值一般唯一</li>
+<li>getElementsByTagName （） ：根据元素名称获取元素对象们。返回值是一个数组</li>
+<li>getElementsByClassName （）：根据Class属性值获取元素对象们。返回值是一个数组</li>
+<li>getElementsByName（）：根据name属性值获取元素对象们。返回值是一个数组</li>
+</ol>
+</blockquote>
+</li>
+<li><h4 id="1-2-document对象：创建其他DOM对象："><a href="#1-2-document对象：创建其他DOM对象：" class="headerlink" title="1.2  document对象：创建其他DOM对象："></a>1.2  document对象：创建其他DOM对象：</h4></li>
+<li><blockquote>
+<ol>
+<li>createElement（“标签名”）：创建元素节点（记住）</li>
+<li>createAttribute（name）：创建拥有指定名称的属性节点，并返回新的Attr对象。（了解）</li>
+<li>createComment（）：创建注释节点。（了解）</li>
+<li>createTextNode（）：创建文本节点。（了解）</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><h3 id="②：Element对象（元素标签对象）"><a href="#②：Element对象（元素标签对象）" class="headerlink" title="②：Element对象（元素标签对象）"></a>②：Element对象（元素标签对象）</h3><ul>
+<li>1，获取&#x2F;创建：通过document来获取和创建</li>
+<li>2.方法：<ul>
+<li>removeAttribute（“”） ：删除属性</li>
+<li>setAttribute（“属性名”，“属性值”） ：设置属性值。</li>
+</ul>
+</li>
+<li>补充：input框框，有个value属性，用其节点对象.value可以得到，文本框里面的内容。</li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302239426.png" alt="Image [8]"></li>
+</ul>
+</li>
+<li><h3 id="③：Node对象-（是所有DOM对象的父亲），它里面定义了，对节点的，增删改的方法。所以所有的DOM对象，都有这三类方法。这样所有的当前节点，都可以添加它的子节点，也都可以删除它的子节点，也可以获取它的父节点。"><a href="#③：Node对象-（是所有DOM对象的父亲），它里面定义了，对节点的，增删改的方法。所以所有的DOM对象，都有这三类方法。这样所有的当前节点，都可以添加它的子节点，也都可以删除它的子节点，也可以获取它的父节点。" class="headerlink" title="③：Node对象 （是所有DOM对象的父亲），它里面定义了，对节点的，增删改的方法。所以所有的DOM对象，都有这三类方法。这样所有的当前节点，都可以添加它的子节点，也都可以删除它的子节点，也可以获取它的父节点。"></a>③：Node对象 （是所有DOM对象的父亲），它里面定义了，对节点的，增删改的方法。所以所有的DOM对象，都有这三类方法。这样所有的当前节点，都可以添加它的子节点，也都可以删除它的子节点，也可以获取它的父节点。</h3></li>
+<li><p>appendchild（节点对象名） ：向节点的子节点列表的结尾添加新的子节点。（增）</p>
+</li>
+<li><p>removechild（节点对象名） ：删除（并返回）当前节点的指定子节点。（删）</p>
+</li>
+<li><p>replacechild（节点对象名） ：用新节点替换一个子节点。（改，不常用）。</p>
+</li>
+<li><p>属性：父节点&#x3D;当前节点.parentNode; 返回当前节点的父节点。</p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302240885.png" alt="Image [9]"></p>
+</li>
+</ul>
+<h2 id="六、☆javascript-中的几个对象的学习。"><a href="#六、☆javascript-中的几个对象的学习。" class="headerlink" title="六、☆javascript 中的几个对象的学习。"></a>六、☆javascript 中的几个对象的学习。</h2><ul>
+<li><h3 id="1-☆-function函数方法对象、Array数组对象。"><a href="#1-☆-function函数方法对象、Array数组对象。" class="headerlink" title="1.☆ function函数方法对象、Array数组对象。"></a>1.☆ function函数方法对象、Array数组对象。</h3></li>
+<li><p>function对象，在javascript 中，定义方法，是用function对象，来定义方法的。</p>
+<blockquote>
+<ul>
+<li>语法：function 方法名（参数列表）{方法体}</li>
+<li>&#x2F;&#x2F; javascript中定义方法，的写法和java类似。 但是是用的function对象定义的方法</li>
+<li>&#x2F;&#x2F; js中用function定义的方法，参数列表不用写类型，返回值不用写类型</li>
+<li>&#x2F;&#x2F; js中用function定义的方法，如果有多个同名的方法，那么后面的同名方法，会覆盖前面的同名方法，</li>
+<li>&#x2F;&#x2F; js中用function定义的方法，在调用方法时，只要方法名确定就会调用最后面的同名不同参数的方法。他和参数列表无关。</li>
+<li>&#x2F;* js中用function定义的方法，参数列表的括号里面隐藏了一个内置对象，是一个arguments的数组。 所以当参数列表中不写形式参数时，function add(){ 方法体} 括号里面就是一个可变形参 每一个传递过来的实参，都存在arguments[0].arguments[1]……..等数组中。 *&#x2F;</li>
+</ul>
+</blockquote>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302336101.png" alt="Image [31]"></p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302336754.png" alt="Image [32]"></p>
+</li>
+<li><h3 id="2-☆-Array数组对象"><a href="#2-☆-Array数组对象" class="headerlink" title="2.☆ Array数组对象"></a>2.☆ Array数组对象</h3><ul>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302338259.png" alt="image-20240130233856091"></li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302339764.png" alt="image-20240130233912957"></li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302339719.png" alt="image-20240130233952371"></li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302340524.png" alt="image-20240130234025914"></li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302341187.png" alt="image-20240130234102744"></li>
+</ul>
+</li>
+<li><h3 id="3-☆-Date日期对象"><a href="#3-☆-Date日期对象" class="headerlink" title="3.☆ Date日期对象"></a>3.☆ Date日期对象</h3><ul>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302347839.png" alt="image-20240130234717315"></li>
+</ul>
+</li>
+<li><h3 id="4-☆Math数学对象"><a href="#4-☆Math数学对象" class="headerlink" title="4.☆Math数学对象"></a>4.☆Math数学对象</h3><ul>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302349463.png" alt="image-20240130234909211"></li>
+</ul>
+</li>
+<li><h3 id="5-☆-regExp：正则表达式对象。"><a href="#5-☆-regExp：正则表达式对象。" class="headerlink" title="5.☆ regExp：正则表达式对象。"></a>5.☆ regExp：正则表达式对象。</h3><ul>
+<li><h5 id="先了解什么是正则表达式"><a href="#先了解什么是正则表达式" class="headerlink" title="先了解什么是正则表达式"></a>先了解什么是正则表达式</h5></li>
+<li><p>正则表达式就是定义字符串的组成规则（通用的规则，在Java中或者其他语言中都可以使用）。在表单的输入框的地方，实现校验输入的字符串是不是符合正则表达式的规则。不符合校验失败，阻止表单的提交。 </p>
+</li>
+<li><p>☆ Javascript对表单的校验，是依赖于正则表达式的。</p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302351087.png" alt="image-20240130235118937"></p>
+</li>
+<li><h3 id="正则表达式对象。regExp"><a href="#正则表达式对象。regExp" class="headerlink" title="正则表达式对象。regExp"></a>正则表达式对象。regExp</h3></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302352011.png" alt="image-20240130235241803"></p>
+</li>
+</ul>
+</li>
+<li><h3 id="6-☆全局对象"><a href="#6-☆全局对象" class="headerlink" title="6.☆全局对象"></a>6.☆全局对象</h3><ul>
+<li>在javascript中，有一个全局对象Global，他不用创建对象，直接用其内部的方法，就可以实现对应的功能，一般有字符串的URL编解码方法。</li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302354439.png" alt="image-20240130235441038"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<hr>
+<h2 id="七、-事件绑定的方式"><a href="#七、-事件绑定的方式" class="headerlink" title="七、 事件绑定的方式"></a>七、 事件绑定的方式</h2><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302309137.png" alt="Image [10]"></p>
+<p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302310432.png" alt="Image [11]"></p>
+<ul>
+<li><h3 id="得到标签元素的对象。来换其属性值，和换其内容值。要查看参考文档找对应对象的方法。"><a href="#得到标签元素的对象。来换其属性值，和换其内容值。要查看参考文档找对应对象的方法。" class="headerlink" title="得到标签元素的对象。来换其属性值，和换其内容值。要查看参考文档找对应对象的方法。"></a>得到标签元素的对象。来换其属性值，和换其内容值。要查看参考文档找对应对象的方法。</h3></li>
+</ul>
+<p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302310594.png" alt="Image [12]"></p>
+<hr>
+<hr>
+<h2 id="八、HTML-DOM：是关于如何获取、修改、添加或删除HTML元素的标准"><a href="#八、HTML-DOM：是关于如何获取、修改、添加或删除HTML元素的标准" class="headerlink" title="八、HTML DOM：是关于如何获取、修改、添加或删除HTML元素的标准"></a>八、HTML DOM：是关于如何获取、修改、添加或删除HTML元素的标准</h2><ul>
+<li><h3 id="☆①所有的节点对象都有的关键的属性innerHTML"><a href="#☆①所有的节点对象都有的关键的属性innerHTML" class="headerlink" title="☆①所有的节点对象都有的关键的属性innerHTML"></a>☆①所有的节点对象都有的关键的属性innerHTML</h3><ul>
+<li><p>innerHTML。是获取节点对象，里面的所有内容。就是获取了，一对“&lt;&gt;标签体&lt;&#x2F;&gt;”中的标签体的内容。标签体可以是一段文字，也可以是其他标签。 </p>
+</li>
+<li><p>通过给innerHTML赋值或者追加值，可以改表标签体的内容。如下图</p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310008885.png" alt="image-20240131000856980"></p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310009414.png" alt="image-20240131000909451"></p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310009904.png" alt="image-20240131000922589"></p>
+</li>
+<li><h5 id="上图中第3行，之后的表格，都是通过JavaScript代码（里面操作各种对象），一行一行添加的。很面向对象。写出来的代码非常的多。就会想简化写法。用innerHTML可以直接获取到上面的table的标签体，并且在后面追加样式就好了。这样简化了js代码，但不是面向对象了。"><a href="#上图中第3行，之后的表格，都是通过JavaScript代码（里面操作各种对象），一行一行添加的。很面向对象。写出来的代码非常的多。就会想简化写法。用innerHTML可以直接获取到上面的table的标签体，并且在后面追加样式就好了。这样简化了js代码，但不是面向对象了。" class="headerlink" title="上图中第3行，之后的表格，都是通过JavaScript代码（里面操作各种对象），一行一行添加的。很面向对象。写出来的代码非常的多。就会想简化写法。用innerHTML可以直接获取到上面的table的标签体，并且在后面追加样式就好了。这样简化了js代码，但不是面向对象了。"></a>上图中第3行，之后的表格，都是通过JavaScript代码（里面操作各种对象），一行一行添加的。很面向对象。写出来的代码非常的多。就会想简化写法。用innerHTML可以直接获取到上面的table的标签体，并且在后面追加样式就好了。这样简化了js代码，但不是面向对象了。</h5></li>
+</ul>
+</li>
+<li><h3 id="☆②所有的节点对象都有的关键的属性style。"><a href="#☆②所有的节点对象都有的关键的属性style。" class="headerlink" title="☆②所有的节点对象都有的关键的属性style。"></a>☆②所有的节点对象都有的关键的属性style。</h3><ul>
+<li><h4 id="1-给style属性赋值，就可以改变其样式。"><a href="#1-给style属性赋值，就可以改变其样式。" class="headerlink" title="1.给style属性赋值，就可以改变其样式。"></a>1.给style属性赋值，就可以改变其样式。</h4><ul>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310010681.png" alt="Image [70]"></li>
+</ul>
+</li>
+<li><p>注意：两个单词的写法</p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310011498.png" alt="Image [71]"></p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310011810.png" alt="image-20240131001138257"></p>
+</li>
+<li><h3 id="2-改变节点对象的class值。用className属性。"><a href="#2-改变节点对象的class值。用className属性。" class="headerlink" title="2. 改变节点对象的class值。用className属性。"></a>2. 改变节点对象的class值。用className属性。</h3></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310012825.png" alt="Image [72]"></p>
+</li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310012327.png" alt="Image [73]"></p>
+</li>
+<li><h4 id="3-要想设置和修改，节点的属性值。查Api文档。例如：-标签图片标签，每出现一次，一个-Image-对象就会被创建。找image对象的属性，src设置或返回图像的-URL"><a href="#3-要想设置和修改，节点的属性值。查Api文档。例如：-标签图片标签，每出现一次，一个-Image-对象就会被创建。找image对象的属性，src设置或返回图像的-URL" class="headerlink" title="3.要想设置和修改，节点的属性值。查Api文档。例如： 标签图片标签，每出现一次，一个 Image 对象就会被创建。找image对象的属性，src设置或返回图像的 URL"></a>3.要想设置和修改，节点的属性值。查Api文档。例如：<img> 标签图片标签，每出现一次，一个 Image 对象就会被创建。找image对象的属性，src设置或返回图像的 URL</h4></li>
+</ul>
+</li>
+</ul>
+<hr>
+<hr>
+<h2 id="九、事件"><a href="#九、事件" class="headerlink" title="九、事件"></a>九、事件</h2><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310015267.png" alt="Image [74]"></p>
+<ul>
+<li><h3 id="事件分类"><a href="#事件分类" class="headerlink" title="事件分类"></a>事件分类</h3><ul>
+<li><h4 id="1-点击事件"><a href="#1-点击事件" class="headerlink" title="1.点击事件"></a>1.点击事件</h4></li>
+<li><blockquote>
+<ol>
+<li><p>onclick：单机事件</p>
+</li>
+<li><p>ondblclick ：双击事件</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><h4 id="2-焦点事件"><a href="#2-焦点事件" class="headerlink" title="2.焦点事件"></a>2.焦点事件</h4></li>
+<li><blockquote>
+<ol>
+<li>onblur：失去焦点</li>
+</ol>
+<ul>
+<li>一般用于表单验证,当光标不在输入框时，就会失去焦点，触发onblur事件发生。</li>
+</ul>
+<ol start="2">
+<li>onfocus：元素获得焦点</li>
+</ol>
+</blockquote>
+</li>
+<li><h4 id="3-加载事件"><a href="#3-加载事件" class="headerlink" title="3.加载事件"></a>3.加载事件</h4></li>
+<li><blockquote>
+<ol>
+<li>onload：一张页面或者一幅图像完成加载</li>
+</ol>
+<ul>
+<li>内部加载方式：script标签如果写在head标签里面，在上面的话，要使用窗口的事件机制，加载事件来控制，js 代码，在HTML页面加载完全，才运行。</li>
+<li>如下图</li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310030871.png" alt="Image [80]"></li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="4-鼠标事件"><a href="#4-鼠标事件" class="headerlink" title="4.鼠标事件"></a>4.鼠标事件</h4></li>
+<li><blockquote>
+<ol>
+<li>onmousedown ：标按钮披按下.</li>
+</ol>
+<ul>
+<li>定义方法时,定义一个形参,接受 event 对象.</li>
+<li>eventi对象的button属性可以获取鼠标按钮键被点击了.</li>
+</ul>
+<ol start="2">
+<li>onmouseup  ：鼠标按键被松开.</li>
+<li>onmousemove ：鼠标被移动.</li>
+<li>onmouseover：鼠标移到某元素之上.</li>
+<li>onmouseout：鼠标从某元素移开.</li>
+</ol>
+</blockquote>
+</li>
+<li><h4 id="5-键盘事件"><a href="#5-键盘事件" class="headerlink" title="5.键盘事件"></a>5.键盘事件</h4></li>
+<li><blockquote>
+<ol>
+<li>onkeydown： 某个键盘按键被按下.</li>
+<li>onkeyup ：某个键盘按键被松开.</li>
+<li>onkeypress： 某个键盘按键被按下并松开.</li>
+</ol>
+</blockquote>
+</li>
+<li><h4 id="6-选择和改变事件"><a href="#6-选择和改变事件" class="headerlink" title="6.选择和改变事件"></a>6.选择和改变事件</h4></li>
+<li><blockquote>
+<ol>
+<li>onchange：域的内容被改变.</li>
+</ol>
+<ul>
+<li><h4 id="☆-当在选择的下拉列表上，选择某个选项会触发该事件。"><a href="#☆-当在选择的下拉列表上，选择某个选项会触发该事件。" class="headerlink" title="☆ 当在选择的下拉列表上，选择某个选项会触发该事件。"></a>☆ 当在选择的下拉列表上，选择某个选项会触发该事件。</h4></li>
+<li><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310032281.png" alt="Image [81]"></p>
+</li>
+</ul>
+<ol start="2">
+<li>onselect：文本被选中.</li>
+</ol>
+</blockquote>
+</li>
+<li><h4 id="7-表单事件"><a href="#7-表单事件" class="headerlink" title="7.表单事件:"></a>7.表单事件:</h4></li>
+<li><blockquote>
+<ol>
+<li>onsubmit：确认按钮被点击.</li>
+</ol>
+<ul>
+<li>可以阻止表单的提交<ul>
+<li>方法返回falsel则表单被阻止提交.</li>
+</ul>
+</li>
+<li>写法：</li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310033920.png" alt="Image [82]"></li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310033022.png" alt="Image [83]"></li>
+</ul>
+<ol start="2">
+<li>onreset：重置按钮被点击.</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<hr>
+<h2 id="练习：动态表格案例"><a href="#练习：动态表格案例" class="headerlink" title="练习：动态表格案例"></a>练习：动态表格案例</h2><p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310002855.png" alt="image-20240131000210183"></p>
+<p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310002593.png" alt="image-20240131000243636"></p>
+<p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310003451.png" alt="image-20240131000254150"></p>
+<p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310003911.png" alt="image-20240131000332037"></p>
+<ul>
+<li>☆动态表格案例总结：用DOM对象在内存层面你，不管创建了多少子节点或者父节点，这些结构都是在内存层面上的，在浏览器页面上不能够直接显示，要想显示，必须有html的已有标签对象。先获取已有的html标签对象节点，将内存层面上的节点，appendChild为已有节点的子节点。同时，属性的样式会关联到css样式表中，只要和css表中的选择器对应的上，就可以显示样式。</li>
+<li>☆ 技巧：怎样获取当前标签的对象，直接在html标签后面，加上事件属性。绑定事件方式一，事件调用指定方法，括号里面写this。</li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310004539.png" alt="image-20240131000404203"></li>
+<li>那么就可以在方法声明的地方，形式参数就是当前对象。如下图：</li>
+<li><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310004456.png" alt="Image [62]"></li>
+</ul>
+<hr>
+<hr>
+<h2 id="总结1："><a href="#总结1：" class="headerlink" title="总结1："></a>总结1：</h2><ul>
+<li><h3 id="怎么来理解BOM对象和DOM对象以及HTML-DOM对象？"><a href="#怎么来理解BOM对象和DOM对象以及HTML-DOM对象？" class="headerlink" title="怎么来理解BOM对象和DOM对象以及HTML DOM对象？"></a>怎么来理解BOM对象和DOM对象以及HTML DOM对象？</h3></li>
+<li><p>1 . BOM对象，就是将浏览器各个组成部分，封装为对象。有显示器对象、浏览器对象、windows窗口对象、URL地址栏对象、以及历史记录对象，这5个BOM对象。windows窗口对象，是BOM对象中的主要对象，因为其他对象都在一个窗口当中。可以通过windows对象来获取，其他4个BOM对象。</p>
+</li>
+<li><p>2 .在windows窗口获取的document对象，是DOM对象。</p>
+<ul>
+<li>document对象是DOM对象的主要对象。DOM对象也在窗口内，但是只有document对象（.html文件对象）是通过窗口获取，其他DOM对象是通过document对象获取的。</li>
+</ul>
+</li>
+<li><p>3 .document对象，他是将整个文档封装成一个document对象。对应着HTML里面最外层标签<html></html>。他可以获取其他节点对象</p>
+<ul>
+<li>document.getElementById()；。或者对象们；另外也可以创建其他DOM对象。</li>
+</ul>
+</li>
+<li><p>4.有了一些基础的DOM对象，也就是有了某个标签的（节点）的对象之后。然后用HTML DOM来、对这个对象进行获取、修改、添加或删除操作。</p>
+</li>
+<li><p>5.从上往下看，一层一层的，从窗口(window)——&gt;文本对象(document)——&gt;单个文本元素对象(element)——&gt;单个文本元素操作（HTML DOM）这样方便记忆。也便于理解。</p>
+</li>
+<li><p>节点：在HTML中所有的单个元件，就是单个节点。对应着一对，一对的标签。</p>
+</li>
+<li><p>子节点：外标签包着内标签，也就是节点包着子节点。例如：<body>文字 <a>超链接</a></body>。</p>
+</li>
+<li><p>Node 节点对象：他可以认为是虚有的，它里面的方法用来“CRUDdom树”</p>
+</li>
+<li><p>其实就是所有的DOM对象，都是一个节点，DOM对象本身，就可以增加节点，删除节点，替换节点，查询节点。</p>
+</li>
+<li><p>有了DOM这些对象，用他们的功能。就可以用javaScript语言对HTML的标签进行操作。</p>
+</li>
+<li><p>要记住：虽然能用，JavaScript语言来操作，内存层面的HTML的元素对象代码，使其在浏览器上面显示样式。但是他和HTML里面的标签没有，任何关系。</p>
+<ul>
+<li>执行了“JavaScript语言操作的元件对象，比如添加节点，删除节点”不会再HTML文档中自动生成，HTML代码。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310036188.png" alt="Image [84]"></p>
+<ul>
+<li><h3 id="理解、标签、标签体、标签属性、控制元素的样式。"><a href="#理解、标签、标签体、标签属性、控制元素的样式。" class="headerlink" title="理解、标签、标签体、标签属性、控制元素的样式。"></a>理解、标签、标签体、标签属性、控制元素的样式。</h3><blockquote>
+<p>1.1标签: 标签就是一对对的&lt;&gt;&lt;&#x2F;&gt;。例如：<code>&lt;img&gt; &lt;/img&gt; </code></p>
+<p>1.2标签体:一对标签里面的内容。例如：<code>&lt;img&gt;这是标签体，可以是子标签也可以是文字 &lt;/img&gt;</code></p>
+<p>1.3 标签属性: 定义在标签&lt;&gt;里面的。例如：<code>&lt;a href=&quot;javascript:void(0)&quot;&gt;&lt;/a&gt;</code></p>
+<p>1.4 标签控制样式:</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="总结2："><a href="#总结2：" class="headerlink" title="总结2："></a>总结2：</h2><ul>
+<li><h4 id="一般都是先加载了web的HTML界面之后，JavaScript脚本语言才会加载，这样js里面获取的元素对象，才会被拿到。如果是内部加载的话。所以要求-js代码，标签一般都写在-body标签的最下面。"><a href="#一般都是先加载了web的HTML界面之后，JavaScript脚本语言才会加载，这样js里面获取的元素对象，才会被拿到。如果是内部加载的话。所以要求-js代码，标签一般都写在-body标签的最下面。" class="headerlink" title="一般都是先加载了web的HTML界面之后，JavaScript脚本语言才会加载，这样js里面获取的元素对象，才会被拿到。如果是内部加载的话。所以要求 &lt;script&gt;js代码&lt;/script&gt;，标签一般都写在&lt;body&gt;......&lt;script&gt;&lt;/body&gt;body标签的最下面。"></a>一般都是先加载了web的HTML界面之后，JavaScript脚本语言才会加载，这样js里面获取的元素对象，才会被拿到。如果是内部加载的话。所以要求 <code>&lt;script&gt;js代码&lt;/script&gt;</code>，标签一般都写在<code>&lt;body&gt;......&lt;script&gt;&lt;/body&gt;</code>body标签的最下面。</h4></li>
+<li><h4 id="js代码（可以理解为一个一个的等待的动作），就像是当HTML页面加载完全之后，它已经运行了内部代码，但是，都还是在等待的状态。如果界面中触发了某个事件，就会执行相应“事件器代码”，完成效果。"><a href="#js代码（可以理解为一个一个的等待的动作），就像是当HTML页面加载完全之后，它已经运行了内部代码，但是，都还是在等待的状态。如果界面中触发了某个事件，就会执行相应“事件器代码”，完成效果。" class="headerlink" title="js代码（可以理解为一个一个的等待的动作），就像是当HTML页面加载完全之后，它已经运行了内部代码，但是，都还是在等待的状态。如果界面中触发了某个事件，就会执行相应“事件器代码”，完成效果。"></a>js代码（可以理解为一个一个的等待的动作），就像是当HTML页面加载完全之后，它已经运行了内部代码，但是，都还是在等待的状态。如果界面中触发了某个事件，就会执行相应“事件器代码”，完成效果。</h4></li>
+</ul>
+<hr>
+<hr>
+<p>© 版权声明</p>
+<escape>
+
+<div>
+    <h3 align="center"  style="color: brown;" >版权声明</h3>
+    <table>
+           <tr>
+            <ol>
+                <li>本网站名称：𝚲𝚳𝚲</li>
+                <li>𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。</li>
+                <li>本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。</li>
+                <li>本站一切资源不代表本站立场，并不代表本站赞同其观点和对其真实性负责。</li>
+                <li>本站一律禁止以任何方式发布或转载任何违法的相关信息，访客发现请举报</li> 
+                <li>本站资源大多存储在云盘，如发现链接失效，请联系我，我会第一时间更新。</li>
+                <li>本站强烈打击盗版/破解等有损他人权益和违法作为，请支持正版！</li>  
+            </ol>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+</escape>
+
+<hr>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://protonlml.github.io/2019/10/01/javascript/" title="javaScript" target="_blank" rel="external">https://protonlml.github.io/2019/10/01/javascript/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">𝚲𝚳𝚲</span><small class="ml-1x">◙</small></a></h3>
+        <div>业精于勤，荒于嬉；行成于思，毁于随！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/10/Maven/" title="Maven"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/09/24/11.static%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/" title="11.static静态变量"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2019 - 2024 𝚲𝚳𝚲
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>
