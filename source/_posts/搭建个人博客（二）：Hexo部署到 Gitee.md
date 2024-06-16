@@ -13,11 +13,11 @@ categories:   # 添加博文分类
 
 ## 一、新建 Gitee 仓库
 
-![image-20240111064936662](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110649958.png)
+![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160927880.png)
 
 - #### 新建的仓库，先不要初始化，同时仓库名要和本地博客所在文件夹名称相同。
 
-  - ![image-20240111053205537](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110532369.png)
+  - ![image-20240111053205537](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160927875.png)
 
 - ##### 没有初始化的仓库有命令提示
 
@@ -29,7 +29,7 @@ categories:   # 添加博文分类
 
   - ##### 使用Gitbash窗口 运行 如下命令，将本地文件夹绑定到远程仓库上去
 
-  - ![image-20240111065033225](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110650711.png)
+  - ![image-20240111065033225](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160928914.png)
 
   ```java
   git init 
@@ -43,21 +43,19 @@ categories:   # 添加博文分类
 
 - ### 2.远程仓库创建新的分支hexo
 
-  - ![image-20240111063625729](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110636415.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160928632.png)
 
 - 
 
 - ### 3.设置hexo分支为默认分支
 
-  - ![image-20240111063726826](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110637939.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160929216.png)
 
   - ##### （目的是为了保存hexo博客的源文件，迁移主机，随时拉取就可以使用，再master分支上进行hexo d 命令推送编译后的文件会默认到hexo分支上）
 
 - #### 4.使用Sourcetree管理本地博客
 
-  - ![image-20240111064748835](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110648129.png)
-
-
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160929905.png)
 
 - 
 
@@ -83,7 +81,7 @@ categories:   # 添加博文分类
 
 - ##### 如果有的话，标识本地已经有创建过的 SSH key 了
 
-  - ![image-20240108051750431](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401080517713.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160930678.png)
 
 
 ---
@@ -104,7 +102,7 @@ categories:   # 添加博文分类
 
 - #### 2.**找到生成的.ssh文件，打开将内部的公钥复制下来**
 
-  - ![image-20240108052356500](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401080523568.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160930783.png)
 
 - #### 3.测试 SSH 连接
 
@@ -132,13 +130,13 @@ categories:   # 添加博文分类
 - #### 在 Gitee 中添加 SSH 公钥
 
   - 先在 C 盘指定目录中找到 `id_rsa_pub` 文件，复制内容然后打开 gitee 个人设置里面的 安全设置 - SSH公钥，标题可以随便取，把粘贴的内容复制到公钥里面，点击确定就可以
-  - ![image-20240108052722568](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401080527894.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160933201.png)
 
 # 四、本地修改 _config.yml
 
 - 修改hexo博客``根目录``中的配置文件``_config.yml``
-  - ![image-20240108053407307](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401080534846.png)
-  - ![image-20240111071011444](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110710135.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160933073.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160933874.png)
 
 - ### 安装 `hexo-deployer-git`（master分支操作）
 
@@ -158,9 +156,7 @@ categories:   # 添加博文分类
 
 # 五、开启 Gitee Pages 服务
 
-- ![image-20240108054009786](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401080540455.png)
-- ![image-20240108054137413](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401080541525.png)
-
+- ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160937384.png)
 - **后期，如果更新了文章，使用 hexo g -d 命令就可以直接推送到远程hexo分支了，然后再更新一下就可以访问到新的博客文章**
 
 

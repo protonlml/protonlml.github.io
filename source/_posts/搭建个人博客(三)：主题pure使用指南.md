@@ -18,7 +18,7 @@ categories:   # 添加博文分类
 
 ### 1. 在hexo根目录中的themes文件夹下克隆pure主题
 
-![image-20240108224457543](https://gitee.com/lmlpla/blogimages/raw/master/imgs/image-20240108224457543.png)
+![image-20240108224457543](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160938270.png)
 
 ```java
 git clone https://github.com/cofess/hexo-theme-pure.git themes/pure
@@ -46,7 +46,7 @@ git clone https://github.com/cofess/hexo-theme-pure.git themes/pure
 
 - 启动服务后：进入本地浏览器输入:http://localhost:4000/，如下图
 
-  - ![image-20240108225753623](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401082257937.png)
+  - ![image-20240108225753623](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160938683.png)
 
 ### 3.安装pure插件
 
@@ -67,7 +67,7 @@ npm install hexo-deployer-git --save
 
 **将主题目录中 /theme/_source/ 下的所有东西复制进博客根目录的source文件夹中**
 
-![image-20240108230658560](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401082306949.png)
+![image-20240108230658560](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160938772.png)
 
 ### 2. pure配置文件的修改：
 
@@ -324,7 +324,7 @@ profile:
 ```
 
 - **（18）修改左下角的站点创建时间**（直接用VS Code打开，在主题目录中搜索 publishby）
-  - ![image-20240109010042978](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090100493.png)
+  - ![image-20240109010042978](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939091.png)
 
 - **（19）友情链接的配置:**
   - **选择博客根目录下 /source/_data/ 中的links.yml配置文件，可仿照其中样例进行配置**
@@ -374,7 +374,7 @@ gentryhuang:
 
   
 
-  - ![image-20240109011547156](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090115476.png)
+  - ![image-20240109011547156](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939631.png)
 
 ## 三、更新站点，查看效果
 
@@ -390,7 +390,7 @@ hexo s
 
 ## 四、效果
 
-[𝚲𝚳𝚲的博客 (gitee.io)](https://lmlpla.gitee.io/blog/)
+[𝚲𝚳𝚲的博客 ](https://protonlml.github.io)
 
 
 

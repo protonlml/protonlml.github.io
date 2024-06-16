@@ -28,7 +28,7 @@ C:\Program Files\nodejs\node_global\node_modules
 
 
 
-- ![202401222307358](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401232203497.png)
+- ![202401222307358](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161016747.png)
 
 ---
 
@@ -42,7 +42,7 @@ C:\Program Files\nodejs\node_global
 
 
 
-- ![202401222308682](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401232205965.png)
+- ![202401222308682](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161016272.png)
 
 ---
 
@@ -117,7 +117,7 @@ npm -v
 npm install -g  vue
 ```
 
-![202401222308143](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401232259406.png)
+![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161016336.png)
 
 
 
@@ -172,7 +172,7 @@ npm install -g cnpm --registry=http://registry.npmmirror.com
 
 - node 与node-sass版本不兼容导致安装依赖失败
 
-![2023052510300728](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401232312178.png)
+![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406162259879.png)
 
 - ### **解决办法**：
 

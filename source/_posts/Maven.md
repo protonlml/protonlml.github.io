@@ -71,12 +71,12 @@ categories:   # 添加博文分类
 
    - 创建的Maven项目中有pom.xml文件，他是Maven项目的核心配置文件。
      - 【1】.除了上面三个坐标用来，定位当前项目用Maven核心程序安装在仓库中的位置。
-     - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281041857.png)
+     - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161011049.png)
      - 2】.中间部分是“依赖部分”，就是指当前项目，所使用的到的“其他模块项目和jar包"，在Maven仓库中的坐标。如果仓库中没有指定的依赖jar包，就会自动从私服上面下载，私服上面没有就会到中央仓库中下载。
        - 但是如果当前项目，用到我们自己写的模块，这时候就需要将，要使用的模块项目给“安装”到仓库中，用“ mvn install”命令进行安装。是不可能从网上下载的，因为这是我们自己写的，不是第三方jar包项目。这样我们就可以将一个大的项目，进行拆分成很多小的模块，然后各个模块之间用“依赖坐标”，来互相关联。
-       - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281041248.png)
+       - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161011083.png)
      - 【3】最下面是“插件”部分。
-       - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281041606.png)
+       - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161011313.png)
 
 10. 依赖
 
@@ -84,7 +84,7 @@ categories:   # 添加博文分类
        - 对于我们自己开发的Maven工程，使用mvn install命令安装后就可以进入仓库。
     2. ②依赖的范围
        - 【1】在pom.xml文件中<scope>依赖的范围</scope>
-       - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281042365.png)
+       - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161012747.png)
        - 依赖的范围一般常用的有三个：compile，test、provided三个。
        - 依赖范围：意思就是，当前项目所依赖的这个“依赖”，在编译，测试，打包。过程当中时候有效。
          - [1]compile范围的“依赖”（编译范围）
@@ -98,11 +98,11 @@ categories:   # 添加博文分类
          - 是否参与打包：不参与
          - 是否参与部署：不参与
          - 典型例子：“junit依赖”它就是测试依赖，这个jar包，不参与打包，在主程序中没有。
-         - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281045023.png)
-         - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281045144.png)
+         - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161012081.png)
+         - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161012133.png)
          - [3]provided范围的“依赖”，通常是为web工程来添加的（不参与部署的范围）。
            - 说明只要加了provided范围的“依赖”，web容器中都有。比如：servlet的这个依赖，部署的时候就不需要，因为Tomcat服务器本身就有servlet的jar包。
-         - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281045793.png)
+         - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161012653.png)
          - 对主程序是否有效：有效
          - 对测试程序是否有效：有效
          - 是否参与打包：不参与
@@ -134,7 +134,7 @@ categories:   # 添加博文分类
       - 执行“site 生成站点”，也会从头开始，将所有过程进行一边。这是生成站点生命周期
       - Maven核心程序为了更好的实现自动化构建，按照这一的特点执行生命周期中的各个阶段：不论现在要执行生命周期中的哪一个阶段，都是从这个生命周期最初的位置开始执行。
     - 【5】生命周期的各个阶段仅仅定义了要执行的任务是什么（命令）完成这个命令，是由特定的Maven插件来完成的。
-      - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281048751.png)
+      - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161012162.png)
 
 13. 创建Maven工程之前，需要将IDEA编辑器，和本地下载的Maven程序，进行关联配置。具体操作，见文末。
 
@@ -146,35 +146,35 @@ categories:   # 添加博文分类
 
 ## 三、使用IDEA创建普通的javaMaven工程
 
-![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281049426.png)
+![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161012762.png)
 
-![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281050505.png)
+![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161012115.png)
 
-![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281050614.png)
+![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161012201.png)
 
-![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281050417.png)
+![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161013282.png)
 
 ## 四、.使用IDEA创建webMaven工程（Maven要聚合模块的做法）  
 
 - 【1】必须先创建一个空的工程。在空的工程中添加模块。（每次添加模块都要使用快捷键“ctrl+alt+shift+s”来调出**Project Structure窗口，在这个窗口中添加模块，不能直接在模块上面右键添加模块。（在模块上右键模块会添加到“模块里面”）**）
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281051453.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161013762.png)
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281051169.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161013442.png)
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281051640.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161013622.png)
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281052141.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161013162.png)
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281052005.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161013194.png)
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281052752.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161014349.png)
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281052182.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161014424.png)
 
 - ### 【标准的Maven工程，分模块的大型web项目，目录结构】
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281052343.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161014593.png)
 
 ## 说明
 
@@ -193,11 +193,11 @@ categories:   # 添加博文分类
 
   - 依赖的排除，在哪个工程里面排除的，就在哪个工程里面生效。
   - 【1】当我们导入某些依赖jar包的时候，Maven会自动将这个jar的其他依赖jar包也一起导入到工程当中，这个时候，如果不需要这个额外的jar包，就可以用“排除依赖”来进行排除。
-  - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281054619.png)
+  - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161014762.png)
   - 【2】找到要排除的依赖的ID（假如spring-jcl依赖要被排除）
-  - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281054870.png)
+  - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161014723.png)
   - 3】添加<exclusions> </exclusions>标签
-  - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281054912.png)
+  - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161014062.png)
 
 - ### 依赖原则：
 
@@ -207,15 +207,15 @@ categories:   # 添加博文分类
 
   - 冲突情景：
 
-  - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281057370.png)
+  - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161015782.png)
 
   - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281057892.png)
 
   - **properties标签**配合自定义标签声明数据的配置并。(可以利用这个标签，实现在一个页面上，同种类型的框架jar包，版本号相同，)在父模块中就更简便了
 
-  - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281057518.png)
+  - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161015754.png)
 
-  - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281057000.png)
+  - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161015765.png)
 
     ```xml
     <properties>
@@ -263,7 +263,7 @@ categories:   # 添加博文分类
         <packaging>pom</packaging>
     ```
 
-  - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281059822.png)
+  - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161015851.png)
 
   - [2]在子工程中声明对父工程的引用（认干爹的一个仪式）
 
@@ -311,11 +311,11 @@ categories:   # 添加博文分类
 
   - [5]实现效果
 
-    - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281101844.png)
+    - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161015552.png)
 
   - [6]：父模块的Pom.xml文件的配置。
 
-    - ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401281101254.png)
+    - ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161015722.png)
 
 ## 七、Maven的聚合：
 

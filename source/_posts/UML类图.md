@@ -13,7 +13,7 @@ categories:   # 添加博文分类
 # UML类图
 
 用于表示类、接口、实例等之间相互的静态关系。虽然名字叫类图，但类图中并不只有类，还可能包括权限、属性、方法等
-![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/2e20703acf32456ba3aa8d0827f4458e.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161017533.png)
 
 - 2.1 类图关系
 	- > 设计模式中的对象关系:
@@ -26,8 +26,9 @@ categories:   # 添加博文分类
 	-  ``注意：``
 	- >实现接口有两种方式，一种是棒棒糖的形式，另一种是虚线空心三角形的方式
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/6c2e25bdf66a474b8b12a6d2302d35f8.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161017832.png)
  == UML记忆==
+
 > ###  1. uml箭头：从子类指向父类，只有知道对方信息时才能指向对方方向
 > ### 2. 空心三角箭头：继承或实现，实线-继承：积极的，强关联，关联，通常一个类中有一个类的对象做属性；虚线-实现：消极的，弱关联，依赖
 > ### 3. 空心菱形：聚合，（注：可以看作一个盘子，可以放很多相同的东西（箭头方向所指的类），聚在一起。是has a的关系）弱关联
@@ -36,11 +37,11 @@ categories:   # 添加博文分类
 ### 1.uml箭头：从子类指向父类，定义子类时需要通过extends关键字指定父类，只有知道对方信息时才能指向对方方向
 ### 实线-继承 
 ###  虚线-实现
-![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/22efa33ebafe4c7484bca5a8bff42501.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161017851.png)
 ### 2.空心菱形-聚合(可以看作一个盘子，可以放很多相同的东西（箭头方向所指的类），聚在一起。是has a的关系）弱关联)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/61b82d295b214116a3dd5940d8fe60a8.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161017972.png)
 ### 3.实心菱形-组合
-![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/9230cc2c94454e46813d92a5701d6d23.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161017351.png)
 ### 4.组合关系中常见的数字表达
 >◆常见数字表达及含义，假设有A类和B类，数字标记在A类侧
 >◆0..1：0或1个实例    在系统某一时刻，b的实例可以与0个或1个A实例相关

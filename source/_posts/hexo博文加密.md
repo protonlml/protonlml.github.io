@@ -84,7 +84,7 @@ password: 自定义的密码
 
 ## 四、本地启动查看样式
 
-![image-20240124011016958](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401240110631.png)
+![image-20240124011016958](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160949328.png)
 
 
 

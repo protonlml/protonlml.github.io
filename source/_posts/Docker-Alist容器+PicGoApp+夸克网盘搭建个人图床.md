@@ -24,7 +24,7 @@ categories:   # 添加博文分类
 
 - #### 2.PicGo下载alist插件
 
-  - ![image-20240111035237540](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110352301.png)
+  - ![image-20240111035237540](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160941505.png)
 
 - #### 3.远程服务器上面安装Alist
 
@@ -38,7 +38,7 @@ categories:   # 添加博文分类
 
   
 
-  - ![image-20240111040222965](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110402017.png)
+  - ![image-20240111040222965](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160941350.png)
 
   - ##### Alist容器运行起来，同时也下载了。使用命令查看
 
@@ -46,7 +46,7 @@ categories:   # 添加博文分类
   docker ps 
   ```
 
-  - ![image-20240111040525844](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110405604.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406162255383.png)
 
   - ##### 生成登陆密码，并且修改登陆密码
 
@@ -67,17 +67,17 @@ categories:   # 添加博文分类
 
 - #### 1.登陆Alist添加存储（将夸克网盘挂载到Alist上）
 
-  - ![image-20240111041344234](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110419215.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160944828.png)
 
 - #### 2.添加一个新的驱动，驱动选择“夸克”。挂载路径和序号根据自己需求填写，缓存过期时间填0。Webdav策略选择“本地代理”。
 
-![image-20240111042523636](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110426955.png)
+![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160945513.png)
 
 - ##### 我们需要获取Cookie
 
   - ##### 打开电脑浏览器（使用Chrome浏览器）并登录夸克网盘账号(用网页版登录)，然后按键盘上的F12，进入开发者模式。点击上方的Network(网络)选项卡，在左侧的Name(名称)中找到“sort?pr=u”开头的条目并选中(如果该条目没刷新出来，需要稍等几秒钟)，然后在右侧的Request Headers中，找到Cookie值并复制：
 
-  - ![eaae](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110429917.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160945846.png)
 
   - ##### 将复制的Cookie值填入alist设置页面，其他选项全部保持默认，然后点击添加即可。
 
@@ -85,25 +85,25 @@ categories:   # 添加博文分类
 
   - ##### 关闭签名所有
 
-  - ![image-20240111045238334](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110452329.png)
+  - ![img](Docker-Alist容器+PicGoApp+夸克网盘搭建个人图床.assets/202401110452329.png)
 
   - ##### 复制令牌
 
-  - ![image-20240111045328961](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110453217.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160946464.png)
 
 - #### 7.夸克网盘挂载成功。
 
-  - ![image-20240111043528976](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110435996.png)
+  - ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160947905.png)
 
 
 
 # 三、PicGo关联alist
 
-- ![image-20240111045434304](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110459536.png)
+- ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160948724.png)
 
 - #### 设置配置
 
-- ![image-20240111045700284](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401110457438.png)
+- ![img](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160949681.png)
 
 # 四、在Typora中复制一张图片测试上传
 

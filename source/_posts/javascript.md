@@ -33,9 +33,9 @@ categories:   # 添加博文分类
 
 - 内部关联
 
-- ![image-20240130214055735](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302141892.png)
+- ![image-20240130214055735](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160949148.png)
 - 外部关联
-- ![image-20240130214133935](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302141171.png)
+- ![image-20240130214133935](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160951711.png)
 
 
 
@@ -59,7 +59,7 @@ categories:   # 添加博文分类
 - JavaScript的变量是弱类型的，什么叫弱类型，就是不管定义什么类型的变量，都用var开头。
 - 而java中定义整型用int，定义字符型用char 。所以java是强类型的。
 - ☆ 通过typeof(变量名)可以得到变量的类型
-- ![image-20240130215045915](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302150588.png)
+- ![image-20240130215045915](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160951978.png)
 
 - 注释:你也许会问,为什么typeof运算符对于nul值会返回"object".这实际上是javaScript最初实现中的个错误,然后被
   ECMAScript沿用了,现在,null被认为是 对象的占位符,从而解释了这一矛盾,但从技求上来说,它仍是原始值。
@@ -73,7 +73,7 @@ categories:   # 添加博文分类
   - “++（--）”在后，先运算，再自增（自减）。
   - +（-）（正负号）
 
-- ![Image](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302204727.png)
+- ![Image](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160950599.png)
 
 - ####  ②算数运算符：“+”，“-”，“* ”，“/” ，“%”（和java中使用方法相同）
 
@@ -85,11 +85,11 @@ categories:   # 添加博文分类
 
 - ### ⑤ 逻辑运算符：“&&”，“||”，“！”
 
-  - ![Image [3]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302211570.png)
+  - ![Image [3]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160951947.png)
 
 - ### ⑥ 三元运算符“ <u>？：表达式</u>”
 
-  - ![Image [4]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302211345.png)
+  - ![Image [4]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160951447.png)
 
 ## 二、javascript 中的特殊语法.
 
@@ -97,11 +97,11 @@ categories:   # 添加博文分类
 
 ## 三、流程控制语句
 
-![Image [5]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302213021.png)
+![Image [5]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160951597.png)
 
 ## 练习 ：javascript（9x9乘法表）
 
-![Image [6]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302213809.png)
+![Image [6]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160959985.png)
 
 ---
 
@@ -111,7 +111,7 @@ categories:   # 添加博文分类
 
 - #### 概念：Browser object Model 浏览器对象模型。将浏览器各个组成部分封装为对象。
 
-- ![Image [13]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302312704.png)
+- ![Image [13]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160954667.png)
 
 - #### BOM对象有五个：窗口对象、历史记录对象、地址栏对象、浏览器对象、显示器对象。
 
@@ -119,19 +119,19 @@ categories:   # 添加博文分类
 
   - #### window窗口的第一类方法：弹窗有关的方法
 
-  - ![image-20240130231750600](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302317649.png)
+  - ![image-20240130231750600](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161001435.png)
 
   -  ####  window窗口的第二类方法：打开关闭窗口的方法。
 
-  - ![image-20240130232026695](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302320023.png)
+  - ![image-20240130232026695](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161002045.png)
 
   - #### window窗口的第三类方法：与定时器有关的方法
 
-  - ![image-20240130232218944](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302322466.png)
+  - ![image-20240130232218944](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161003416.png)
 
   - #### Window窗口对象属性，可以获取其他BOM对象，和一个DOM对象document（.html文件对象）。直接写就可以用
 
-  - ![Image [27]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302327561.png)
+  - ![Image [27]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161003635.png)
 
 ## ②、 Location地址栏对象
 
@@ -139,11 +139,11 @@ categories:   # 添加博文分类
 
 - Location地址栏对象，他的一个属性href。有两个作用，设置当前页面的URL和获取当前页面的完整的URL.（这里面的设置和获取URL都是针对当前页面的。设置的话，就是重新赋值，设置为新的地址，这样当前页面就会跳转到设置的地址页面中去）
 
-- ![Image [28]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302328922.png)
+- ![Image [28]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161003845.png)
 
 - ### 倒计时跳转网页案例
 
-- ![image-20240130233011287](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302330863.png)
+- ![image-20240130233011287](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161004716.png)
 
 ## ③、 history当前页面历史记录对象。
 
@@ -166,7 +166,7 @@ categories:   # 添加博文分类
 
 - #### DOM对象：通俗理解就是将HTML或者XML标记语言，各个部分封装为一个一个的对象。（一对标签可以看做一个对象，也叫节点，因为在树上）。在内存中对应着DOM树形结构。
 
-- ![Image [7]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302230077.png)
+- ![Image [7]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161004804.png)
 
 - ### ①：document对象、最大的DOM对象。（html文档对象），其他的标签对象，都在他的内部，所以是通过document来，获取Element(其他标签对象)对象。或者是创建Element (其他标签对象)对象。
 
@@ -197,7 +197,7 @@ categories:   # 添加博文分类
     - removeAttribute（“”） ：删除属性
     - setAttribute（“属性名”，“属性值”） ：设置属性值。
   - 补充：input框框，有个value属性，用其节点对象.value可以得到，文本框里面的内容。
-  - ![Image [8]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302239426.png)
+  - ![Image [8]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161004004.png)
 
 - ### ③：Node对象 （是所有DOM对象的父亲），它里面定义了，对节点的，增删改的方法。所以所有的DOM对象，都有这三类方法。这样所有的当前节点，都可以添加它的子节点，也都可以删除它的子节点，也可以获取它的父节点。
 
@@ -209,7 +209,7 @@ categories:   # 添加博文分类
 
 - 属性：父节点=当前节点.parentNode; 返回当前节点的父节点。
 
-- ![Image [9]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302240885.png)
+- ![Image [9]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161004614.png)
 
 ## 六、☆javascript 中的几个对象的学习。
 
@@ -224,24 +224,24 @@ categories:   # 添加博文分类
   > - // js中用function定义的方法，在调用方法时，只要方法名确定就会调用最后面的同名不同参数的方法。他和参数列表无关。
   > - /* js中用function定义的方法，参数列表的括号里面隐藏了一个内置对象，是一个arguments的数组。 所以当参数列表中不写形式参数时，function add(){ 方法体} 括号里面就是一个可变形参 每一个传递过来的实参，都存在arguments[0].arguments[1]........等数组中。 */
 
-- ![Image [31]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302336101.png)
-- ![Image [32]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302336754.png)
+- ![Image [31]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161005585.png)
+- ![Image [32]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161005624.png)
 
 - ### 2.☆ Array数组对象
 
-  - ![image-20240130233856091](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302338259.png)
-  - ![image-20240130233912957](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302339764.png)
-  - ![image-20240130233952371](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302339719.png)
+  - ![image-20240130233856091](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161005814.png)
+  - ![image-20240130233912957](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161005815.png)
+  - ![image-20240130233952371](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161005824.png)
   - ![image-20240130234025914](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302340524.png)
-  - ![image-20240130234102744](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302341187.png)
+  - ![image-20240130234102744](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161005034.png)
 
 - ### 3.☆ Date日期对象
 
-  - ![image-20240130234717315](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302347839.png)
+  - ![image-20240130234717315](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161006224.png)
 
 - ### 4.☆Math数学对象
 
-  - ![image-20240130234909211](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302349463.png)
+  - ![image-20240130234909211](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161006954.png)
 
 - ### 5.☆ regExp：正则表达式对象。
 
@@ -251,16 +251,16 @@ categories:   # 添加博文分类
 
   - ☆ Javascript对表单的校验，是依赖于正则表达式的。
 
-  - ![image-20240130235118937](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302351087.png)
+  - ![image-20240130235118937](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161006465.png)
 
   - ### 正则表达式对象。regExp
 
-  - ![image-20240130235241803](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302352011.png)
+  - ![image-20240130235241803](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161006474.png)
 
 - ### 6.☆全局对象
 
   - 在javascript中，有一个全局对象Global，他不用创建对象，直接用其内部的方法，就可以实现对应的功能，一般有字符串的URL编解码方法。
-  - ![image-20240130235441038](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302354439.png)
+  - ![image-20240130235441038](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161006591.png)
 
 ---
 
@@ -268,13 +268,13 @@ categories:   # 添加博文分类
 
 ## 七、 事件绑定的方式
 
-![Image [10]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302309137.png)
+![Image [10]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161007040.png)
 
-![Image [11]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302310432.png)
+![Image [11]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161007483.png)
 
 - ### 得到标签元素的对象。来换其属性值，和换其内容值。要查看参考文档找对应对象的方法。
 
-![Image [12]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401302310594.png)
+![Image [12]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161007833.png)
 
 ---
 
@@ -288,11 +288,11 @@ categories:   # 添加博文分类
 
   - 通过给innerHTML赋值或者追加值，可以改表标签体的内容。如下图
 
-  - ![image-20240131000856980](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310008885.png)
+  - ![image-20240131000856980](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161007153.png)
 
-  - ![image-20240131000909451](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310009414.png)
+  - ![image-20240131000909451](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161007874.png)
 
-  - ![image-20240131000922589](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310009904.png)
+  - ![image-20240131000922589](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161007864.png)
 
   - ##### 上图中第3行，之后的表格，都是通过JavaScript代码（里面操作各种对象），一行一行添加的。很面向对象。写出来的代码非常的多。就会想简化写法。用innerHTML可以直接获取到上面的table的标签体，并且在后面追加样式就好了。这样简化了js代码，但不是面向对象了。
 
@@ -300,19 +300,19 @@ categories:   # 添加博文分类
 
   - #### 1.给style属性赋值，就可以改变其样式。
 
-    - ![Image [70]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310010681.png)
+    - ![Image [70]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161007847.png)
 
   - 注意：两个单词的写法
 
-  - ![Image [71]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310011498.png)
+  - ![Image [71]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161008113.png)
 
   - ![image-20240131001138257](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310011810.png)
 
   - ### 2. 改变节点对象的class值。用className属性。
 
-  - ![Image [72]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310012825.png)
+  - ![Image [72]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161008443.png)
 
-  - ![Image [73]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310012327.png)
+  - ![Image [73]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161008722.png)
 
   - #### 3.要想设置和修改，节点的属性值。查Api文档。例如：<img> 标签图片标签，每出现一次，一个 Image 对象就会被创建。找image对象的属性，src设置或返回图像的 URL
 
@@ -322,7 +322,7 @@ categories:   # 添加博文分类
 
 ##  九、事件
 
-![Image [74]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310015267.png)
+![Image [74]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161008164.png)
 
 - ### 事件分类
 
@@ -344,7 +344,7 @@ categories:   # 添加博文分类
     >
     >- 内部加载方式：script标签如果写在head标签里面，在上面的话，要使用窗口的事件机制，加载事件来控制，js 代码，在HTML页面加载完全，才运行。
     >- 如下图
-    >- ![Image [80]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310030871.png)
+    >- ![Image [80]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161008323.png)
 
   - #### 4.鼠标事件
 
@@ -370,7 +370,7 @@ categories:   # 添加博文分类
     >
     >   - #### ☆ 当在选择的下拉列表上，选择某个选项会触发该事件。
     >
-    >   - ![Image [81]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310032281.png)
+    >   - ![Image [81]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161009283.png)
     >
     >2. onselect：文本被选中.
 
@@ -380,8 +380,8 @@ categories:   # 添加博文分类
     >   * 可以阻止表单的提交
     >     * 方法返回falsel则表单被阻止提交.
     >   * 写法：
-    >   * ![Image [82]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310033920.png)
-    >   * ![Image [83]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310033022.png)
+    >   * ![Image [82]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161009623.png)
+    >   * ![Image [83]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161009823.png)
     >
     >2. onreset：重置按钮被点击.
 
@@ -391,19 +391,19 @@ categories:   # 添加博文分类
 
 ## 练习：动态表格案例
 
-![image-20240131000210183](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310002855.png)
+![image-20240131000210183](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161009683.png)
 
-![image-20240131000243636](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310002593.png)
+![image-20240131000243636](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161009764.png)
 
-![image-20240131000254150](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310003451.png)
+![image-20240131000254150](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161010442.png)
 
-![image-20240131000332037](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310003911.png)
+![image-20240131000332037](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161010003.png)
 
 - ☆动态表格案例总结：用DOM对象在内存层面你，不管创建了多少子节点或者父节点，这些结构都是在内存层面上的，在浏览器页面上不能够直接显示，要想显示，必须有html的已有标签对象。先获取已有的html标签对象节点，将内存层面上的节点，appendChild为已有节点的子节点。同时，属性的样式会关联到css样式表中，只要和css表中的选择器对应的上，就可以显示样式。
 - ☆ 技巧：怎样获取当前标签的对象，直接在html标签后面，加上事件属性。绑定事件方式一，事件调用指定方法，括号里面写this。
-- ![image-20240131000404203](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310004539.png)
+- ![image-20240131000404203](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161010543.png)
 - 那么就可以在方法声明的地方，形式参数就是当前对象。如下图：
-- ![Image [62]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310004456.png)
+- ![Image [62]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161010436.png)
 
 ---
 
@@ -431,7 +431,7 @@ categories:   # 添加博文分类
   
   - 执行了“JavaScript语言操作的元件对象，比如添加节点，删除节点”不会再HTML文档中自动生成，HTML代码。
 
-![Image [84]](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401310036188.png)
+![Image [84]](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161011212.png)
 
 
 

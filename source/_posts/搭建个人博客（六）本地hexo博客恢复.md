@@ -13,7 +13,7 @@ categories:   # 添加博文分类
 
 ## 一、使用SourceTree软件，拉取远程仓库中的博客blog
 
-- ![image-20240109031340124](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090326970.png)
+- ![image-20240109031340124](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160937082.png)
 
 ---
 
@@ -21,9 +21,9 @@ categories:   # 添加博文分类
 
 
 
-- ![image-20240109031457390](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090326787.png)
+- ![image-20240109031457390](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160937092.png)
 - 删除这个文件夹
-- ![image-20240109032611999](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090326718.png)
+- ![image-20240109032611999](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160938885.png)
 
 - #### 在本地blog文件夹中,使用Git Bath 运行
 

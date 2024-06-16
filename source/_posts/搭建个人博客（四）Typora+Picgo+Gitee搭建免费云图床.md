@@ -25,9 +25,9 @@ categories:   # 添加博文分类
 
 -  **初始化同时创建imgs文件夹**
 
-![image-20240109014112710](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090141623.png)
+![image-20240109014112710](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939211.png)
 
-![image-20240109014422479](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090144735.png)
+![image-20240109014422479](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939701.png)
 
 ## 二、生成私人令牌
 
@@ -40,15 +40,15 @@ https://picgo.github.io/PicGo-Doc/zh/
 ```
 
 - 安装PicGo软件后，插件设置中搜索gitee-uploader安装插件
-  - ![image-20240109015057668](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090150816.png)
+  - ![image-20240109015057668](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939081.png)
 - 设置PicGo-Server确定一下
-  - ![image-20240109015213994](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090152341.png)
+  - ![image-20240109015213994](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939461.png)
 - 设置时间戳重命名，保证文件名中没有中文避免线上不显示
-  - ![image-20240109015354215](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090153991.png)
+  - ![image-20240109015354215](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939831.png)
 - 设置图床gitee为默认图床
-  - ![image-20240109015634979](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090156748.png)
+  - ![image-20240109015634979](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939082.png)
 - **设置gitee图床连接**
-  - ![image-20240109020235694](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090202298.png)
+  - ![image-20240109020235694](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160939051.png)
 
 至此PicGo设置完毕
 
@@ -56,17 +56,17 @@ https://picgo.github.io/PicGo-Doc/zh/
 
 - ####  打开Typora，偏好设置-图像，关联PicGo
 
-  - ![image-20240109020753314](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090208649.png)
+  - ![image-20240109020753314](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940121.png)
 
 
 
 - #### 使用Typora编写博客的时候，复制了图片到当前文章当中，直接点击上传
 
-  - ![image-20240109021151932](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090211054.png)
+  - ![image-20240109021151932](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940760.png)
 
 - #### 在仓库文件夹中就能看到了
 
-  - ![image-20240109021340947](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090213130.png)
+  - ![image-20240109021340947](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940530.png)
 
 ----
 
@@ -74,7 +74,7 @@ https://picgo.github.io/PicGo-Doc/zh/
 
 ### 1.为什么不使用PicGo-Core(command line)
 
-- ![image-20240109021747024](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401090420741.png)
+- ![image-20240109021747024](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940875.png)
 - gitee上传设置命令的的上传方式，配置了配置文件，有时候也会上传不成功出现错误。如果你已经下载了PicGo-Core(command line)插件，然后又下载了PicGoApp上传，也有可能会出现错误。解决办法：将Typora软件卸载重新安装重新配置。
 - Typora软件需要激活，这里提供[Typora旧版本](https://www.alipan.com/s/mjWB1SYYLpd)免激活使用
 

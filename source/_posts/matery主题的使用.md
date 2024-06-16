@@ -27,7 +27,7 @@ git clone https://github.com/blinkfox/hexo-theme-matery.git
 
 # 二、配置hexo根yml文件
 
-- ![image-20240112005024106](https://gitee.com/lmlpla/blogimages/raw/master/imgs/202401120050772.png)
+- ![image-20240112005024106](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161011622.png)
 
 # 三、自定义主题
 
