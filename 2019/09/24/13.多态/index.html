@@ -17,16 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档: 2019/9 | 𝚲𝚳𝚲的博客</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://protonlml.github.io/archives/2019/09/page/2/index.html">
+  <title>13.多态 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="多态  面向对象三大特征封装      继承      多态  一、  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="13.多态">
+<meta property="og:url" content="https://protonlml.github.io/2019/09/24/13.%E5%A4%9A%E6%80%81/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多态  面向对象三大特征封装      继承      多态  一、  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-24T13:40:00.000Z">
+<meta property="article:modified_time" content="2024-06-17T07:23:06.383Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
+<meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://protonlml.github.io/archives/2019/09/page/2/index.html">
+  <link rel="canonical" href="https://protonlml.github.io/2019/09/24/13.%E5%A4%9A%E6%80%81/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -317,171 +322,208 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2019/9</h1>
-	      <p class="text-muted">共 31 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-13.多态" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      13.多态
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2019" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2019
-            </a>
-            <!-- <a href="/archives/2019" class="archive-year">2019</a> -->
-          </h3>
-        </div>
-        <div id="collapse2019" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2019">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2019/09/22/1.%E8%8E%B7%E5%8F%96%E6%95%B0%E5%AD%97%E7%9A%84%E4%B8%AA%E4%BD%8D%20%E5%8D%81%E4%BD%8D%20%E7%99%BE%E4%BD%8D%20%E5%8D%83%E4%BD%8D/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-22T04:00:00.000Z" itemprop="datePublished">2019-09-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 1.获取数字的个位 十位 百位 千位
-</a>
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/09/24/13.%E5%A4%9A%E6%80%81/" class="article-date">
+	  <time datetime="2019-09-24T13:40:00.000Z" itemprop="datePublished">2019-09-24</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a>
+  </span>
 
 
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/24/13.%E5%A4%9A%E6%80%81/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 207(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1><center>多态</h1>
+
+<h1 id="面向对象三大特征"><a href="#面向对象三大特征" class="headerlink" title="面向对象三大特征"></a>面向对象三大特征</h1><h2 id="封装-继承-多态"><a href="#封装-继承-多态" class="headerlink" title="封装      继承      多态"></a>封装      继承      多态</h2><hr>
+<hr>
+<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><hr>
+<hr>
+<p>© 版权声明</p>
+<escape>
+
+<div>
+    <h3 align="center"  style="color: brown;" >版权声明</h3>
+    <table>
+           <tr>
+            <ol>
+                <li>本网站名称：𝚲𝚳𝚲</li>
+                <li>𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。</li>
+                <li>本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。</li>
+                <li>本站一切资源不代表本站立场，并不代表本站赞同其观点和对其真实性负责。</li>
+                <li>本站一律禁止以任何方式发布或转载任何违法的相关信息，访客发现请举报</li> 
+                <li>本站资源大多存储在云盘，如发现链接失效，请联系我，我会第一时间更新。</li>
+                <li>本站强烈打击盗版/破解等有损他人权益和违法作为，请支持正版！</li>  
+            </ol>
+        </tr>
+    </table>
+</div>
+
+
+
+</escape>
+
+<hr>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://protonlml.github.io/2019/09/24/13.%E5%A4%9A%E6%80%81/" title="13.多态" target="_blank" rel="external">https://protonlml.github.io/2019/09/24/13.多态/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">𝚲𝚳𝚲</span><small class="ml-1x">◙</small></a></h3>
+        <div>业精于勤，荒于嬉；行成于思，毁于随！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
-    
-    
-<a href="/2019/09/22/3.%E6%95%B0%E7%BB%84/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-22T04:00:00.000Z" itemprop="datePublished">2019-09-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 3.数组
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/21/2.%E5%88%A4%E6%96%AD%E5%92%8C%E5%BE%AA%E7%8E%AF/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-21T04:00:00.000Z" itemprop="datePublished">2019-09-21</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 2.判断和循环
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/21/1.%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%A5%E5%8F%8A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-21T03:00:00.000Z" itemprop="datePublished">2019-09-21</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 1.运算符以及类型转换
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/20/hexo%E5%8D%9A%E6%96%87%E5%8A%A0%E5%AF%86/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-20T03:46:00.000Z" itemprop="datePublished">2019-09-20</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> hexo博文加密密码是hello
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/19/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%85%AD%EF%BC%89%E6%9C%AC%E5%9C%B0hexo%E5%8D%9A%E5%AE%A2%E6%81%A2%E5%A4%8D/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-19T07:00:00.000Z" itemprop="datePublished">2019-09-19</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 搭建个人博客（六）本地hexo博客恢复
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/19/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%BA%94)%EF%BC%9A%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8A%E4%B8%8A%E4%BC%A0%E5%92%8C%E5%A4%87%E4%BB%BD/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-19T03:00:00.000Z" itemprop="datePublished">2019-09-19</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 搭建个人博客(五)：编写博客文章以及上传和备份
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/18/Docker-Alist%E5%AE%B9%E5%99%A8+PicGoApp+%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-18T10:00:00.000Z" itemprop="datePublished">2019-09-18</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Docker-Alist容器+PicGoApp+夸克网盘搭建个人图床
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/18/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%9B%9B%EF%BC%89Typora+Picgo+Gitee%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E4%BA%91%E5%9B%BE%E5%BA%8A/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-18T07:00:00.000Z" itemprop="datePublished">2019-09-18</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 搭建个人博客（四）Typora+Picgo+Gitee搭建免费云图床
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%B8%89)%EF%BC%9A%E4%B8%BB%E9%A2%98pure%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-17T05:00:00.000Z" itemprop="datePublished">2019-09-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 搭建个人博客(三)：主题pure使用指南
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9AHexo%E9%83%A8%E7%BD%B2%E5%88%B0%20Gitee/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-17T04:00:00.000Z" itemprop="datePublished">2019-09-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 搭建个人博客（二）：Hexo部署到 Gitee
-</a>
-
-
-  
-    
-    
-    
-<a href="/2019/09/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%B8%80)%EF%BC%9AHexo%E6%9C%AC%E5%9C%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/" class="collection-item"   itemprop="url">
-  <time datetime="2019-09-17T03:00:00.000Z" itemprop="datePublished">2019-09-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 搭建个人博客(一)：Hexo本地的使用和配置
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
+  <section id="comments">
   	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
     
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <div class="pager pull-left">
-            
-            <a class="extend prev" rel="prev" href="/archives/2019/09/"><i class="icon icon-angle-left"></i> 上一页</a><a class="page-number" href="/archives/2019/09/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2019/09/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/09/page/3/">下一页 <i class="icon icon-angle-right"></i></a>
-            
-        </div>
-        <div class="total-article bar-right">Page 2 of 3</div>
-        </div>
-    </nav>
+    <li class="prev">
+      <a href="/2019/10/01/javascript/" title="javaScript"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
- 	
+    
+    <li class="next">
+      <a href="/2019/09/24/12.%E7%BB%A7%E6%89%BF/" title="12.继承"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -539,6 +581,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+   
+
+
+
+
+   
 
 
 

@@ -17,19 +17,24 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>11.static静态变量 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="static静态变量                                © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习">
+  <title>11.static静态关键字 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="static静态关键字  一、在类中，对成员变量进行修饰（静态变量）  例如： 学生对象，创建student的类时，可以将 teacherName 设置为 静态的，因为其所有的student的teacherName 是一样的    二、在类中，对成员方法进行修饰（静态方法）static修饰的成员变量，或者成员方法，因为其都使用了static 关键字修饰，随着类加载而加载，和某个new出来的对象无关">
 <meta property="og:type" content="article">
-<meta property="og:title" content="11.static静态变量">
+<meta property="og:title" content="11.static静态关键字">
 <meta property="og:url" content="https://protonlml.github.io/2019/09/24/11.static%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="static静态变量                                © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习">
+<meta property="og:description" content="static静态关键字  一、在类中，对成员变量进行修饰（静态变量）  例如： 学生对象，创建student的类时，可以将 teacherName 设置为 静态的，因为其所有的student的teacherName 是一样的    二、在类中，对成员方法进行修饰（静态方法）static修饰的成员变量，或者成员方法，因为其都使用了static 关键字修饰，随着类加载而加载，和某个new出来的对象无关">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406170015526.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406170954946.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406170956177.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406171001558.png">
 <meta property="article:published_time" content="2019-09-24T12:30:00.000Z">
-<meta property="article:modified_time" content="2024-06-16T15:09:16.447Z">
+<meta property="article:modified_time" content="2024-06-17T02:03:16.292Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406170015526.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://protonlml.github.io/2019/09/24/11.static%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/index.html">
   
@@ -203,7 +208,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -213,7 +218,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -223,7 +228,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">24</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">26</span></li></ul>
     </div>
   </div>
 
@@ -330,7 +335,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      11.static静态变量
+      11.static静态关键字
     </h1>
   
 
@@ -360,7 +365,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/24/11.static%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 195(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 345(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -370,36 +375,18 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1><center>static静态变量</center></h1>
+        <h1><center>static静态关键字</h1>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="一、在类中，对成员变量进行修饰（静态变量）"><a href="#一、在类中，对成员变量进行修饰（静态变量）" class="headerlink" title="一、在类中，对成员变量进行修饰（静态变量）"></a>一、在类中，对成员变量进行修饰（静态变量）</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406170015526.png" alt="image-20240617001547008"></p>
+<ul>
+<li><h4 id="例如："><a href="#例如：" class="headerlink" title="例如："></a>例如：</h4><ul>
+<li><h5 id="学生对象，创建student的类时，可以将-teacherName-设置为-静态的，因为其所有的student的teacherName-是一样的"><a href="#学生对象，创建student的类时，可以将-teacherName-设置为-静态的，因为其所有的student的teacherName-是一样的" class="headerlink" title="学生对象，创建student的类时，可以将 teacherName 设置为 静态的，因为其所有的student的teacherName 是一样的"></a>学生对象，创建student的类时，可以将 teacherName 设置为 静态的，因为其所有的student的teacherName 是一样的</h5></li>
+</ul>
+</li>
+</ul>
+<h2 id="二、在类中，对成员方法进行修饰（静态方法）"><a href="#二、在类中，对成员方法进行修饰（静态方法）" class="headerlink" title="二、在类中，对成员方法进行修饰（静态方法）"></a>二、在类中，对成员方法进行修饰（静态方法）</h2><h4 id="static修饰的成员变量，或者成员方法，因为其都使用了static-关键字修饰，随着类加载而加载，和某个new出来的对象无关"><a href="#static修饰的成员变量，或者成员方法，因为其都使用了static-关键字修饰，随着类加载而加载，和某个new出来的对象无关" class="headerlink" title="static修饰的成员变量，或者成员方法，因为其都使用了static 关键字修饰，随着类加载而加载，和某个new出来的对象无关"></a>static修饰的成员变量，或者成员方法，因为其都使用了static 关键字修饰，随着类加载而加载，和某个new出来的对象无关</h4><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406170954946.png" alt="image-20240617095416486"></p>
+<h2 id="三、一般我们在javaBen中很少用static修饰，工具类或者测试类中，使用的较多"><a href="#三、一般我们在javaBen中很少用static修饰，工具类或者测试类中，使用的较多" class="headerlink" title="三、一般我们在javaBen中很少用static修饰，工具类或者测试类中，使用的较多"></a>三、一般我们在javaBen中很少用static修饰，工具类或者测试类中，使用的较多</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406170956177.png" alt="image-20240617095633805"></p>
+<h2 id="四、重新认识main方法"><a href="#四、重新认识main方法" class="headerlink" title="四、重新认识main方法"></a>四、重新认识main方法</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406171001558.png" alt="image-20240617100151309"></p>
 <hr>
 <hr>
 <p>© 版权声明</p>
@@ -442,7 +429,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://protonlml.github.io/2019/09/24/11.static%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/" title="11.static静态变量" target="_blank" rel="external">https://protonlml.github.io/2019/09/24/11.static静态变量/</a>
+      <a href="https://protonlml.github.io/2019/09/24/11.static%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/" title="11.static静态关键字" target="_blank" rel="external">https://protonlml.github.io/2019/09/24/11.static静态变量/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -487,7 +474,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/10/01/javascript/" title="javaScript"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/24/12.%E7%BB%A7%E6%89%BF/" title="12.继承"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
