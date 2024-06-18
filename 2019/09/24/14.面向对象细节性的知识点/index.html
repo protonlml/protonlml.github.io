@@ -17,29 +17,34 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>4.二维数组 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="二维数组    一、二维数组的静态初始化    二、获取二维数组中的某个值   三、二维数组遍历   四、二维数组动态初始化     © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。">
+  <title>14.面向对象细节性的知识点 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="面向对象细节性的知识点  面向对象细节性的知识点 1.对象总结：在java中，一个java文件，一般就写一个class类，一个类就代表一类对象。 2.类中有成员变量，成员方法，以及构造器。 3.有两种类： 一般javaBen 这种类，只是为了描述对象使用，内部不会使用static来修饰成员变量，或者成员方法。 另一种类，就是工具类，里面的成员方法比较多，而且是static修饰的，目的是方便用类进行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4.二维数组">
-<meta property="og:url" content="https://protonlml.github.io/2019/09/22/4.%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:title" content="14.面向对象细节性的知识点">
+<meta property="og:url" content="https://protonlml.github.io/2019/09/24/14.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%86%E8%8A%82%E6%80%A7%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="二维数组    一、二维数组的静态初始化    二、获取二维数组中的某个值   三、二维数组遍历   四、二维数组动态初始化     © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。">
+<meta property="og:description" content="面向对象细节性的知识点  面向对象细节性的知识点 1.对象总结：在java中，一个java文件，一般就写一个class类，一个类就代表一类对象。 2.类中有成员变量，成员方法，以及构造器。 3.有两种类： 一般javaBen 这种类，只是为了描述对象使用，内部不会使用static来修饰成员变量，或者成员方法。 另一种类，就是工具类，里面的成员方法比较多，而且是static修饰的，目的是方便用类进行">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042555.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042305.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042745.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042595.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161043505.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161043875.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161043984.png">
-<meta property="article:published_time" content="2019-09-22T05:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-16T02:56:51.375Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180107089.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180110321.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180112838.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180116437.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180126921.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180137064.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180140999.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181308802.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181304720.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181311753.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181318379.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181313431.png">
+<meta property="article:published_time" content="2019-09-24T13:50:00.000Z">
+<meta property="article:modified_time" content="2024-06-18T05:21:21.280Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042555.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180107089.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://protonlml.github.io/2019/09/22/4.%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/index.html">
+  <link rel="canonical" href="https://protonlml.github.io/2019/09/24/14.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%86%E8%8A%82%E6%80%A7%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -331,14 +336,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-4.二维数组" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-14.面向对象细节性的知识点" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      4.二维数组
+      14.面向对象细节性的知识点
     </h1>
   
 
@@ -346,8 +351,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/09/22/4.%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/" class="article-date">
-	  <time datetime="2019-09-22T05:00:00.000Z" itemprop="datePublished">2019-09-22</time>
+	<a href="/2019/09/24/14.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%86%E8%8A%82%E6%80%A7%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/" class="article-date">
+	  <time datetime="2019-09-24T13:50:00.000Z" itemprop="datePublished">2019-09-24</time>
 	</a>
 </span>
         
@@ -365,36 +370,81 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/22/4.%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/24/14.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%86%E8%8A%82%E6%80%A7%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 234(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1><center>二维数组</center></h1>
+        <h1><center>面向对象细节性的知识点</h1>
 
-<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042555.png" alt="image-20240129050713855"></p>
-<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042305.png" alt="image-20240129050759176"></p>
-<h2 id="一、二维数组的静态初始化"><a href="#一、二维数组的静态初始化" class="headerlink" title="一、二维数组的静态初始化"></a>一、二维数组的静态初始化</h2><ul>
-<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042745.png" alt="image-20240129045506558"></li>
-<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161042595.png" alt="image-20240129045647503"></li>
+<h1 id="面向对象细节性的知识点"><a href="#面向对象细节性的知识点" class="headerlink" title="面向对象细节性的知识点"></a>面向对象细节性的知识点</h1><ul>
+<li><h3 id="1-对象总结：在java中，一个java文件，一般就写一个class类，一个类就代表一类对象。"><a href="#1-对象总结：在java中，一个java文件，一般就写一个class类，一个类就代表一类对象。" class="headerlink" title="1.对象总结：在java中，一个java文件，一般就写一个class类，一个类就代表一类对象。"></a>1.对象总结：在java中，一个java文件，一般就写一个class类，一个类就代表一类对象。</h3></li>
+<li><h3 id="2-类中有成员变量，成员方法，以及构造器。"><a href="#2-类中有成员变量，成员方法，以及构造器。" class="headerlink" title="2.类中有成员变量，成员方法，以及构造器。"></a>2.类中有成员变量，成员方法，以及构造器。</h3></li>
+<li><h3 id="3-有两种类："><a href="#3-有两种类：" class="headerlink" title="3.有两种类："></a>3.有两种类：</h3><ul>
+<li><h4 id="一般javaBen-这种类，只是为了描述对象使用，内部不会使用static来修饰成员变量，或者成员方法。"><a href="#一般javaBen-这种类，只是为了描述对象使用，内部不会使用static来修饰成员变量，或者成员方法。" class="headerlink" title="一般javaBen 这种类，只是为了描述对象使用，内部不会使用static来修饰成员变量，或者成员方法。"></a>一般javaBen 这种类，只是为了描述对象使用，内部不会使用static来修饰成员变量，或者成员方法。</h4></li>
+<li><h4 id="另一种类，就是工具类，里面的成员方法比较多，而且是static修饰的，目的是方便用类进行调用"><a href="#另一种类，就是工具类，里面的成员方法比较多，而且是static修饰的，目的是方便用类进行调用" class="headerlink" title="另一种类，就是工具类，里面的成员方法比较多，而且是static修饰的，目的是方便用类进行调用"></a>另一种类，就是工具类，里面的成员方法比较多，而且是static修饰的，目的是方便用类进行调用</h4></li>
+<li><h4 id="static-修饰的成员方法，或者成员变量，都是与类相关，随着类加载而加载。"><a href="#static-修饰的成员方法，或者成员变量，都是与类相关，随着类加载而加载。" class="headerlink" title="static 修饰的成员方法，或者成员变量，都是与类相关，随着类加载而加载。"></a>static 修饰的成员方法，或者成员变量，都是与类相关，随着类加载而加载。</h4></li>
 </ul>
-<h2 id="二、获取二维数组中的某个值"><a href="#二、获取二维数组中的某个值" class="headerlink" title="二、获取二维数组中的某个值"></a>二、获取二维数组中的某个值</h2><ul>
-<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161043505.png" alt="image-20240129045743484"></li>
+</li>
+<li><h3 id="4-类与类之间，可以实现单继承，多层继承。"><a href="#4-类与类之间，可以实现单继承，多层继承。" class="headerlink" title="4.类与类之间，可以实现单继承，多层继承。"></a>4.类与类之间，可以实现单继承，多层继承。</h3><ul>
+<li><h4 id="子类继承父类中所有公有的成员变量以及成员方法，子类都可以使用。子类还有自己的方法，这样子类的功能就变强大了。"><a href="#子类继承父类中所有公有的成员变量以及成员方法，子类都可以使用。子类还有自己的方法，这样子类的功能就变强大了。" class="headerlink" title="子类继承父类中所有公有的成员变量以及成员方法，子类都可以使用。子类还有自己的方法，这样子类的功能就变强大了。"></a>子类继承父类中所有公有的成员变量以及成员方法，子类都可以使用。子类还有自己的方法，这样子类的功能就变强大了。</h4></li>
+<li><h4 id="子类中，如果定义了与父类中相同的方法，那么就称子类中，对该方法进行了重写。（这就是方法重写）目的是个性化子类当前方法功能"><a href="#子类中，如果定义了与父类中相同的方法，那么就称子类中，对该方法进行了重写。（这就是方法重写）目的是个性化子类当前方法功能" class="headerlink" title="子类中，如果定义了与父类中相同的方法，那么就称子类中，对该方法进行了重写。（这就是方法重写）目的是个性化子类当前方法功能"></a>子类中，如果定义了与父类中相同的方法，那么就称子类中，对该方法进行了重写。（这就是方法重写）目的是个性化子类当前方法功能</h4></li>
 </ul>
-<h2 id="三、二维数组遍历"><a href="#三、二维数组遍历" class="headerlink" title="三、二维数组遍历"></a>三、二维数组遍历</h2><ul>
-<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161043875.png" alt="image-20240129045908411"></li>
+</li>
+<li><h3 id="5-有了继承，那么就有很多类，共同继承同一个父类，此时就形成一种关系叫做多态"><a href="#5-有了继承，那么就有很多类，共同继承同一个父类，此时就形成一种关系叫做多态" class="headerlink" title="5.有了继承，那么就有很多类，共同继承同一个父类，此时就形成一种关系叫做多态"></a>5.有了继承，那么就有很多类，共同继承同一个父类，此时就形成一种关系叫做多态</h3></li>
+<li><h3 id="多态：目的是，在某个方法形式参数中，使用一类对象，来进行调用。参数可以使用父类来充当。只要继承了当前这个父类，那么其子类都能赋值于这某个方法形参上面进行使用"><a href="#多态：目的是，在某个方法形式参数中，使用一类对象，来进行调用。参数可以使用父类来充当。只要继承了当前这个父类，那么其子类都能赋值于这某个方法形参上面进行使用" class="headerlink" title="多态：目的是，在某个方法形式参数中，使用一类对象，来进行调用。参数可以使用父类来充当。只要继承了当前这个父类，那么其子类都能赋值于这某个方法形参上面进行使用"></a>多态：目的是，在某个方法形式参数中，使用一类对象，来进行调用。参数可以使用父类来充当。只要继承了当前这个父类，那么其子类都能赋值于这某个方法形参上面进行使用</h3></li>
 </ul>
-<h2 id="四、二维数组动态初始化"><a href="#四、二维数组动态初始化" class="headerlink" title="四、二维数组动态初始化"></a>四、二维数组动态初始化</h2><ul>
-<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161043984.png" alt="image-20240129045951076"></li>
+<hr>
+<hr>
+<h1 id="包"><a href="#包" class="headerlink" title="包"></a>包</h1><h2 id="一、什么是包"><a href="#一、什么是包" class="headerlink" title="一、什么是包"></a>一、什么是包</h2><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180107089.png" alt="image-20240618010737972"></li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180110321.png" alt="image-20240618011009253"></p>
+<h2 id="二、总结"><a href="#二、总结" class="headerlink" title="二、总结"></a>二、总结</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180112838.png" alt="image-20240618011240474"></p>
+<hr>
+<hr>
+<h1 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h1><h2 id="一、final-修饰，方法，类，变量"><a href="#一、final-修饰，方法，类，变量" class="headerlink" title="一、final 修饰，方法，类，变量"></a>一、final 修饰，方法，类，变量</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180116437.png" alt="image-20240618011629270"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180126921.png" alt="image-20240618012639444"></p>
+<hr>
+<hr>
+<h1 id="权限修饰符"><a href="#权限修饰符" class="headerlink" title="权限修饰符"></a>权限修饰符</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180137064.png" alt="image-20240618013727977"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180140999.png" alt="image-20240618014053071"></p>
+<hr>
+<hr>
+<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><h3 id="代码块：局部代码块，构造代码块，静态代码块"><a href="#代码块：局部代码块，构造代码块，静态代码块" class="headerlink" title="代码块：局部代码块，构造代码块，静态代码块"></a>代码块：局部代码块，构造代码块，静态代码块</h3><h2 id="一、局部代码块（淘汰了，了解）"><a href="#一、局部代码块（淘汰了，了解）" class="headerlink" title="一、局部代码块（淘汰了，了解）"></a>一、局部代码块（淘汰了，了解）</h2><ul>
+<li><h4 id="1-局部代码就是写在方法里面的一对单独的"><a href="#1-局部代码就是写在方法里面的一对单独的" class="headerlink" title="1.局部代码就是写在方法里面的一对单独的 { }"></a>1.局部代码就是写在方法里面的一对单独的 { }</h4></li>
+<li><h4 id="2-本质的作用就是节约内存"><a href="#2-本质的作用就是节约内存" class="headerlink" title="2.本质的作用就是节约内存"></a>2.本质的作用就是节约内存</h4></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181308802.png" alt="image-20240618130809765"></p>
+<h2 id="二、构造代码块（淘汰了，了解）"><a href="#二、构造代码块（淘汰了，了解）" class="headerlink" title="二、构造代码块（淘汰了，了解）"></a>二、构造代码块（淘汰了，了解）</h2><ul>
+<li><h4 id="1-构造代码块，就是在类中，写在成员位置的代码块，当我们创建本类对象时，会优先于构造方法执行。"><a href="#1-构造代码块，就是在类中，写在成员位置的代码块，当我们创建本类对象时，会优先于构造方法执行。" class="headerlink" title="1.构造代码块，就是在类中，写在成员位置的代码块，当我们创建本类对象时，会优先于构造方法执行。"></a>1.构造代码块，就是在类中，写在成员位置的代码块，当我们创建本类对象时，会优先于构造方法执行。</h4></li>
+<li><h4 id="2-将多个构造方法中，重复的代码，写在构造代码块中（弊端：每次创建本类对象，都会执行一次，有局限性）"><a href="#2-将多个构造方法中，重复的代码，写在构造代码块中（弊端：每次创建本类对象，都会执行一次，有局限性）" class="headerlink" title="2. 将多个构造方法中，重复的代码，写在构造代码块中（弊端：每次创建本类对象，都会执行一次，有局限性）"></a>2. 将多个构造方法中，重复的代码，写在构造代码块中（弊端：每次创建本类对象，都会执行一次，有局限性）</h4></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181304720.png" alt="image-20240618130422500"></p>
+<h2 id="三、静态代码块"><a href="#三、静态代码块" class="headerlink" title="三、静态代码块"></a>三、静态代码块</h2><ul>
+<li><h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181311753.png" alt="image-20240618131119469"></h4></li>
+<li><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181318379.png" alt="image-20240618131836167"></p>
+</li>
+<li><h5 id="当一个类被加载时，静态代码块会被执行。这个过程通常在首次创建类的实例之前发生，或者在访问类的静态成员变量或静态方法之前发生。静态代码块可以用来初始化静态成员变量，执行静态方法，加载静态资源，或者进行其他静态的初始化操作。"><a href="#当一个类被加载时，静态代码块会被执行。这个过程通常在首次创建类的实例之前发生，或者在访问类的静态成员变量或静态方法之前发生。静态代码块可以用来初始化静态成员变量，执行静态方法，加载静态资源，或者进行其他静态的初始化操作。" class="headerlink" title="当一个类被加载时，静态代码块会被执行。这个过程通常在首次创建类的实例之前发生，或者在访问类的静态成员变量或静态方法之前发生。静态代码块可以用来初始化静态成员变量，执行静态方法，加载静态资源，或者进行其他静态的初始化操作。"></a>当一个类被加载时，静态代码块会被执行。这个过程通常在首次创建类的实例之前发生，或者在访问类的静态成员变量或静态方法之前发生。静态代码块可以用来初始化静态成员变量，执行静态方法，加载静态资源，或者进行其他静态的初始化操作。</h5></li>
+<li><h2 id="静态代码块的特点"><a href="#静态代码块的特点" class="headerlink" title="静态代码块的特点"></a>静态代码块的特点</h2></li>
+<li><p><strong>执行顺序</strong>：静态代码块在类被加载时执行，按照它们在类中出现的顺序执行。如果一个类中有多个静态代码块，它们会按照在源代码中的顺序依次执行。</p>
+</li>
+<li><p><strong>只执行一次</strong>：静态代码块只会执行一次，即使类被加载多次也是如此。这意味着静态代码块中的代码在整个应用程序的生命周期中只会执行一次。</p>
+</li>
+<li><p><strong>访问权限</strong>：静态代码块可以访问类的静态成员变量和静态方法，但是不能直接访问非静态成员变量和非静态方法。非静态成员变量和非静态方法只有在类的实例被创建后才能被访问。</p>
+</li>
+<li><p><strong>异常处理</strong>：静态代码块中的异常可以通过捕获并处理来防止类加载失败。如果静态代码块中发生了异常，并且没有被处理，类加载过程将被终止，导致类加载失败。</p>
+</li>
+</ul>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406181313431.png" alt="image-20240618131347941"></p>
 <hr>
 <hr>
 <p>© 版权声明</p>
@@ -419,11 +469,6 @@
 
 
 
-
-
-
-
-
 </escape>
 
 <hr>
@@ -436,7 +481,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://protonlml.github.io/2019/09/22/4.%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/" title="4.二维数组" target="_blank" rel="external">https://protonlml.github.io/2019/09/22/4.二维数组/</a>
+      <a href="https://protonlml.github.io/2019/09/24/14.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%86%E8%8A%82%E6%80%A7%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/" title="14.面向对象细节性的知识点" target="_blank" rel="external">https://protonlml.github.io/2019/09/24/14.面向对象细节性的知识点/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -481,12 +526,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/09/22/2.%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" title="2.获取随机数的几种方法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/24/16.%E6%8E%A5%E5%8F%A3/" title="16.接口"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2019/09/22/5.%E6%96%B9%E6%B3%95/" title="5.方法与数据类型"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/09/24/13.%E5%A4%9A%E6%80%81/" title="13.多态"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

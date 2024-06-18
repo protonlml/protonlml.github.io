@@ -18,18 +18,27 @@
   
   
   <title>13.多态 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="多态  面向对象三大特征封装      继承      多态  一、  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有">
+  <meta name="description" content="多态  面向对象三大特征封装      继承      多态  一、什么是多态 多态：父类的引用，指向子类的对象 二、多态调用成员的特点     三、多态的优势与弊端 多态的弊端 就是 不能使用子类中特有的方法（因为使用的是父类的引用，创建的子类对象，调用方法时，用的是父引用 在父类中找成员变量，和找 子类重写的成员方法）        © 版权声明        版权声明">
 <meta property="og:type" content="article">
 <meta property="og:title" content="13.多态">
 <meta property="og:url" content="https://protonlml.github.io/2019/09/24/13.%E5%A4%9A%E6%80%81/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="多态  面向对象三大特征封装      继承      多态  一、  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有">
+<meta property="og:description" content="多态  面向对象三大特征封装      继承      多态  一、什么是多态 多态：父类的引用，指向子类的对象 二、多态调用成员的特点     三、多态的优势与弊端 多态的弊端 就是 不能使用子类中特有的方法（因为使用的是父类的引用，创建的子类对象，调用方法时，用的是父引用 在父类中找成员变量，和找 子类重写的成员方法）        © 版权声明        版权声明">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406172337419.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406172338263.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180001640.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180002666.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180003927.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180016271.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180024497.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180017563.png">
 <meta property="article:published_time" content="2019-09-24T13:40:00.000Z">
-<meta property="article:modified_time" content="2024-06-17T07:23:06.383Z">
+<meta property="article:modified_time" content="2024-06-18T08:57:53.199Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406172337419.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://protonlml.github.io/2019/09/24/13.%E5%A4%9A%E6%80%81/index.html">
   
@@ -203,7 +212,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -213,7 +222,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -223,7 +232,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">26</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">30</span></li></ul>
     </div>
   </div>
 
@@ -360,7 +369,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/24/13.%E5%A4%9A%E6%80%81/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 207(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 313(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -374,7 +383,22 @@
 
 <h1 id="面向对象三大特征"><a href="#面向对象三大特征" class="headerlink" title="面向对象三大特征"></a>面向对象三大特征</h1><h2 id="封装-继承-多态"><a href="#封装-继承-多态" class="headerlink" title="封装      继承      多态"></a>封装      继承      多态</h2><hr>
 <hr>
-<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><hr>
+<h2 id="一、什么是多态"><a href="#一、什么是多态" class="headerlink" title="一、什么是多态"></a>一、什么是多态</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406172337419.png" alt="image-20240617233732931"></p>
+<h2 id="多态：父类的引用，指向子类的对象"><a href="#多态：父类的引用，指向子类的对象" class="headerlink" title="多态：父类的引用，指向子类的对象"></a>多态：父类的引用，指向子类的对象</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406172338263.png" alt="image-20240617233856246"></p>
+<h2 id="二、多态调用成员的特点"><a href="#二、多态调用成员的特点" class="headerlink" title="二、多态调用成员的特点"></a>二、多态调用成员的特点</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180001640.png" alt="image-20240618000101824"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180002666.png" alt="image-20240618000252571"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180003927.png" alt="image-20240618000356778"></p>
+<hr>
+<hr>
+<h2 id="三、多态的优势与弊端"><a href="#三、多态的优势与弊端" class="headerlink" title="三、多态的优势与弊端"></a>三、多态的优势与弊端</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180016271.png" alt="image-20240618001619216"></p>
+<h2 id="多态的弊端"><a href="#多态的弊端" class="headerlink" title="多态的弊端"></a>多态的弊端</h2><ul>
+<li><h2 id="就是-不能使用子类中特有的方法（因为使用的是父类的引用，创建的子类对象，调用方法时，用的是父引用-在父类中找成员变量，和找-子类重写的成员方法）"><a href="#就是-不能使用子类中特有的方法（因为使用的是父类的引用，创建的子类对象，调用方法时，用的是父引用-在父类中找成员变量，和找-子类重写的成员方法）" class="headerlink" title="就是 不能使用子类中特有的方法（因为使用的是父类的引用，创建的子类对象，调用方法时，用的是父引用 在父类中找成员变量，和找 子类重写的成员方法）"></a>就是 不能使用子类中特有的方法（因为使用的是父类的引用，创建的子类对象，调用方法时，用的是父引用 在父类中找成员变量，和找 子类重写的成员方法）</h2></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180024497.png" alt="image-20240618002454345"></p>
+<hr>
+<hr>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406180017563.png" alt="image-20240618001741501"></p>
+<hr>
 <hr>
 <p>© 版权声明</p>
 <escape>
@@ -455,7 +479,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/10/01/javascript/" title="javaScript"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/24/14.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%86%E8%8A%82%E6%80%A7%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/" title="14.面向对象细节性的知识点"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
