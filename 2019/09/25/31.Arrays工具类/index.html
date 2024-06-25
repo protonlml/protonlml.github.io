@@ -18,18 +18,21 @@
   
   
   <title>31.Arrays工具类 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="Arrays工具类  31.Arrays工具类  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除">
+  <meta name="description" content="Arrays工具类  Arrays工具类 Arrays.asList() 方法的详解 1.要点】该方法是将数组转化成List集合的方法。其长度是不可变的，不能使用add方法   List list &#x3D; Arrays.asList(“a”,”b”,”c”);  注意： （1）该方法适用于对象型数据的数组（String、Integer…） （2）该方法不使用于基本数据类型的数组（byte,s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="31.Arrays工具类">
 <meta property="og:url" content="https://protonlml.github.io/2019/09/25/31.Arrays%E5%B7%A5%E5%85%B7%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Arrays工具类  31.Arrays工具类  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除">
+<meta property="og:description" content="Arrays工具类  Arrays工具类 Arrays.asList() 方法的详解 1.要点】该方法是将数组转化成List集合的方法。其长度是不可变的，不能使用add方法   List list &#x3D; Arrays.asList(“a”,”b”,”c”);  注意： （1）该方法适用于对象型数据的数组（String、Integer…） （2）该方法不使用于基本数据类型的数组（byte,s">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406241240511.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406241343906.png">
 <meta property="article:published_time" content="2019-09-24T23:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-23T09:47:06.267Z">
+<meta property="article:modified_time" content="2024-06-24T05:43:32.101Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="工具类">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406241240511.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://protonlml.github.io/2019/09/25/31.Arrays%E5%B7%A5%E5%85%B7%E7%B1%BB/index.html">
   
@@ -360,10 +363,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/25/31.Arrays%E5%B7%A5%E5%85%B7%E7%B1%BB/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 199(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 707(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -372,7 +375,45 @@
       
         <h1><center>Arrays工具类</center></h1>
 
-<h1 id="31-Arrays工具类"><a href="#31-Arrays工具类" class="headerlink" title="31.Arrays工具类"></a>31.Arrays工具类</h1><hr>
+<h1 id="Arrays工具类"><a href="#Arrays工具类" class="headerlink" title="Arrays工具类"></a>Arrays工具类</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406241240511.png" alt="image-20240624124032055"></p>
+<h2 id="Arrays-asList-方法的详解"><a href="#Arrays-asList-方法的详解" class="headerlink" title="Arrays.asList() 方法的详解"></a>Arrays.asList() 方法的详解</h2><ul>
+<li><h3 id="1-要点】"><a href="#1-要点】" class="headerlink" title="1.要点】"></a>1.要点】</h3><h4 id="该方法是将数组转化成List集合的方法。其长度是不可变的，不能使用add方法"><a href="#该方法是将数组转化成List集合的方法。其长度是不可变的，不能使用add方法" class="headerlink" title="该方法是将数组转化成List集合的方法。其长度是不可变的，不能使用add方法"></a>该方法是将数组转化成List集合的方法。其长度是不可变的，不能使用add方法</h4></li>
+</ul>
+<p> <strong>List<String> list &#x3D; Arrays.asList(“a”,”b”,”c”);</strong></p>
+<ul>
+<li><h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><ul>
+<li>（1）该方法适用于对象型数据的数组（String、Integer…）</li>
+<li>（2）该方法不使用于基本数据类型的数组（byte,short,int,long,float,double,boolean）</li>
+<li>（3）该方法将数组与List列表链接起来：当更新其一个时，另一个自动更新</li>
+<li>（4）不支持add()、remove()、clear()等方法</li>
+</ul>
+</li>
+</ul>
+<p>注意：参数必须是对象或者对象数组<br>Arrays.asList()的参数必须是对象或者对象数组<br><strong>错误做法</strong>：使用基础类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] it = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">List&lt;<span class="type">int</span>[]&gt; ints = Arrays.asList(it);</span><br><span class="line">System.out.println(ints);</span><br><span class="line"> </span><br><span class="line">输出为[[I@59f95c5d]</span><br></pre></td></tr></table></figure>
+
+<p><strong>正确做法</strong>：使用int的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%8C%85%E8%A3%85%E7%B1%BB&spm=1001.2101.3001.7020">包装类</a>Integer</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Integer[] it = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">List&lt;Integer&gt; ints = Arrays.asList(it);</span><br><span class="line">System.out.println(ints);</span><br><span class="line"> </span><br><span class="line">输出为[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="2-Arrays-asList-是个坑"><a href="#2-Arrays-asList-是个坑" class="headerlink" title="2.Arrays.asList()是个坑"></a>2.Arrays.asList()是个坑</h3></li>
+</ul>
+<p>用此方法得到的List的长度是不可改变的，</p>
+<p>当你向这个List添加或删除一个元素时（例如 list.add(“d”);）程序就会抛出异常（java.lang.UnsupportedOperationException）。 怎么会这样？只需要看看asList()方法是怎么实现的就行了：</p>
+<p>public static <T> List<T> asList(T… a) {return new ArrayList&lt;&gt;(a);}</p>
+<p>当你看到这段代码时可能觉得没啥问题啊，不就是返回了一个ArrayList对象吗？问题就出在这里。</p>
+<p>这个ArrayList不是java.util包下的，而是java.util.Arrays.ArrayList</p>
+<p>它是Arrays类自己定义的一个静态内部类，这个内部类没有实现add()、remove()方法，而是直接使用它的父类AbstractList的相应方法。</p>
+<p>而AbstractList中的add()和remove()是直接抛出java.lang.UnsupportedOperationException异常的！</p>
+<p>public void add(int index, E element) { throw new UnsupportedOperationException();}</p>
+<p>public E remove(int index) {throw new UnsupportedOperationException();}</p>
+<h2 id="总结：如果你的List只是用来遍历，就用Arrays-asList-。"><a href="#总结：如果你的List只是用来遍历，就用Arrays-asList-。" class="headerlink" title="总结：如果你的List只是用来遍历，就用Arrays.asList()。"></a>总结：如果你的List只是用来遍历，就用Arrays.asList()。</h2><ul>
+<li><h4 id="如果你的List还要添加或删除元素，还是乖乖地new一个java-util-ArrayList，然后一个一个的添加元素"><a href="#如果你的List还要添加或删除元素，还是乖乖地new一个java-util-ArrayList，然后一个一个的添加元素" class="headerlink" title="如果你的List还要添加或删除元素，还是乖乖地new一个java.util.ArrayList，然后一个一个的添加元素"></a>如果你的List还要添加或删除元素，还是乖乖地new一个java.util.ArrayList，然后一个一个的添加元素</h4></li>
+</ul>
+<hr>
+<hr>
+<h3 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h3><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406241343906.png" alt="image-20240624134258063"></p>
+<hr>
 <hr>
 <p>© 版权声明</p>
 <escape>

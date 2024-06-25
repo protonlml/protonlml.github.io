@@ -17,21 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>37.集合进阶-04-List中常见的方法和五种遍历方式 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="List中常见的方法和五种遍历方式  包装类  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处">
+  <title>40.集合进阶-07-HashSet、LinkedHashSet详解 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="HashSet、LinkedHashSet详解  HashSet、LinkedHashSet详解    © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源">
 <meta property="og:type" content="article">
-<meta property="og:title" content="37.集合进阶-04-List中常见的方法和五种遍历方式">
-<meta property="og:url" content="https://protonlml.github.io/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-List%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E4%BA%94%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/index.html">
+<meta property="og:title" content="40.集合进阶-07-HashSet、LinkedHashSet详解">
+<meta property="og:url" content="https://protonlml.github.io/2019/09/25/40.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-07-HashSet%E3%80%81LinkedHashSet%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="List中常见的方法和五种遍历方式  包装类  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处">
+<meta property="og:description" content="HashSet、LinkedHashSet详解  HashSet、LinkedHashSet详解    © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-09-24T23:09:00.000Z">
-<meta property="article:modified_time" content="2024-06-23T09:51:25.557Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252330979.png">
+<meta property="article:published_time" content="2019-09-24T23:12:00.000Z">
+<meta property="article:modified_time" content="2024-06-25T15:31:17.101Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252330979.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://protonlml.github.io/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-List%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E4%BA%94%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/index.html">
+  <link rel="canonical" href="https://protonlml.github.io/2019/09/25/40.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-07-HashSet%E3%80%81LinkedHashSet%E8%AF%A6%E8%A7%A3/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -323,14 +325,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-37.集合进阶-04-List中常见的方法和五种遍历方式" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-40.集合进阶-07-HashSet、LinkedHashSet详解" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      37.集合进阶-04-List中常见的方法和五种遍历方式
+      40.集合进阶-07-HashSet、LinkedHashSet详解
     </h1>
   
 
@@ -338,8 +340,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-List%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E4%BA%94%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/" class="article-date">
-	  <time datetime="2019-09-24T23:09:00.000Z" itemprop="datePublished">2019-09-25</time>
+	<a href="/2019/09/25/40.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-07-HashSet%E3%80%81LinkedHashSet%E8%AF%A6%E8%A7%A3/" class="article-date">
+	  <time datetime="2019-09-24T23:12:00.000Z" itemprop="datePublished">2019-09-25</time>
 	</a>
 </span>
         
@@ -357,10 +359,10 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-List%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E4%BA%94%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/25/40.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-07-HashSet%E3%80%81LinkedHashSet%E8%AF%A6%E8%A7%A3/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 207(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 198(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -370,9 +372,11 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1><center>List中常见的方法和五种遍历方式</center></h1>
+        <h1><center>HashSet、LinkedHashSet详解</center></h1>
 
-<h1 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h1><hr>
+<p>HashSet、LinkedHashSet详解</p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252330979.png" alt="image-20240625233018639"></p>
+<hr>
 <hr>
 <p>© 版权声明</p>
 <escape>
@@ -415,7 +419,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://protonlml.github.io/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-List%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E4%BA%94%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/" title="37.集合进阶-04-List中常见的方法和五种遍历方式" target="_blank" rel="external">https://protonlml.github.io/2019/09/25/37.集合进阶-04-List中常见的方法和五种遍历方式/</a>
+      <a href="https://protonlml.github.io/2019/09/25/40.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-07-HashSet%E3%80%81LinkedHashSet%E8%AF%A6%E8%A7%A3/" title="40.集合进阶-07-HashSet、LinkedHashSet详解" target="_blank" rel="external">https://protonlml.github.io/2019/09/25/40.集合进阶-07-HashSet、LinkedHashSet详解/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -460,12 +464,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/09/25/38.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-05-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E9%93%BE%E8%A1%A8%EF%BC%89/" title="38.集合进阶-05-数据结构（栈、队列、数组、链表）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/25/41.444/" title="41.集合进阶-08-迭代器源码分析"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2019/09/25/36.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-03-%E5%A2%9E%E5%BC%BAfor%E4%BB%8Blambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="36.集合进阶-03-增强for介lambda表达式"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/09/25/39.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-06-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81%E7%BA%A2%E9%BB%91%E8%A7%84%E5%88%99%E3%80%81%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88%E8%AF%A6%E8%A7%A3%EF%BC%89/" title="39.集合进阶-06-ArrayList源码分析"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

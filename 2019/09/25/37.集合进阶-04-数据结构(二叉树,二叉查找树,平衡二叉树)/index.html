@@ -17,21 +17,27 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>46.集合进阶-13-数据结构（红黑树、红黑规则、添加节点处理方案详解） | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="包装类  包装类  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。">
+  <title>37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树) | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历 3.后序遍历 4.层序遍历    © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提">
 <meta property="og:type" content="article">
-<meta property="og:title" content="46.集合进阶-13-数据结构（红黑树、红黑规则、添加节点处理方案详解）">
-<meta property="og:url" content="https://protonlml.github.io/2019/09/25/46.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-13-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81%E7%BA%A2%E9%BB%91%E8%A7%84%E5%88%99%E3%80%81%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88%E8%AF%A6%E8%A7%A3%EF%BC%89/index.html">
+<meta property="og:title" content="37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树)">
+<meta property="og:url" content="https://protonlml.github.io/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="包装类  包装类  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。">
+<meta property="og:description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历 3.后序遍历 4.层序遍历    © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-09-25T00:20:00.000Z">
-<meta property="article:modified_time" content="2024-06-23T09:55:34.704Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252305197.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252313174.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252319271.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252322193.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252326494.png">
+<meta property="article:published_time" content="2019-09-24T23:09:00.000Z">
+<meta property="article:modified_time" content="2024-06-25T15:26:54.483Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252305197.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://protonlml.github.io/2019/09/25/46.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-13-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81%E7%BA%A2%E9%BB%91%E8%A7%84%E5%88%99%E3%80%81%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88%E8%AF%A6%E8%A7%A3%EF%BC%89/index.html">
+  <link rel="canonical" href="https://protonlml.github.io/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -323,14 +329,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-46.集合进阶-13-数据结构（红黑树、红黑规则、添加节点处理方案详解）" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树)" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      46.集合进阶-13-数据结构（红黑树、红黑规则、添加节点处理方案详解）
+      37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树)
     </h1>
   
 
@@ -338,8 +344,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/09/25/46.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-13-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81%E7%BA%A2%E9%BB%91%E8%A7%84%E5%88%99%E3%80%81%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88%E8%AF%A6%E8%A7%A3%EF%BC%89/" class="article-date">
-	  <time datetime="2019-09-25T00:20:00.000Z" itemprop="datePublished">2019-09-25</time>
+	<a href="/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/" class="article-date">
+	  <time datetime="2019-09-24T23:09:00.000Z" itemprop="datePublished">2019-09-25</time>
 	</a>
 </span>
         
@@ -357,10 +363,10 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/25/46.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-13-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81%E7%BA%A2%E9%BB%91%E8%A7%84%E5%88%99%E3%80%81%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88%E8%AF%A6%E8%A7%A3%EF%BC%89/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 196(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 258(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -370,9 +376,24 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1><center>包装类</center></h1>
+        <h1><center>数据结构(二叉树,二叉查找树,平衡二叉树)</center></h1>
 
-<h1 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h1><hr>
+
+
+<h2 id="一、二叉树"><a href="#一、二叉树" class="headerlink" title="一、二叉树"></a>一、二叉树</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252305197.png" alt="image-20240625230538805"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252313174.png" alt="image-20240625231313162"></p>
+<h2 id="二、二叉查找树的添加原理"><a href="#二、二叉查找树的添加原理" class="headerlink" title="二、二叉查找树的添加原理"></a>二、二叉查找树的添加原理</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252319271.png" alt="image-20240625231953790"></p>
+<h2 id="三、查找节点"><a href="#三、查找节点" class="headerlink" title="三、查找节点"></a>三、查找节点</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252322193.png" alt="image-20240625232225015"></p>
+<h2 id="四、所有二叉树的遍历方式"><a href="#四、所有二叉树的遍历方式" class="headerlink" title="四、所有二叉树的遍历方式"></a>四、所有二叉树的遍历方式</h2><ul>
+<li><h3 id="1-前序遍历"><a href="#1-前序遍历" class="headerlink" title="1.前序遍历"></a>1.前序遍历</h3><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252326494.png" alt="image-20240625232625441"></li>
+</ul>
+</li>
+<li><h3 id="2-中序遍历"><a href="#2-中序遍历" class="headerlink" title="2.中序遍历"></a>2.中序遍历</h3></li>
+<li><h3 id="3-后序遍历"><a href="#3-后序遍历" class="headerlink" title="3.后序遍历"></a>3.后序遍历</h3></li>
+<li><h3 id="4-层序遍历"><a href="#4-层序遍历" class="headerlink" title="4.层序遍历"></a>4.层序遍历</h3></li>
+</ul>
+<hr>
 <hr>
 <p>© 版权声明</p>
 <escape>
@@ -415,7 +436,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://protonlml.github.io/2019/09/25/46.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-13-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81%E7%BA%A2%E9%BB%91%E8%A7%84%E5%88%99%E3%80%81%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88%E8%AF%A6%E8%A7%A3%EF%BC%89/" title="46.集合进阶-13-数据结构（红黑树、红黑规则、添加节点处理方案详解）" target="_blank" rel="external">https://protonlml.github.io/2019/09/25/46.集合进阶-13-数据结构（红黑树、红黑规则、添加节点处理方案详解）/</a>
+      <a href="https://protonlml.github.io/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/" title="37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树)" target="_blank" rel="external">https://protonlml.github.io/2019/09/25/37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树)/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -460,12 +481,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/09/25/47.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-14-HashSet%E3%80%81LinkedHashSet%E8%AF%A6%E8%A7%A3/" title="47.集合进阶-14-HashSet、LinkedHashSet详解"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/25/38.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-05%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E6%97%8B%E8%BD%AC%E6%9C%BA%E5%88%B6%EF%BC%89/" title="38.集合进阶-05-数据结构（栈、队列、数组、链表）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2019/09/25/45.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-12%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E6%97%8B%E8%BD%AC%E6%9C%BA%E5%88%B6%EF%BC%89/" title="45.集合进阶-12数据结构（平衡二叉树旋转机制）"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/09/25/36.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-03-%E6%B3%9B%E5%9E%8B%E7%B1%BB%E3%80%81%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95%E3%80%81%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3/" title="36.集合进阶-03-泛型类、泛型方法、泛型接口"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
