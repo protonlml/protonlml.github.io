@@ -18,20 +18,28 @@
   
   
   <title>37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树) | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历 3.后序遍历 4.层序遍历    © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提">
+  <meta name="description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树（二叉查找树为了提高查询效率）  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历    3.后序遍历    4.层序遍历      五、二叉查找树的弊端  因为二叉查找树。有这样的弊端，所以就出现了平衡二叉树  六、平衡二叉树 下列不是平衡二叉树    二叉树结构的演变   © 版权声明">
 <meta property="og:type" content="article">
 <meta property="og:title" content="37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树)">
 <meta property="og:url" content="https://protonlml.github.io/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历 3.后序遍历 4.层序遍历    © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提">
+<meta property="og:description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树（二叉查找树为了提高查询效率）  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历    3.后序遍历    4.层序遍历      五、二叉查找树的弊端  因为二叉查找树。有这样的弊端，所以就出现了平衡二叉树  六、平衡二叉树 下列不是平衡二叉树    二叉树结构的演变   © 版权声明">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252305197.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252313174.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252319271.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252322193.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252326494.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261009739.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261010675.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261010307.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261011102.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261020703.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261025486.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261025158.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261035625.png">
 <meta property="article:published_time" content="2019-09-24T23:09:00.000Z">
-<meta property="article:modified_time" content="2024-06-25T15:26:54.483Z">
+<meta property="article:modified_time" content="2024-06-26T02:36:00.705Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
@@ -209,7 +217,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -219,7 +227,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">36</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -366,7 +374,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/25/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 258(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 327(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -380,7 +388,7 @@
 
 
 
-<h2 id="一、二叉树"><a href="#一、二叉树" class="headerlink" title="一、二叉树"></a>一、二叉树</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252305197.png" alt="image-20240625230538805"></p>
+<h2 id="一、二叉树（二叉查找树为了提高查询效率）"><a href="#一、二叉树（二叉查找树为了提高查询效率）" class="headerlink" title="一、二叉树（二叉查找树为了提高查询效率）"></a>一、二叉树（二叉查找树为了提高查询效率）</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252305197.png" alt="image-20240625230538805"></p>
 <p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252313174.png" alt="image-20240625231313162"></p>
 <h2 id="二、二叉查找树的添加原理"><a href="#二、二叉查找树的添加原理" class="headerlink" title="二、二叉查找树的添加原理"></a>二、二叉查找树的添加原理</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252319271.png" alt="image-20240625231953790"></p>
 <h2 id="三、查找节点"><a href="#三、查找节点" class="headerlink" title="三、查找节点"></a>三、查找节点</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252322193.png" alt="image-20240625232225015"></p>
@@ -389,10 +397,30 @@
 <li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252326494.png" alt="image-20240625232625441"></li>
 </ul>
 </li>
-<li><h3 id="2-中序遍历"><a href="#2-中序遍历" class="headerlink" title="2.中序遍历"></a>2.中序遍历</h3></li>
-<li><h3 id="3-后序遍历"><a href="#3-后序遍历" class="headerlink" title="3.后序遍历"></a>3.后序遍历</h3></li>
-<li><h3 id="4-层序遍历"><a href="#4-层序遍历" class="headerlink" title="4.层序遍历"></a>4.层序遍历</h3></li>
+<li><h3 id="2-中序遍历"><a href="#2-中序遍历" class="headerlink" title="2.中序遍历"></a>2.中序遍历</h3><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261009739.png" alt="image-20240626100946265"></li>
 </ul>
+</li>
+<li><h3 id="3-后序遍历"><a href="#3-后序遍历" class="headerlink" title="3.后序遍历"></a>3.后序遍历</h3><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261010675.png" alt="image-20240626101020508"></li>
+</ul>
+</li>
+<li><h3 id="4-层序遍历"><a href="#4-层序遍历" class="headerlink" title="4.层序遍历"></a>4.层序遍历</h3><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261010307.png" alt="image-20240626101050663"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261011102.png" alt="image-20240626101154821"></p>
+<h2 id="五、二叉查找树的弊端"><a href="#五、二叉查找树的弊端" class="headerlink" title="五、二叉查找树的弊端"></a>五、二叉查找树的弊端</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261020703.png" alt="image-20240626102058231"></p>
+<ul>
+<li><h3 id="因为二叉查找树。有这样的弊端，所以就出现了平衡二叉树"><a href="#因为二叉查找树。有这样的弊端，所以就出现了平衡二叉树" class="headerlink" title="因为二叉查找树。有这样的弊端，所以就出现了平衡二叉树"></a>因为二叉查找树。有这样的弊端，所以就出现了平衡二叉树</h3></li>
+</ul>
+<h2 id="六、平衡二叉树"><a href="#六、平衡二叉树" class="headerlink" title="六、平衡二叉树"></a>六、平衡二叉树</h2><ul>
+<li><h4 id="下列不是平衡二叉树"><a href="#下列不是平衡二叉树" class="headerlink" title="下列不是平衡二叉树"></a>下列不是平衡二叉树</h4></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261025486.png" alt="image-20240626102512901"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261025158.png" alt="image-20240626102557703"></p>
+<h1 id="二叉树结构的演变"><a href="#二叉树结构的演变" class="headerlink" title="二叉树结构的演变"></a>二叉树结构的演变</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261035625.png" alt="image-20240626103536594"></p>
 <hr>
 <hr>
 <p>© 版权声明</p>
@@ -481,7 +509,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/09/25/38.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-05%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E6%97%8B%E8%BD%AC%E6%9C%BA%E5%88%B6%EF%BC%89/" title="38.集合进阶-05-数据结构（栈、队列、数组、链表）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/25/38.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-05%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E6%97%8B%E8%BD%AC%E6%9C%BA%E5%88%B6%EF%BC%89/" title="38.集合进阶-05数据结构（平衡二叉树旋转机制）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
