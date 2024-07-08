@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>33.commons-io工具类 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="commons-io工具类    1，IOUtils（数据相关）拷贝方法：copy方法有多个重载方法，满足不同的输入输出流 IOUtils.copy(InputStream input, OutputStream output) IOUtils.copy(InputStream input, OutputStream output, int bufferSize)&#x2F;&#x2F;可指定缓冲">
+<meta property="og:type" content="article">
+<meta property="og:title" content="33.commons-io工具类">
+<meta property="og:url" content="https://protonlml.github.io/2019/09/26/33.commons-io%E5%B7%A5%E5%85%B7%E7%B1%BB/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="commons-io工具类    1，IOUtils（数据相关）拷贝方法：copy方法有多个重载方法，满足不同的输入输出流 IOUtils.copy(InputStream input, OutputStream output) IOUtils.copy(InputStream input, OutputStream output, int bufferSize)&#x2F;&#x2F;可指定缓冲">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-26T14:35:00.000Z">
+<meta property="article:modified_time" content="2024-07-04T14:18:02.798Z">
+<meta property="article:author" content="𝚲𝚳𝚲">
+<meta property="article:tag" content="工具类">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://protonlml.github.io/2019/09/26/33.commons-io%E5%B7%A5%E5%85%B7%E7%B1%BB/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">𝚲𝚳𝚲</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">◙</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">42</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">75</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/07/07/55.%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-07-06T16:13:11.548Z" itemprop="datePublished">2024-07-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/07/04/54.%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-07-04T15:52:45.810Z" itemprop="datePublished">2024-07-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/01/01/%E6%8C%82%E5%B9%B4%E5%85%BD/" class="title">换新颜给博客网站右上角添加悬挂年兽 喜增龙年喜气源码</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-01-01T03:00:00.000Z" itemprop="datePublished">2024-01-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/17/matery%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">matery主题的使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-17T03:00:00.000Z" itemprop="datePublished">2020-03-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/3.git%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="title">3.git初始化仓库的两种方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T06:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-33.commons-io工具类" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      33.commons-io工具类
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/09/26/33.commons-io%E5%B7%A5%E5%85%B7%E7%B1%BB/" class="article-date">
+	  <time datetime="2019-09-26T14:35:00.000Z" itemprop="datePublished">2019-09-26</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/26/33.commons-io%E5%B7%A5%E5%85%B7%E7%B1%BB/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 10(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1><center>commons-io工具类</center></h1>
+
+
+
+<h1 id="1，IOUtils（数据相关）"><a href="#1，IOUtils（数据相关）" class="headerlink" title="1，IOUtils（数据相关）"></a>1，IOUtils（数据相关）</h1><h3 id="拷贝方法："><a href="#拷贝方法：" class="headerlink" title="拷贝方法："></a>拷贝方法：</h3><p>copy方法有多个重载方法，满足不同的输入输出流</p>
+<p>IOUtils.copy(InputStream input, OutputStream output)</p>
+<p>IOUtils.copy(InputStream input, OutputStream output, int bufferSize)&#x2F;&#x2F;可指定缓冲区大小</p>
+<p>IOUtils.copy(InputStream input, Writer output, String inputEncoding)&#x2F;&#x2F;可指定输入流的编码表</p>
+<p>IOUtils.copy(Reader input, Writer output)</p>
+<p>IOUtils.copy(Reader input, OutputStream output, String outputEncoding)&#x2F;&#x2F;可指定输出流的编码表</p>
+<h3 id="拷贝大文件的方法："><a href="#拷贝大文件的方法：" class="headerlink" title="拷贝大文件的方法："></a>拷贝大文件的方法：</h3><p>&#x2F;&#x2F; 这个方法适合拷贝较大的数据流，比如2G以上</p>
+<p>IOUtils.copyLarge(Reader input, Writer output) &#x2F;&#x2F; 默认会用1024*4的buffer来读取</p>
+<p>IOUtils.copyLarge(Reader input, Writer output, char[] buffer)&#x2F;&#x2F;可指定缓冲区大小</p>
+<p> </p>
+<h3 id="将输入流转换成字符串"><a href="#将输入流转换成字符串" class="headerlink" title="将输入流转换成字符串"></a>将输入流转换成字符串</h3><p>IOUtils.toString(Reader input)</p>
+<p>IOUtils.toString(byte[] input, String encoding)</p>
+<p>IOUtils.toString(InputStream input, Charset encoding)</p>
+<p>IOUtils.toString(InputStream input, String encoding)</p>
+<p>IOUtils.toString(URI uri, String encoding)</p>
+<p>IOUtils.toString(URL url, String encoding)</p>
+<p> </p>
+<h3 id="将输入流转换成字符数组"><a href="#将输入流转换成字符数组" class="headerlink" title="将输入流转换成字符数组"></a>将输入流转换成字符数组</h3><p>IOUtils.toByteArray(InputStream input)</p>
+<p>IOUtils.toByteArray(InputStream input, int size)</p>
+<p>IOUtils.toByteArray(URI uri)</p>
+<p>IOUtils.toByteArray(URL url)</p>
+<p>IOUtils.toByteArray(URLConnection urlConn)</p>
+<p>IOUtils.toByteArray(Reader input, String encoding)</p>
+<p> </p>
+<h3 id="字符串读写"><a href="#字符串读写" class="headerlink" title="字符串读写"></a>字符串读写</h3><p>IOUtils.readLines(Reader input)</p>
+<p>IOUtils.readLines(InputStream input, Charset encoding)</p>
+<p>IOUtils.readLines(InputStream input, String encoding)</p>
+<p>IOUtils.writeLines(Collection&lt;?&gt; lines, String lineEnding, Writer writer)</p>
+<p>IOUtils.writeLines(Collection&lt;?&gt; lines, String lineEnding, OutputStream output, Charset encoding)</p>
+<p>IOUtils.writeLines(Collection&lt;?&gt; lines, String lineEnding, OutputStream output, String encoding)</p>
+<h3 id="从一个流中读取内容"><a href="#从一个流中读取内容" class="headerlink" title="从一个流中读取内容"></a>从一个流中读取内容</h3><p>IOUtils.read(InputStream input, byte[] buffer)</p>
+<p>IOUtils.read(InputStream input, byte[] buffer, int offset, int length) IOUtils.read(Reader input, char[] buffer)</p>
+<p>IOUtils.read(Reader input, char[] buffer, int offset, int length)</p>
+<h3 id="把数据写入到输出流中"><a href="#把数据写入到输出流中" class="headerlink" title="把数据写入到输出流中"></a>把数据写入到输出流中</h3><p>IOUtils.write(byte[] data, OutputStream output)</p>
+<p>IOUtils.write(byte[] data, Writer output, Charset encoding)</p>
+<p>IOUtils.write(byte[] data, Writer output, String encoding)</p>
+<p>IOUtils.write(char[] data, Writer output)</p>
+<p>IOUtils.write(char[] data, OutputStream output, Charset encoding)</p>
+<p>IOUtils.write(char[] data, OutputStream output, String encoding)</p>
+<p>IOUtils.write(String data, Writer output)</p>
+<p>IOUtils.write(CharSequence data, Writer output)</p>
+<p> </p>
+<h3 id="从一个流中读取内容，如果读取的长度不够，就会抛出异常"><a href="#从一个流中读取内容，如果读取的长度不够，就会抛出异常" class="headerlink" title="从一个流中读取内容，如果读取的长度不够，就会抛出异常"></a>从一个流中读取内容，如果读取的长度不够，就会抛出异常</h3><p>IOUtils.readFully(InputStream input, int length)</p>
+<p>IOUtils.readFully(InputStream input, byte[] buffer)</p>
+<p>IOUtils.readFully(InputStream input, byte[] buffer, int offset, int length) IOUtils.readFully(Reader input, char[] buffer)</p>
+<p>IOUtils.readFully(Reader input, char[] buffer, int offset, int length)</p>
+<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>IOUtils.contentEquals(InputStream input1, InputStream input2) &#x2F;&#x2F; 比较两个流是否相等</p>
+<p>IOUtils.contentEquals(Reader input1, Reader input2)</p>
+<p>IOUtils.contentEqualsIgnoreEOL(Reader input1, Reader input2) &#x2F;&#x2F; 比较两个流，忽略换行符</p>
+<p> </p>
+<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><p>IOUtils.skip(InputStream input, long toSkip) &#x2F;&#x2F; 跳过指定长度的流</p>
+<p>IOUtils.skip(Reader input, long toSkip)</p>
+<p>IOUtils.skipFully(InputStream input, long toSkip) &#x2F;&#x2F; 如果忽略的长度大于现有的长度，就会抛出异常</p>
+<p>IOUtils.skipFully(Reader input, long toSkip)</p>
+<p> </p>
+<h1 id="2，FileUtils（文件-文件夹相关）"><a href="#2，FileUtils（文件-文件夹相关）" class="headerlink" title="2，FileUtils（文件&#x2F;文件夹相关）"></a>2，FileUtils（文件&#x2F;文件夹相关）</h1><h3 id="复制文件夹"><a href="#复制文件夹" class="headerlink" title="复制文件夹"></a>复制文件夹</h3><p>FileUtils.copyDirectory(File srcDir, File destDir) &#x2F;&#x2F; 复制文件夹（文件夹里面的文件内容也会复制）</p>
+<p>FileUtils.copyDirectory(File srcDir, File destDir, FileFilter filter) &#x2F;&#x2F; 复制文件夹，带有文件过滤功能</p>
+<p>FileUtils.copyDirectoryToDirectory(File srcDir, File destDir) &#x2F;&#x2F; 以子目录的形式将文件夹复制到到另一个文件夹下</p>
+<p> </p>
+<h3 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h3><p>FileUtils.copyFile(File srcFile, File destFile) &#x2F;&#x2F; 复制文件</p>
+<p>FileUtils.copyFile(File input, OutputStream output) &#x2F;&#x2F; 复制文件到输出流</p>
+<p>FileUtils.copyFileToDirectory(File srcFile, File destDir) &#x2F;&#x2F; 复制文件到一个指定的目录</p>
+<p>FileUtils.copyInputStreamToFile(InputStream source, File destination) &#x2F;&#x2F; 把输入流里面的内容复制到指定文件</p>
+<p>FileUtils.copyURLToFile(URL source, File destination) &#x2F;&#x2F; 把URL 里面内容复制到文件(可以下载文件)</p>
+<p>FileUtils.copyURLToFile(URL source, File destination, int connectionTimeout, int readTimeout)</p>
+<p> </p>
+<h3 id="把字符串写入文件"><a href="#把字符串写入文件" class="headerlink" title="把字符串写入文件"></a>把字符串写入文件</h3><p>FileUtils.writeStringToFile(File file, String data, String encoding)</p>
+<p>FileUtils.writeStringToFile(File file, String data, String encoding, boolean append)</p>
+<h3 id="把字节数组写入文件"><a href="#把字节数组写入文件" class="headerlink" title="把字节数组写入文件"></a>把字节数组写入文件</h3><p>FileUtils.writeByteArrayToFile(File file, byte[] data)</p>
+<p>FileUtils.writeByteArrayToFile(File file, byte[] data, boolean append) FileUtils.writeByteArrayToFile(File file, byte[] data, int off, int len) FileUtils.writeByteArrayToFile(File file, byte[] data, int off, int len, boolean append)</p>
+<h3 id="把集合里面的内容写入文件"><a href="#把集合里面的内容写入文件" class="headerlink" title="把集合里面的内容写入文件"></a>把集合里面的内容写入文件</h3><p>&#x2F;&#x2F; encoding：文件编码，lineEnding：每行以什么结尾</p>
+<p>FileUtils.writeLines(File file, Collection&lt;?&gt; lines)</p>
+<p>FileUtils.writeLines(File file, Collection&lt;?&gt; lines, boolean append)</p>
+<p>FileUtils.writeLines(File file, Collection&lt;?&gt; lines, String lineEnding)</p>
+<p>FileUtils.writeLines(File file, Collection&lt;?&gt; lines, String lineEnding, boolean append)</p>
+<p>FileUtils.writeLines(File file, String encoding, Collection&lt;?&gt; lines)</p>
+<p>FileUtils.writeLines(File file, String encoding, Collection&lt;?&gt; lines, boolean append)</p>
+<p>FileUtils.writeLines(File file, String encoding, Collection&lt;?&gt; lines, String lineEnding)</p>
+<p>FileUtils.writeLines(File file, String encoding, Collection&lt;?&gt; lines, String lineEnding, boolean append)</p>
+<h3 id="往文件里面写内容"><a href="#往文件里面写内容" class="headerlink" title="往文件里面写内容"></a>往文件里面写内容</h3><p>FileUtils.write(File file, CharSequence data, Charset encoding)</p>
+<p>FileUtils.write(File file, CharSequence data, Charset encoding, boolean append)</p>
+<p>FileUtils.write(File file, CharSequence data, String encoding)</p>
+<p>FileUtils.write(File file, CharSequence data, String encoding, boolean append)</p>
+<p> </p>
+<h3 id="文件移动"><a href="#文件移动" class="headerlink" title="文件移动"></a>文件移动</h3><p>FileUtils.moveDirectory(File srcDir, File destDir) &#x2F;&#x2F; 文件夹在内的所有文件都将移动FileUtils.moveDirectoryToDirectory(File src, File destDir, boolean createDestDir) &#x2F;&#x2F; 以子文件夹的形式移动到另外一个文件下</p>
+<p>FileUtils.moveFile(File srcFile, File destFile) &#x2F;&#x2F; 移动文件</p>
+<p>FileUtils.moveFileToDirectory(File srcFile, File destDir, boolean createDestDir) &#x2F;&#x2F; 以子文件的形式移动到另外一个文件夹下</p>
+<p>FileUtils.moveToDirectory(File src, File destDir, boolean createDestDir) &#x2F;&#x2F; 移动文件或者目录到指定的文件夹内</p>
+<p> </p>
+<h3 id="清空和删除文件夹"><a href="#清空和删除文件夹" class="headerlink" title="清空和删除文件夹"></a>清空和删除文件夹</h3><p>FileUtils.deleteDirectory(File directory) &#x2F;&#x2F; 删除文件夹，包括文件夹和文件夹里面所有的文件</p>
+<p>FileUtils.cleanDirectory(File directory) &#x2F;&#x2F; 清空文件夹里面的所有的内容</p>
+<p>FileUtils.forceDelete(File file) &#x2F;&#x2F; 删除，会抛出异常</p>
+<p>FileUtils.deleteQuietly(File file) &#x2F;&#x2F; 删除，不会抛出异常</p>
+<p> </p>
+<h3 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h3><p>FileUtils.forceMkdir(File directory) &#x2F;&#x2F; 创建文件夹(可创建多级)</p>
+<p>FileUtils.forceMkdirParent(File file) &#x2F;&#x2F; 创建文件的父级目录</p>
+<p> </p>
+<h3 id="获取文件输入-输出流"><a href="#获取文件输入-输出流" class="headerlink" title="获取文件输入&#x2F;输出流"></a>获取文件输入&#x2F;输出流</h3><p>FileUtils.openInputStream(File file)</p>
+<p>FileUtils.openOutputStream(File file)</p>
+<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><p>FileUtils.readFileToByteArray(File file) &#x2F;&#x2F; 把文件读取到字节数组</p>
+<p>FileUtils.readFileToString(File file, Charset encoding) &#x2F;&#x2F; 把文件读取成字符串</p>
+<p>FileUtils.readFileToString(File file, String encoding)</p>
+<p>FileUtils.readLines(File file, Charset encoding) &#x2F;&#x2F; 把文件读取成字符串集合</p>
+<p>FileUtils.readLines(File file, String encoding)</p>
+<p> </p>
+<h3 id="测试两个文件的修改时间"><a href="#测试两个文件的修改时间" class="headerlink" title="测试两个文件的修改时间"></a>测试两个文件的修改时间</h3><p>FileUtils.isFileNewer(File file, Date date)</p>
+<p>FileUtils.isFileNewer(File file, File reference)</p>
+<p>FileUtils.isFileNewer(File file, long timeMillis)</p>
+<p>FileUtils.isFileOlder(File file, Date date)</p>
+<p>FileUtils.isFileOlder(File file, File reference)</p>
+<p>FileUtils.isFileOlder(File file, long timeMillis)</p>
+<p> </p>
+<p> </p>
+<h3 id="文件-文件夹的迭代"><a href="#文件-文件夹的迭代" class="headerlink" title="文件&#x2F;文件夹的迭代"></a>文件&#x2F;文件夹的迭代</h3><p>FileUtils.iterateFiles(File directory, IOFileFilter fileFilter, IOFileFilter dirFilter)</p>
+<p>FileUtils.iterateFiles(File directory, String[] extensions, boolean recursive)</p>
+<p>FileUtils.iterateFilesAndDirs(File directory, IOFileFilter fileFilter, IOFileFilter dirFilter)</p>
+<p>FileUtils.lineIterator(File file)</p>
+<p>FileUtils.lineIterator(File file, String encoding)</p>
+<p> </p>
+<p>FileUtils.listFiles(File directory, IOFileFilter fileFilter, IOFileFilter dirFilter)</p>
+<p>FileUtils.listFiles(File directory, String[] extensions, boolean recursive)</p>
+<p>FileUtils.listFilesAndDirs(File directory, IOFileFilter fileFilter, IOFileFilter dirFilter)</p>
+<p> </p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>FileUtils.isSymlink(File file) &#x2F;&#x2F; 判断是否是符号链接</p>
+<p>FileUtils.directoryContains(File directory, File child) &#x2F;&#x2F; 判断文件夹内是否包含某个文件或者文件夹</p>
+<p> FileUtils.sizeOf(File file) &#x2F;&#x2F; 获取文件或者文件夹的大小</p>
+<p>FileUtils.getTempDirectory()&#x2F;&#x2F; 获取临时目录文件</p>
+<p>FileUtils.getTempDirectoryPath()&#x2F;&#x2F; 获取临时目录路径</p>
+<p>FileUtils.getUserDirectory()&#x2F;&#x2F; 获取用户目录文件</p>
+<p>FileUtils.getUserDirectoryPath()&#x2F;&#x2F; 获取用户目录路径</p>
+<p>FileUtils.touch(File file) &#x2F;&#x2F; 创建文件</p>
+<p>FileUtils.contentEquals(File file1, File file2) &#x2F;&#x2F; 比较两个文件内容是否相同</p>
+<h1 id="FilenameUtils（文件名-后缀名相关）"><a href="#FilenameUtils（文件名-后缀名相关）" class="headerlink" title="FilenameUtils（文件名&#x2F;后缀名相关）"></a>FilenameUtils（文件名&#x2F;后缀名相关）</h1><p>FilenameUtils.concat(String basePath, String fullFilenameToAdd) &#x2F;&#x2F; 合并目录和文件名为文件全路径</p>
+<p>FilenameUtils.getBaseName(String filename) &#x2F;&#x2F; 去除目录和后缀后的文件名</p>
+<p>FilenameUtils.getExtension(String filename) &#x2F;&#x2F; 获取文件的后缀</p>
+<p>FilenameUtils.getFullPath(String filename) &#x2F;&#x2F; 获取文件的目录</p>
+<p>FilenameUtils.getName(String filename) &#x2F;&#x2F; 获取文件名</p>
+<p>FilenameUtils.getPath(String filename) &#x2F;&#x2F; 去除盘符后的路径</p>
+<p>FilenameUtils.getPrefix(String filename) &#x2F;&#x2F; 盘符</p>
+<p>FilenameUtils.indexOfExtension(String filename) &#x2F;&#x2F; 获取最后一个.的位置</p>
+<p>FilenameUtils.indexOfLastSeparator(String filename) &#x2F;&#x2F; 获取最后一个&#x2F;的位置</p>
+<p>FilenameUtils.normalize(String filename) &#x2F;&#x2F; 获取当前系统格式化路径</p>
+<p>FilenameUtils.removeExtension(String filename) &#x2F;&#x2F; 移除文件的扩展名</p>
+<p>FilenameUtils.separatorsToSystem(String path) &#x2F;&#x2F; 转换分隔符为当前系统分隔符</p>
+<p>FilenameUtils.separatorsToUnix(String path) &#x2F;&#x2F; 转换分隔符为linux系统分隔符</p>
+<p>FilenameUtils.separatorsToWindows(String path) &#x2F;&#x2F; 转换分隔符为windows系统分隔符</p>
+<p>FilenameUtils.equals(String filename1, String filename2) &#x2F;&#x2F; 判断文件路径是否相同，非格式化</p>
+<p>FilenameUtils.equalsNormalized(String filename1, String filename2) &#x2F;&#x2F; 判断文件路径是否相同，格式化</p>
+<p>FilenameUtils.directoryContains(String canonicalParent, String canonicalChild) &#x2F;&#x2F; 判断目录下是否包含指定文件或目录</p>
+<p>FilenameUtils.isExtension(String filename, String extension) &#x2F;&#x2F; 判断文件扩展名是否包含在指定集合(数组、字符串)中</p>
+<p>FilenameUtils.wildcardMatch(String filename, String wildcardMatcher) &#x2F;&#x2F; 判断文件扩展名是否和指定规则匹配	</p>
+<hr>
+<hr>
+<p>© 版权声明</p>
+<escape>
+
+<div>
+    <h3 align="center"  style="color: brown;" >版权声明</h3>
+    <table>
+           <tr>
+            <ol>
+                <li>本网站名称：𝚲𝚳𝚲</li>
+                <li>𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。</li>
+                <li>本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。</li>
+                <li>本站一切资源不代表本站立场，并不代表本站赞同其观点和对其真实性负责。</li>
+                <li>本站一律禁止以任何方式发布或转载任何违法的相关信息，访客发现请举报</li> 
+                <li>本站资源大多存储在云盘，如发现链接失效，请联系我，我会第一时间更新。</li>
+                <li>本站强烈打击盗版/破解等有损他人权益和违法作为，请支持正版！</li>  
+            </ol>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+</escape>
+
+<hr>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://protonlml.github.io/2019/09/26/33.commons-io%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="33.commons-io工具类" target="_blank" rel="external">https://protonlml.github.io/2019/09/26/33.commons-io工具类/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">𝚲𝚳𝚲</span><small class="ml-1x">◙</small></a></h3>
+        <div>业精于勤，荒于嬉；行成于思，毁于随！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/01/javascript/" title="javaScript"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/09/26/52.IO%E6%B5%81-%E8%BD%AC%E6%8D%A2%E6%B5%81/" title="52.IO流-转换流"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2019 - 2024 𝚲𝚳𝚲
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>
