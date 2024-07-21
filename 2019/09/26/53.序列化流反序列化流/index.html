@@ -18,18 +18,27 @@
   
   
   <title>53.序列化流反序列化流 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="序列化流反序列化流  一、  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。">
+  <meta name="description" content="序列化流反序列化流  序列化流（对象操作输出流） 一、可以把java中的对象写到本地文件中 写到本地文件中的对象信息，我们是看不懂的，需要进行反序列化，读取到内存中，即可成为对象  二、为什么不直接将对象属性值，给保存到本地文件中呢，非得使用序列化给序列到本地文件中，还是看不懂的？ 比如游戏中的关键信息，不使用序列化的话，在本地直接明文展示，那就会被修改了，游戏中的属性也就被修改了   三、序列化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="53.序列化流反序列化流">
 <meta property="og:url" content="https://protonlml.github.io/2019/09/26/53.%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%81%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%81/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="序列化流反序列化流  一、  © 版权声明        版权声明                                               本网站名称：𝚲𝚳𝚲                 𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。                 本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。">
+<meta property="og:description" content="序列化流反序列化流  序列化流（对象操作输出流） 一、可以把java中的对象写到本地文件中 写到本地文件中的对象信息，我们是看不懂的，需要进行反序列化，读取到内存中，即可成为对象  二、为什么不直接将对象属性值，给保存到本地文件中呢，非得使用序列化给序列到本地文件中，还是看不懂的？ 比如游戏中的关键信息，不使用序列化的话，在本地直接明文展示，那就会被修改了，游戏中的属性也就被修改了   三、序列化">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407212225359.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407202332127.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407210003873.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407202347575.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407210044370.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407210059140.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407210101542.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407212222367.png">
 <meta property="article:published_time" content="2019-09-26T01:40:00.000Z">
-<meta property="article:modified_time" content="2024-07-20T14:54:30.326Z">
+<meta property="article:modified_time" content="2024-07-21T14:25:50.380Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407212225359.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://protonlml.github.io/2019/09/26/53.%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%81%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%81/index.html">
   
@@ -223,7 +232,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">83</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">83</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -246,6 +255,21 @@
               </p>
               <p class="item-date">
                 <time datetime="2024-01-01T03:00:00.000Z" itemprop="datePublished">2024-01-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/05/19/51.IO%E6%B5%81%EF%BC%88%E5%85%B6%E4%BB%96%E6%B5%81%EF%BC%89/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-19T13:05:34.491Z" itemprop="datePublished">2023-05-19</time>
               </p>
             </div>
           </li>
@@ -291,21 +315,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2019-10-10T03:00:00.000Z" itemprop="datePublished">2019-10-10</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/java/">java</a>
-              </p>
-              <p class="item-title">
-                <a href="/2019/10/01/javascript/" class="title">javaScript</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2019-10-01T04:00:00.000Z" itemprop="datePublished">2019-10-01</time>
               </p>
             </div>
           </li>
@@ -360,10 +369,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/26/53.%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%81%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%81/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 200(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -372,7 +381,56 @@
       
         <h1><center>序列化流反序列化流</center></h1>
 
-<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><hr>
+<h1 id="序列化流（对象操作输出流）"><a href="#序列化流（对象操作输出流）" class="headerlink" title="序列化流（对象操作输出流）"></a>序列化流（对象操作输出流）</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407212225359.png" alt="image-20240721222543452"></p>
+<h3 id="一、可以把java中的对象写到本地文件中"><a href="#一、可以把java中的对象写到本地文件中" class="headerlink" title="一、可以把java中的对象写到本地文件中"></a>一、可以把java中的对象写到本地文件中</h3><ul>
+<li><h4 id="写到本地文件中的对象信息，我们是看不懂的，需要进行反序列化，读取到内存中，即可成为对象"><a href="#写到本地文件中的对象信息，我们是看不懂的，需要进行反序列化，读取到内存中，即可成为对象" class="headerlink" title="写到本地文件中的对象信息，我们是看不懂的，需要进行反序列化，读取到内存中，即可成为对象"></a>写到本地文件中的对象信息，我们是看不懂的，需要进行反序列化，读取到内存中，即可成为对象</h4></li>
+</ul>
+<h3 id="二、为什么不直接将对象属性值，给保存到本地文件中呢，非得使用序列化给序列到本地文件中，还是看不懂的？"><a href="#二、为什么不直接将对象属性值，给保存到本地文件中呢，非得使用序列化给序列到本地文件中，还是看不懂的？" class="headerlink" title="二、为什么不直接将对象属性值，给保存到本地文件中呢，非得使用序列化给序列到本地文件中，还是看不懂的？"></a>二、为什么不直接将对象属性值，给保存到本地文件中呢，非得使用序列化给序列到本地文件中，还是看不懂的？</h3><ul>
+<li><h4 id="比如游戏中的关键信息，不使用序列化的话，在本地直接明文展示，那就会被修改了，游戏中的属性也就被修改了"><a href="#比如游戏中的关键信息，不使用序列化的话，在本地直接明文展示，那就会被修改了，游戏中的属性也就被修改了" class="headerlink" title="比如游戏中的关键信息，不使用序列化的话，在本地直接明文展示，那就会被修改了，游戏中的属性也就被修改了"></a>比如游戏中的关键信息，不使用序列化的话，在本地直接明文展示，那就会被修改了，游戏中的属性也就被修改了</h4></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407202332127.png" alt="image-20240720233221141"></p>
+<h2 id="三、序列化流的细节"><a href="#三、序列化流的细节" class="headerlink" title="三、序列化流的细节"></a>三、序列化流的细节</h2><ul>
+<li><h3 id="使用对象输出流将对象保存到文件时会出现NotSerializableException异常"><a href="#使用对象输出流将对象保存到文件时会出现NotSerializableException异常" class="headerlink" title="使用对象输出流将对象保存到文件时会出现NotSerializableException异常"></a>使用对象输出流将对象保存到文件时会出现NotSerializableException异常</h3></li>
+<li><h3 id="解决方案：需要让javabean类实现Serializable接口-同时自动生成版本号UID"><a href="#解决方案：需要让javabean类实现Serializable接口-同时自动生成版本号UID" class="headerlink" title="解决方案：需要让javabean类实现Serializable接口,同时自动生成版本号UID"></a>解决方案：需要让javabean类实现Serializable接口,同时自动生成版本号UID</h3></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407210003873.png" alt="image-20240721000353503"></p>
+<h1 id="反序列化流"><a href="#反序列化流" class="headerlink" title="反序列化流"></a>反序列化流</h1><h2 id="一、本地文件中的序列化对象，反序列化到内存"><a href="#一、本地文件中的序列化对象，反序列化到内存" class="headerlink" title="一、本地文件中的序列化对象，反序列化到内存"></a>一、本地文件中的序列化对象，反序列化到内存</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407202347575.png" alt="image-20240720234733168"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407210044370.png" alt="image-20240721004416055"></p>
+<hr>
+<hr>
+<h1 id="细节："><a href="#细节：" class="headerlink" title="细节："></a>细节：</h1><ul>
+<li><h4 id="一个对象实现了Serializable接口，说明这个类的对象可以被序列化的"><a href="#一个对象实现了Serializable接口，说明这个类的对象可以被序列化的" class="headerlink" title="一个对象实现了Serializable接口，说明这个类的对象可以被序列化的"></a>一个对象实现了Serializable接口，说明这个类的对象可以被序列化的</h4></li>
+<li><h4 id="java底层会根据这个类的成员变量，静态变量，构造方法，成员方法，简单的说就是根据这个类中的所有内容计算出一个long类型的序列号。这个序列号，就是这个类的版本号。"><a href="#java底层会根据这个类的成员变量，静态变量，构造方法，成员方法，简单的说就是根据这个类中的所有内容计算出一个long类型的序列号。这个序列号，就是这个类的版本号。" class="headerlink" title="java底层会根据这个类的成员变量，静态变量，构造方法，成员方法，简单的说就是根据这个类中的所有内容计算出一个long类型的序列号。这个序列号，就是这个类的版本号。"></a>java底层会根据这个类的成员变量，静态变量，构造方法，成员方法，简单的说就是根据这个类中的所有内容计算出一个long类型的序列号。这个序列号，就是这个类的版本号。</h4></li>
+<li><h4 id="在将对象序列化，以及反序列化的时候，使用的UID是唯一的"><a href="#在将对象序列化，以及反序列化的时候，使用的UID是唯一的" class="headerlink" title="在将对象序列化，以及反序列化的时候，使用的UID是唯一的"></a>在将对象序列化，以及反序列化的时候，使用的UID是唯一的</h4></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407210059140.png" alt="image-20240721005942108"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407210101542.png" alt="image-20240721010128414"></p>
+<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><ul>
+<li><h2 id="将多个对象序列化到本地，再反序列化到内存"><a href="#将多个对象序列化到本地，再反序列化到内存" class="headerlink" title="将多个对象序列化到本地，再反序列化到内存"></a>将多个对象序列化到本地，再反序列化到内存</h2><ul>
+<li><h4 id="使用ArrayList集合来装多个对象，然后再进行序列化和反序列化"><a href="#使用ArrayList集合来装多个对象，然后再进行序列化和反序列化" class="headerlink" title="使用ArrayList集合来装多个对象，然后再进行序列化和反序列化"></a>使用ArrayList集合来装多个对象，然后再进行序列化和反序列化</h4></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407212222367.png" alt="image-20240721222252005"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atlml.Serialized_stream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serial;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  小狗类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Serial</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">5061231638733610552L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">(Integer age, String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(Integer age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Dog&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&quot;, name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atlml.Serialized_stream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将多个自定义对象序列化到文件中，但是由于对象的个数不确定，反序列化流该如何读取呢？</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SerializedStream2</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 如果在代码中，一次需要将多个对象序列化到本地文件中， </span></span><br><span class="line"><span class="comment">         *          我们一般会采用，将多个对象放在集合当中</span></span><br><span class="line"><span class="comment">         *          我们将这个集合给序列化到本地文件中</span></span><br><span class="line"><span class="comment">         *          取得时候，也是直接取一个集合。</span></span><br><span class="line"><span class="comment">         *          然后再遍历</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"></span><br><span class="line">        <span class="type">Dog</span> <span class="variable">bozai</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">5</span>, <span class="string">&quot;波仔&quot;</span>);</span><br><span class="line">        <span class="type">Dog</span> <span class="variable">keji</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">3</span>, <span class="string">&quot;柯基&quot;</span>);</span><br><span class="line">        <span class="type">Dog</span> <span class="variable">tudou</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="number">1</span>, <span class="string">&quot;土豆&quot;</span>);</span><br><span class="line">        ArrayList&lt;Dog&gt; dogs = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        dogs.add(bozai);</span><br><span class="line">        dogs.add(keji);</span><br><span class="line">        dogs.add(tudou);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//序列化流，将多个对象 序列化到 本地文件中去</span></span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">objectOutputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;javabasis\\aaa\\myio\\a.txt&quot;</span>));</span><br><span class="line">        objectOutputStream.writeObject(dogs);<span class="comment">//序列化集合</span></span><br><span class="line">        objectOutputStream.close();</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atlml.Serialized_stream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 反序列化，</span></span><br><span class="line"><span class="comment"> *     将保存在本地的 对象。 反序列化到程序中</span></span><br><span class="line"><span class="comment"> *     这里是将 ArrayList 集合反序列化到内存中</span></span><br><span class="line"><span class="comment"> *      List集合中，存放了多个对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SerializedStream3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//反序列化一个集合</span></span><br><span class="line">        <span class="type">ObjectInputStream</span> <span class="variable">objectInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;javabasis\\aaa\\myio\\a.txt&quot;</span>));</span><br><span class="line">        <span class="type">ArrayList</span> <span class="variable">doglist</span> <span class="operator">=</span> (ArrayList) objectInputStream.readObject();</span><br><span class="line"></span><br><span class="line">        doglist.forEach(d-&gt; System.out.println(d));</span><br><span class="line">        <span class="comment">//Dog&#123;age=5, name=&#x27;波仔&#x27;&#125;</span></span><br><span class="line">        <span class="comment">//Dog&#123;age=3, name=&#x27;柯基&#x27;&#125;</span></span><br><span class="line">        <span class="comment">//Dog&#123;age=1, name=&#x27;土豆&#x27;&#125;</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
 <hr>
 <p>© 版权声明</p>
 <escape>
@@ -453,7 +511,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/09/26/54.%E5%AD%97%E8%8A%82%E6%89%93%E5%8D%B0%E6%B5%81/" title="54.字节打印流"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/26/54.%E5%AD%97%E8%8A%82%E6%89%93%E5%8D%B0%E6%B5%81&%E5%AD%97%E7%AC%A6%E6%89%93%E5%8D%B0%E6%B5%81/" title="54.字节打印流&amp;字符打印流"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
