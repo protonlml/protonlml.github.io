@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>1.运算符以及类型转换 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="计算机中 能够存的数据的最小单位是 “字节” 1个字节是8个bit位1024个字节是1kb1024kb是1M1024M是1G   一、算数运算符 二、类型转换1.隐式转换 隐式转换的两种提升规则 取值范围小的,和取值范围大的进行运算,小的会先提升为大的,再进行运算      byte short char三种类型的数据在运算的时候,都会直接先提升为int,然后再进行运算   2.隐式转换小结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.运算符以及类型转换">
+<meta property="og:url" content="https://protonlml.github.io/2019/09/21/java%E5%9F%BA%E7%A1%80/1.%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%A5%E5%8F%8A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="计算机中 能够存的数据的最小单位是 “字节” 1个字节是8个bit位1024个字节是1kb1024kb是1M1024M是1G   一、算数运算符 二、类型转换1.隐式转换 隐式转换的两种提升规则 取值范围小的,和取值范围大的进行运算,小的会先提升为大的,再进行运算      byte short char三种类型的数据在运算的时候,都会直接先提升为int,然后再进行运算   2.隐式转换小结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407031651705.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018421.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018311.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018581.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018812.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018231.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019842.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019951.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019642.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019131.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019672.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020480.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020673.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020900.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020731.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020700.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021780.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021876.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021870.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021710.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021400.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021160.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161022859.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161022930.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161022940.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406162253404.png">
+<meta property="article:published_time" content="2019-09-21T03:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-22T13:24:43.614Z">
+<meta property="article:author" content="𝚲𝚳𝚲">
+<meta property="article:tag" content="java基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407031651705.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://protonlml.github.io/2019/09/21/java%E5%9F%BA%E7%A1%80/1.%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%A5%E5%8F%8A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">𝚲𝚳𝚲</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">◙</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">47</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">84</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/01/01/java%E5%9F%BA%E7%A1%80/%E6%8C%82%E5%B9%B4%E5%85%BD/" class="title">换新颜给博客网站右上角添加悬挂年兽 喜增龙年喜气源码</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-01-01T03:00:00.000Z" itemprop="datePublished">2024-01-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/17/java%E5%9F%BA%E7%A1%80/matery%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">matery主题的使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-17T03:00:00.000Z" itemprop="datePublished">2020-03-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/java%E5%9F%BA%E7%A1%80/3.git%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="title">3.git初始化仓库的两种方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T06:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/java/maven/">maven</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/java%E5%9F%BA%E7%A1%80/Maven/" class="title">Maven</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T03:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/01/java%E5%9F%BA%E7%A1%80/javascript/" class="title">javaScript</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-01T04:00:00.000Z" itemprop="datePublished">2019-10-01</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-java基础/1.运算符以及类型转换" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      1.运算符以及类型转换
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/09/21/java%E5%9F%BA%E7%A1%80/1.%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%A5%E5%8F%8A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="article-date">
+	  <time datetime="2019-09-21T03:00:00.000Z" itemprop="datePublished">2019-09-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/21/java%E5%9F%BA%E7%A1%80/1.%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%A5%E5%8F%8A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 924(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <hr>
+<hr>
+<hr>
+<h3 id="计算机中-能够存的数据的最小单位是-“字节”"><a href="#计算机中-能够存的数据的最小单位是-“字节”" class="headerlink" title="计算机中 能够存的数据的最小单位是 “字节”"></a>计算机中 能够存的数据的最小单位是 “字节”</h3><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202407031651705.png" alt="image-20240703165156881"></p>
+<h3 id="1个字节是8个bit位"><a href="#1个字节是8个bit位" class="headerlink" title="1个字节是8个bit位"></a>1个字节是8个bit位</h3><h3 id="1024个字节是1kb"><a href="#1024个字节是1kb" class="headerlink" title="1024个字节是1kb"></a>1024个字节是1kb</h3><h3 id="1024kb是1M"><a href="#1024kb是1M" class="headerlink" title="1024kb是1M"></a>1024kb是1M</h3><h3 id="1024M是1G"><a href="#1024M是1G" class="headerlink" title="1024M是1G"></a>1024M是1G</h3><hr>
+<hr>
+<hr>
+<h1 id="一、算数运算符"><a href="#一、算数运算符" class="headerlink" title="一、算数运算符"></a>一、算数运算符</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018421.png" alt="image-20240121012746097"></p>
+<h1 id="二、类型转换"><a href="#二、类型转换" class="headerlink" title="二、类型转换"></a>二、类型转换</h1><h2 id="1-隐式转换"><a href="#1-隐式转换" class="headerlink" title="1.隐式转换"></a>1.隐式转换</h2><ul>
+<li><h4 id="隐式转换的两种提升规则"><a href="#隐式转换的两种提升规则" class="headerlink" title="隐式转换的两种提升规则"></a>隐式转换的两种提升规则</h4><ul>
+<li><h4 id="取值范围小的-和取值范围大的进行运算-小的会先提升为大的-再进行运算"><a href="#取值范围小的-和取值范围大的进行运算-小的会先提升为大的-再进行运算" class="headerlink" title="取值范围小的,和取值范围大的进行运算,小的会先提升为大的,再进行运算"></a>取值范围小的,和取值范围大的进行运算,小的会先提升为大的,再进行运算</h4></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018311.png" alt="image-20240120204114413"></p>
+<ul>
+<li><h4 id="byte-short-char三种类型的数据在运算的时候-都会直接先提升为int-然后再进行运算"><a href="#byte-short-char三种类型的数据在运算的时候-都会直接先提升为int-然后再进行运算" class="headerlink" title="byte short char三种类型的数据在运算的时候,都会直接先提升为int,然后再进行运算"></a>byte short char三种类型的数据在运算的时候,都会直接先提升为int,然后再进行运算</h4></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018581.png" alt="image-20240120204141715"></p>
+<h2 id="2-隐式转换小结"><a href="#2-隐式转换小结" class="headerlink" title="2.隐式转换小结"></a>2.隐式转换小结</h2><ul>
+<li><h4 id="取值范围"><a href="#取值范围" class="headerlink" title="取值范围"></a>取值范围</h4><ul>
+<li><h3 id="byte-short-int-long-float-double"><a href="#byte-short-int-long-float-double" class="headerlink" title="byte&gt;short&gt;int&gt;long&gt;float&gt;double"></a>byte&gt;short&gt;int&gt;long&gt;float&gt;double</h3></li>
+</ul>
+</li>
+<li><h4 id="什么时候转换"><a href="#什么时候转换" class="headerlink" title="什么时候转换"></a>什么时候转换</h4><ul>
+<li><h5 id="数据类型不一样，不能进行计算，需要转换成一样的才可以计算"><a href="#数据类型不一样，不能进行计算，需要转换成一样的才可以计算" class="headerlink" title="数据类型不一样，不能进行计算，需要转换成一样的才可以计算"></a>数据类型不一样，不能进行计算，需要转换成一样的才可以计算</h5></li>
+</ul>
+</li>
+<li><h4 id="转换规则1："><a href="#转换规则1：" class="headerlink" title="转换规则1："></a>转换规则1：</h4><ul>
+<li><h5 id="取值范围小的，和取值范围大的进行运算，小的会先提升为大的在进行计算"><a href="#取值范围小的，和取值范围大的进行运算，小的会先提升为大的在进行计算" class="headerlink" title="取值范围小的，和取值范围大的进行运算，小的会先提升为大的在进行计算"></a>取值范围小的，和取值范围大的进行运算，小的会先提升为大的在进行计算</h5></li>
+</ul>
+</li>
+<li><h4 id="转换规则2"><a href="#转换规则2" class="headerlink" title="转换规则2"></a>转换规则2</h4><ul>
+<li><h5 id="byte-short-char-三种类型的数据在运算的时候，都会直接提升为int-，然后再进行运算"><a href="#byte-short-char-三种类型的数据在运算的时候，都会直接提升为int-，然后再进行运算" class="headerlink" title="byte short char 三种类型的数据在运算的时候，都会直接提升为int ，然后再进行运算"></a>byte short char 三种类型的数据在运算的时候，都会直接提升为int ，然后再进行运算</h5></li>
+</ul>
+</li>
+</ul>
+<h1 id="三、强制转换"><a href="#三、强制转换" class="headerlink" title="三、强制转换"></a>三、强制转换</h1><ul>
+<li><h4 id="如果把一个取值范围大的数值，赋值给取值范围小的变量。是不允许直接赋值的。如果一定要这么做就需要加入强制转换"><a href="#如果把一个取值范围大的数值，赋值给取值范围小的变量。是不允许直接赋值的。如果一定要这么做就需要加入强制转换" class="headerlink" title="如果把一个取值范围大的数值，赋值给取值范围小的变量。是不允许直接赋值的。如果一定要这么做就需要加入强制转换"></a>如果把一个取值范围大的数值，赋值给取值范围小的变量。是不允许直接赋值的。如果一定要这么做就需要加入强制转换</h4></li>
+<li><h4 id="格式：目标数据类型-变量名-目标数据类型-被强转的数据"><a href="#格式：目标数据类型-变量名-目标数据类型-被强转的数据" class="headerlink" title="格式：目标数据类型  变量名&#x3D;(目标数据类型)被强转的数据"></a>格式：目标数据类型  变量名&#x3D;(目标数据类型)被强转的数据</h4><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018812.png" alt="image-20240120230848007"></li>
+</ul>
+</li>
+</ul>
+<h1 id="四、-加号运算符"><a href="#四、-加号运算符" class="headerlink" title="四、+ 加号运算符"></a>四、+ 加号运算符</h1><ul>
+<li><h4 id="“字符-字符”当”-”操作中出现字符串时-这个”-”是字符串连接符-而不是算术运算符了-会将前后的数据进行拼接-并产生一个新的字符串"><a href="#“字符-字符”当”-”操作中出现字符串时-这个”-”是字符串连接符-而不是算术运算符了-会将前后的数据进行拼接-并产生一个新的字符串" class="headerlink" title="“字符+字符”当”+”操作中出现字符串时,这个”+”是字符串连接符,而不是算术运算符了.会将前后的数据进行拼接,并产生一个新的字符串."></a>“字符+字符”当”+”操作中出现字符串时,这个”+”是字符串连接符,而不是算术运算符了.会将前后的数据进行拼接,并产生一个新的字符串.</h4></li>
+<li><h4 id="“字符-数字”时-会把字符通过ASC川码表查询到对应的数字再进行计算"><a href="#“字符-数字”时-会把字符通过ASC川码表查询到对应的数字再进行计算" class="headerlink" title="“字符+数字”时,会把字符通过ASC川码表查询到对应的数字再进行计算."></a>“字符+数字”时,会把字符通过ASC川码表查询到对应的数字再进行计算.</h4></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161018231.png" alt="image-20240121013535929"></p>
+<h1 id="五、自增自减运算符"><a href="#五、自增自减运算符" class="headerlink" title="五、自增自减运算符"></a>五、自增自减运算符</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019842.png" alt="image-20240121065852600"></p>
+<h1 id="六、赋值运算符"><a href="#六、赋值运算符" class="headerlink" title="六、赋值运算符"></a>六、赋值运算符</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019951.png" alt="image-20240121065157935"></p>
+<h1 id="七、关系运算符"><a href="#七、关系运算符" class="headerlink" title="七、关系运算符"></a>七、关系运算符</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019642.png" alt="image-20240121070118200"></p>
+<h1 id="八、逻辑运算符"><a href="#八、逻辑运算符" class="headerlink" title="八、逻辑运算符"></a>八、逻辑运算符</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019131.png" alt="image-20240121070705195"></p>
+<h1 id="九、短路逻辑运算符"><a href="#九、短路逻辑运算符" class="headerlink" title="九、短路逻辑运算符"></a>九、短路逻辑运算符</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161019672.png" alt="image-20240121071311449"></p>
+<h1 id="十、三元运算符"><a href="#十、三元运算符" class="headerlink" title="十、三元运算符"></a>十、三元运算符</h1><ul>
+<li><h5 id="条件（三元）运算符是-Java-唯一使用三个操作数的运算符：一个条件后跟一个问号（-），如果条件为-真值-，则执行冒号（-）前的表达式；若条件为-假值-，则执行最后的表达式。该运算符经常当作-if-else-语句的简捷形式来使用。"><a href="#条件（三元）运算符是-Java-唯一使用三个操作数的运算符：一个条件后跟一个问号（-），如果条件为-真值-，则执行冒号（-）前的表达式；若条件为-假值-，则执行最后的表达式。该运算符经常当作-if-else-语句的简捷形式来使用。" class="headerlink" title="条件（三元）运算符是 Java 唯一使用三个操作数的运算符：一个条件后跟一个问号（?），如果条件为[真值]，则执行冒号（:）前的表达式；若条件为[假值]，则执行最后的表达式。该运算符经常当作 [if...else]语句的简捷形式来使用。"></a><strong>条件（三元）运算符</strong>是 Java 唯一使用三个操作数的运算符：一个条件后跟一个问号（<code>?</code>），如果条件为[真值]，则执行冒号（<code>:</code>）前的表达式；若条件为[假值]，则执行最后的表达式。该运算符经常当作 [<code>if...else</code>]语句的简捷形式来使用。</h5></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020480.png" alt="image-20240121104511921"></p>
+<h1 id="十一、运算符的优先级"><a href="#十一、运算符的优先级" class="headerlink" title="十一、运算符的优先级"></a>十一、运算符的优先级</h1><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020673.png" alt="image-20240121105137799"></p>
+<ul>
+<li><h4 id="只用记住一点“小括号-”优先于所有，想要先算谁，就用小括号将其括上"><a href="#只用记住一点“小括号-”优先于所有，想要先算谁，就用小括号将其括上" class="headerlink" title="只用记住一点“小括号( )”优先于所有，想要先算谁，就用小括号将其括上"></a>只用记住一点“小括号( )”优先于所有，想要先算谁，就用小括号将其括上</h4></li>
+</ul>
+<h1 id="十二、原码，反码，补码"><a href="#十二、原码，反码，补码" class="headerlink" title="十二、原码，反码，补码"></a>十二、原码，反码，补码</h1><ul>
+<li><h3 id="计算机中，最小的存储单元是“一个字节”-它占8个bit位。范围从1000-0000-0111-1111-（-128-127）"><a href="#计算机中，最小的存储单元是“一个字节”-它占8个bit位。范围从1000-0000-0111-1111-（-128-127）" class="headerlink" title="计算机中，最小的存储单元是“一个字节” 它占8个bit位。范围从1000 0000 ~ 0111 1111 （-128~127）"></a>计算机中，最小的存储单元是“一个字节” 它占8个bit位。范围从1000 0000 ~ 0111 1111 （-128~127）</h3></li>
+<li><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020900.png" alt="image-20240602042820939"></p>
+</li>
+</ul>
+<hr>
+<hr>
+<ul>
+<li><h3 id="计算机中，数字的存储，以及运算都是以补码的形式来操作的。"><a href="#计算机中，数字的存储，以及运算都是以补码的形式来操作的。" class="headerlink" title="&#x3D;&#x3D;计算机中，数字的存储，以及运算都是以补码的形式来操作的。&#x3D;&#x3D;"></a>&#x3D;&#x3D;计算机中，数字的存储，以及运算都是以补码的形式来操作的。&#x3D;&#x3D;</h3></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020731.png" alt="image-20240602043525180"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161020700.png" alt="image-20240602043600718"></p>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021780.png" alt="image-20240602040100232"></p>
+<hr>
+<hr>
+<h2 id="理解了原码，反码，补码，的基本概念，就可以深入了解以下的内容了。"><a href="#理解了原码，反码，补码，的基本概念，就可以深入了解以下的内容了。" class="headerlink" title="理解了原码，反码，补码，的基本概念，就可以深入了解以下的内容了。"></a>理解了原码，反码，补码，的基本概念，就可以深入了解以下的内容了。</h2><ul>
+<li><h3 id="1-理解同一个数字在不同数据类型下到底有什么区别呢？bit位"><a href="#1-理解同一个数字在不同数据类型下到底有什么区别呢？bit位" class="headerlink" title="1.理解同一个数字在不同数据类型下到底有什么区别呢？bit位"></a>1.理解同一个数字在不同数据类型下到底有什么区别呢？<code>bit位</code></h3><ul>
+<li><h3 id="就是在前面的位置“补0”"><a href="#就是在前面的位置“补0”" class="headerlink" title="&#x3D;&#x3D;就是在前面的位置“补0”&#x3D;&#x3D;"></a>&#x3D;&#x3D;就是在前面的位置“补0”&#x3D;&#x3D;</h3></li>
+<li><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021876.png" alt="image-20240602041043730"></p>
+</li>
+</ul>
+</li>
+<li><h3 id="2-理解隐式转换"><a href="#2-理解隐式转换" class="headerlink" title="2.理解隐式转换"></a>2.理解隐式转换</h3><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021870.png" alt="image-20240602044434274"></li>
+</ul>
+</li>
+<li><h3 id="3-理解强制转换"><a href="#3-理解强制转换" class="headerlink" title="3.理解强制转换"></a>3.理解强制转换</h3><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021710.png" alt="image-20240602044628663"></li>
+</ul>
+</li>
+<li><h3 id="4-理解数字之间使用“运算符”"><a href="#4-理解数字之间使用“运算符”" class="headerlink" title="4.理解数字之间使用“运算符”"></a>4.理解数字之间使用“运算符”</h3><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021400.png" alt="image-20240602044939604"></li>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161021160.png" alt="image-20240602045155833"></li>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161022859.png" alt="image-20240602045233086"></li>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161022930.png" alt="image-20240602050127832"></li>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406161022940.png" alt="image-20240602050435241"></li>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406162253404.png" alt="image-20240602050812934"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>© 版权声明</p>
+<escape>
+
+<div>
+    <h3 align="center"  style="color: brown;" >版权声明</h3>
+    <table>
+           <tr>
+            <ol>
+                <li>本网站名称：𝚲𝚳𝚲</li>
+                <li>𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。</li>
+                <li>本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。</li>
+                <li>本站一切资源不代表本站立场，并不代表本站赞同其观点和对其真实性负责。</li>
+                <li>本站一律禁止以任何方式发布或转载任何违法的相关信息，访客发现请举报</li> 
+                <li>本站资源大多存储在云盘，如发现链接失效，请联系我，我会第一时间更新。</li>
+                <li>本站强烈打击盗版/破解等有损他人权益和违法作为，请支持正版！</li>  
+            </ol>
+        </tr>
+    </table>
+</div>
+
+
+
+
+</escape>
+
+<hr>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://protonlml.github.io/2019/09/21/java%E5%9F%BA%E7%A1%80/1.%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%A5%E5%8F%8A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="1.运算符以及类型转换" target="_blank" rel="external">https://protonlml.github.io/2019/09/21/java基础/1.运算符以及类型转换/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">𝚲𝚳𝚲</span><small class="ml-1x">◙</small></a></h3>
+        <div>业精于勤，荒于嬉；行成于思，毁于随！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/09/21/java%E5%9F%BA%E7%A1%80/2.%E5%88%A4%E6%96%AD%E5%92%8C%E5%BE%AA%E7%8E%AF/" title="2.判断和循环"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/09/20/java%E5%9F%BA%E7%A1%80/hexo%E5%8D%9A%E6%96%87%E5%8A%A0%E5%AF%86/" title="hexo博文加密密码是hello"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2019 - 2024 𝚲𝚳𝚲
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>
