@@ -17,22 +17,29 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>搭建个人博客(一)：Hexo本地的使用和配置 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="搭建个人博客(一)：Hexo本地的使用和配置一，准备工作1.了解hexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。  2. 搭建博客之前,需要安装几个工具 2.1 git版本控制工具 Git是一个免费的、开源的版本控制软件。在Windows上安装git，一般为msysgit，官方下载地址 :ht">
+  <title>搭建个人博客(五)：编写博客文章以及上传和备份 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="搭建个人博客(五)：Typora编写博客以及上传和备份一、编写博客 1.在\blog\source\ _posts目录中创建md文件    2.添加博文分类和博文标签的相关配置123456# 通过如下字段,Hexo会自动添加博文分类和博文标签的相关配置---title: title # 添加博文标题categories: categories # 添加博文分类tags: tags # 添加博文标签">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客(一)：Hexo本地的使用和配置">
-<meta property="og:url" content="https://protonlml.github.io/2019/09/17/java%E5%9F%BA%E7%A1%80/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%B8%80)%EF%BC%9AHexo%E6%9C%AC%E5%9C%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="搭建个人博客(五)：编写博客文章以及上传和备份">
+<meta property="og:url" content="https://protonlml.github.io/2019/09/19/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%BA%94)%EF%BC%9A%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8A%E4%B8%8A%E4%BC%A0%E5%92%8C%E5%A4%87%E4%BB%BD/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="搭建个人博客(一)：Hexo本地的使用和配置一，准备工作1.了解hexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。  2. 搭建博客之前,需要安装几个工具 2.1 git版本控制工具 Git是一个免费的、开源的版本控制软件。在Windows上安装git，一般为msysgit，官方下载地址 :ht">
+<meta property="og:description" content="搭建个人博客(五)：Typora编写博客以及上传和备份一、编写博客 1.在\blog\source\ _posts目录中创建md文件    2.添加博文分类和博文标签的相关配置123456# 通过如下字段,Hexo会自动添加博文分类和博文标签的相关配置---title: title # 添加博文标题categories: categories # 添加博文分类tags: tags # 添加博文标签">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-09-17T03:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-15T06:14:53.274Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940683.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940951.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940880.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940351.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940968.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160941683.png">
+<meta property="article:published_time" content="2019-09-19T03:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-16T01:41:08.271Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Pure主题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940683.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://protonlml.github.io/2019/09/17/java%E5%9F%BA%E7%A1%80/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%B8%80)%EF%BC%9AHexo%E6%9C%AC%E5%9C%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/index.html">
+  <link rel="canonical" href="https://protonlml.github.io/2019/09/19/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%BA%94)%EF%BC%9A%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8A%E4%B8%8A%E4%BC%A0%E5%92%8C%E5%A4%87%E4%BB%BD/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -204,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql8-0-22/">mysql8.0.22</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">14</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql8-0-22/">mysql8.0.22</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -214,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">47</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7%E4%BC%98%E5%8C%96/" rel="tag">技巧优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%A5%E8%8A%82%E6%8C%82%E4%BB%B6/" rel="tag">春节挂件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">47</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -240,10 +247,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a>
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
               </p>
               <p class="item-title">
-                <a href="/2024/01/01/java%E5%9F%BA%E7%A1%80/%E6%8C%82%E5%B9%B4%E5%85%BD/" class="title">换新颜给博客网站右上角添加悬挂年兽 喜增龙年喜气源码</a>
+                <a href="/2024/01/01/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%8C%82%E5%B9%B4%E5%85%BD/" class="title">悬挂年兽 喜增龙年</a>
               </p>
               <p class="item-date">
                 <time datetime="2024-01-01T03:00:00.000Z" itemprop="datePublished">2024-01-01</time>
@@ -258,7 +265,7 @@
                 <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
               </p>
               <p class="item-title">
-                <a href="/2020/03/17/java%E5%9F%BA%E7%A1%80/matery%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">matery主题的使用</a>
+                <a href="/2020/03/17/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/matery%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">matery主题的使用</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-03-17T03:00:00.000Z" itemprop="datePublished">2020-03-17</time>
@@ -324,14 +331,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-java基础/搭建个人博客(一)：Hexo本地的使用和配置" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-博客搭建/搭建个人博客(五)：编写博客以及上传和备份" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      搭建个人博客(一)：Hexo本地的使用和配置
+      搭建个人博客(五)：编写博客文章以及上传和备份
     </h1>
   
 
@@ -339,8 +346,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/09/17/java%E5%9F%BA%E7%A1%80/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%B8%80)%EF%BC%9AHexo%E6%9C%AC%E5%9C%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/" class="article-date">
-	  <time datetime="2019-09-17T03:00:00.000Z" itemprop="datePublished">2019-09-17</time>
+	<a href="/2019/09/19/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%BA%94)%EF%BC%9A%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8A%E4%B8%8A%E4%BC%A0%E5%92%8C%E5%A4%87%E4%BB%BD/" class="article-date">
+	  <time datetime="2019-09-19T03:00:00.000Z" itemprop="datePublished">2019-09-19</time>
 	</a>
 </span>
         
@@ -358,67 +365,56 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/17/java%E5%9F%BA%E7%A1%80/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%B8%80)%EF%BC%9AHexo%E6%9C%AC%E5%9C%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/19/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%BA%94)%EF%BC%9A%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8A%E4%B8%8A%E4%BC%A0%E5%92%8C%E5%A4%87%E4%BB%BD/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 741(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 474(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="搭建个人博客-一-：Hexo本地的使用和配置"><a href="#搭建个人博客-一-：Hexo本地的使用和配置" class="headerlink" title="搭建个人博客(一)：Hexo本地的使用和配置"></a>搭建个人博客(一)：Hexo本地的使用和配置</h1><h2 id="一，准备工作"><a href="#一，准备工作" class="headerlink" title="一，准备工作"></a>一，准备工作</h2><h3 id="1-了解hexo"><a href="#1-了解hexo" class="headerlink" title="1.了解hexo"></a>1.了解hexo</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<hr>
-<h3 id="2-搭建博客之前-需要安装几个工具"><a href="#2-搭建博客之前-需要安装几个工具" class="headerlink" title="2. 搭建博客之前,需要安装几个工具"></a>2. 搭建博客之前,需要安装几个工具</h3><ul>
-<li><h4 id="2-1-git版本控制工具"><a href="#2-1-git版本控制工具" class="headerlink" title="2.1 git版本控制工具"></a>2.1 git版本控制工具</h4><ul>
-<li>Git是一个免费的、开源的版本控制软件。在Windows上安装git，一般为msysgit，<br>官方下载地址 :<a target="_blank" rel="noopener" href="http://code.google.com/p/msysgit/downloads/list">http://code.google.com/p/msysgit/downloads/list</a><br>安装步骤下一步即可…最后在-shell窗口中输入命令 <code>git --version 检查安装是否成功</code></li>
+        <h1 id="搭建个人博客-五-：Typora编写博客以及上传和备份"><a href="#搭建个人博客-五-：Typora编写博客以及上传和备份" class="headerlink" title="搭建个人博客(五)：Typora编写博客以及上传和备份"></a>搭建个人博客(五)：Typora编写博客以及上传和备份</h1><h2 id="一、编写博客"><a href="#一、编写博客" class="headerlink" title="一、编写博客"></a>一、编写博客</h2><ul>
+<li><h4 id="1-在-blog-source-posts目录中创建md文件"><a href="#1-在-blog-source-posts目录中创建md文件" class="headerlink" title="1.在\blog\source\ _posts目录中创建md文件"></a>1.在\blog\source\ _posts目录中创建md文件</h4><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940683.png" alt="image-20240109024047012"></li>
 </ul>
 </li>
-<li><h4 id="2-2-Node-js环境"><a href="#2-2-Node-js环境" class="headerlink" title="2.2 Node.js环境"></a>2.2 Node.js环境</h4><ul>
-<li><p><strong>安装nodejs在官网上面，下载绿色的zip包 最好安装node-v18.16.1-win-x64.7z</strong></p>
-</li>
-<li><h3 id="详情请看本站文章“nodejs安装教程”-𝚲𝚳𝚲的博客-gitee-io"><a href="#详情请看本站文章“nodejs安装教程”-𝚲𝚳𝚲的博客-gitee-io" class="headerlink" title="详情请看本站文章“nodejs安装教程” 𝚲𝚳𝚲的博客 (gitee.io)"></a>详情请看本站文章“nodejs安装教程” <a target="_blank" rel="noopener" href="https://lmlpla.gitee.io/blog/2019/09/07/nodejs%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">𝚲𝚳𝚲的博客 (gitee.io)</a></h3></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="3-安装hexo-下载hexo-搭建博客"><a href="#3-安装hexo-下载hexo-搭建博客" class="headerlink" title="3.安装hexo,下载hexo 搭建博客"></a>3.<strong>安装hexo,下载hexo 搭建博客</strong></h3><ul>
-<li><p><strong>创建一个 Blog文件夹，在这个文件夹中,使用Git窗口,依次执行下面的命令</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli  # 安装hexo客户端</span><br><span class="line">hexo init #初始化hexo</span><br><span class="line">npm i #安装npm工具 </span><br><span class="line">hexo g # 生成</span><br><span class="line">hexo s # 启动服务</span><br></pre></td></tr></table></figure>
-</li>
-<li><h6 id="（注意：下载后文件夹中有-git文件夹，给删除掉，后面要上传到自己的远程仓库，进行版本控制。）"><a href="#（注意：下载后文件夹中有-git文件夹，给删除掉，后面要上传到自己的远程仓库，进行版本控制。）" class="headerlink" title="&#x3D;&#x3D;（注意：下载后文件夹中有.git文件夹，给删除掉，后面要上传到自己的远程仓库，进行版本控制。）&#x3D;&#x3D;"></a>&#x3D;&#x3D;（注意：下载后文件夹中有.git文件夹，给删除掉，后面要上传到自己的远程仓库，进行版本控制。）&#x3D;&#x3D;</h6></li>
-</ul>
-<h3 id="二、启动后存在的问题"><a href="#二、启动后存在的问题" class="headerlink" title="二、启动后存在的问题"></a>二、启动后存在的问题</h3><ul>
-<li><h4 id="1-启动hexo-创建成功后-，浏览器-“localhost-已拒绝连接。”"><a href="#1-启动hexo-创建成功后-，浏览器-“localhost-已拒绝连接。”" class="headerlink" title="1.启动hexo 创建成功后 ，浏览器 “localhost 已拒绝连接。”"></a>1.启动hexo 创建成功后 ，浏览器 “localhost 已拒绝连接。”</h4><ul>
-<li><h5 id="不是端口问题，4000端口打不开-是因为你是从git窗口里复制的-或者直接点击的。"><a href="#不是端口问题，4000端口打不开-是因为你是从git窗口里复制的-或者直接点击的。" class="headerlink" title="不是端口问题，4000端口打不开,是因为你是从git窗口里复制的,或者直接点击的。"></a>不是端口问题，4000端口打不开,是因为你是从git窗口里复制的,或者直接点击的。</h5><ul>
-<li><h5 id="在url地址栏里面重新敲-localhost-4000-就行了，或者-127-0-0-1-4000"><a href="#在url地址栏里面重新敲-localhost-4000-就行了，或者-127-0-0-1-4000" class="headerlink" title="在url地址栏里面重新敲 localhost:4000 就行了，或者 127.0.0.1:4000"></a>在url地址栏里面重新敲 localhost:4000 就行了，或者 127.0.0.1:4000</h5><hr>
-<hr>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h4 id="2-启动后能正常访问，访问发现白屏了，什么也没有"><a href="#2-启动后能正常访问，访问发现白屏了，什么也没有" class="headerlink" title="2.启动后能正常访问，访问发现白屏了，什么也没有"></a>2.启动后能正常访问，访问发现白屏了，什么也没有</h4></li>
-<li><ul>
-<li>主要原因是 nodejs版本不兼容</li>
-</ul>
-</li>
-<li><p>导致在public文件夹下index.html文件是空白的。</p>
+<li><h4 id="2-添加博文分类和博文标签的相关配置"><a href="#2-添加博文分类和博文标签的相关配置" class="headerlink" title="2.添加博文分类和博文标签的相关配置"></a>2.添加博文分类和博文标签的相关配置</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 通过如下字段,Hexo会自动添加博文分类和博文标签的相关配置</span><br><span class="line">---</span><br><span class="line">title: title # 添加博文标题</span><br><span class="line">categories: categories # 添加博文分类</span><br><span class="line">tags: tags # 添加博文标签</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><h5 id="重新安装nodejs-推荐node-v16-19-1-win-x64-nodejs安装教程：𝚲𝚳𝚲的博客-gitee-io"><a href="#重新安装nodejs-推荐node-v16-19-1-win-x64-nodejs安装教程：𝚲𝚳𝚲的博客-gitee-io" class="headerlink" title="重新安装nodejs 推荐node-v16.19.1-win-x64-&gt;nodejs安装教程：𝚲𝚳𝚲的博客 (gitee.io)"></a>重新安装nodejs 推荐node-v16.19.1-win-x64-&gt;nodejs安装教程：<a target="_blank" rel="noopener" href="https://lmlpla.gitee.io/blog/2019/09/07/nodejs%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">𝚲𝚳𝚲的博客 (gitee.io)</a></h5></li>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940951.png" alt="image-20240109024337254"></li>
 </ul>
 </li>
-<li><p><strong>然后在本地启动查看结果。localhost:4000查看能不能访问, Ctrl+C 停止本地服务</strong></p>
-</li>
-<li><p>重启本地服务,要先</p>
+<li><h4 id="3-博客标题，以及md文档名要一致"><a href="#3-博客标题，以及md文档名要一致" class="headerlink" title="3.博客标题，以及md文档名要一致"></a>3.博客标题，以及md文档名要一致</h4></li>
+</ul>
+<h2 id="二、本地查看效果"><a href="#二、本地查看效果" class="headerlink" title="二、本地查看效果"></a>二、本地查看效果</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>hexo clean 清理缓存</li>
-<li>hexo g 生成</li>
-<li>hexo s 启动本地服务查看本地,能不能将这个项目跑起来</li>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940880.png" alt="image-20240109025003225"></li>
+</ul>
+<h2 id="三、上传"><a href="#三、上传" class="headerlink" title="三、上传"></a>三、上传</h2><ul>
+<li><h4 id="按Ctrl-C暂停，随后使用命令-hexo-d-推送到远程仓库的-hexo默认分支-上去了。"><a href="#按Ctrl-C暂停，随后使用命令-hexo-d-推送到远程仓库的-hexo默认分支-上去了。" class="headerlink" title="按Ctrl+C暂停，随后使用命令  hexo d  推送到远程仓库的  hexo默认分支  上去了。"></a>按Ctrl+C暂停，随后使用命令  hexo d  推送到远程仓库的  hexo默认分支  上去了。</h4><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940351.png" alt="image-20240109025556921"></li>
+</ul>
+</li>
+</ul>
+<h2 id="四、备份"><a href="#四、备份" class="headerlink" title="四、备份"></a>四、备份</h2><ul>
+<li><h4 id="通过Sourcetree备份master分支"><a href="#通过Sourcetree备份master分支" class="headerlink" title="通过Sourcetree备份master分支"></a>通过Sourcetree备份master分支</h4><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160940968.png" alt="image-20240109030154242"></li>
+</ul>
+</li>
+<li><p>这样做的目的是，当我们在本地blog的源文件被误删除了，我们还可以直接拉取仓库中master分支到本地，继续使用。</p>
+</li>
+<li><p>在Sourcetree上，只用检出master分支就行了 （我们一直都在master分支上操作）</p>
+</li>
+</ul>
+<h2 id="五、每次推送后，都要对Gitee-Pages-点击更新"><a href="#五、每次推送后，都要对Gitee-Pages-点击更新" class="headerlink" title="五、每次推送后，都要对Gitee Pages 点击更新"></a>五、每次推送后，都要对Gitee Pages 点击更新</h2><ul>
+<li><h4 id="每次推送后，都要对Gitee-Pages-点击更新，然后清空浏览器缓存，访问才生效。"><a href="#每次推送后，都要对Gitee-Pages-点击更新，然后清空浏览器缓存，访问才生效。" class="headerlink" title="每次推送后，都要对Gitee Pages 点击更新，然后清空浏览器缓存，访问才生效。"></a>每次推送后，都要对Gitee Pages 点击更新，然后清空浏览器缓存，访问才生效。</h4><ul>
+<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406160941683.png" alt="image-20240109030926219"></li>
 </ul>
 </li>
 </ul>
@@ -443,6 +439,7 @@
     </table>
 </div>
 
+
 </escape>
 
 <hr>
@@ -455,7 +452,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://protonlml.github.io/2019/09/17/java%E5%9F%BA%E7%A1%80/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%B8%80)%EF%BC%9AHexo%E6%9C%AC%E5%9C%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/" title="搭建个人博客(一)：Hexo本地的使用和配置" target="_blank" rel="external">https://protonlml.github.io/2019/09/17/java基础/搭建个人博客(一)：Hexo本地的使用和配置/</a>
+      <a href="https://protonlml.github.io/2019/09/19/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2(%E4%BA%94)%EF%BC%9A%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8A%E4%B8%8A%E4%BC%A0%E5%92%8C%E5%A4%87%E4%BB%BD/" title="搭建个人博客(五)：编写博客文章以及上传和备份" target="_blank" rel="external">https://protonlml.github.io/2019/09/19/博客搭建/搭建个人博客(五)：编写博客以及上传和备份/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -500,12 +497,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/09/17/java%E5%9F%BA%E7%A1%80/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9AHexo%E9%83%A8%E7%BD%B2%E5%88%B0%20Gitee/" title="搭建个人博客（二）：Hexo部署到 Gitee"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/19/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%85%AD%EF%BC%89%E6%9C%AC%E5%9C%B0hexo%E5%8D%9A%E5%AE%A2%E6%81%A2%E5%A4%8D/" title="搭建个人博客（六）本地hexo博客恢复"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2019/09/10/java%E5%9F%BA%E7%A1%80/UML%E7%B1%BB%E5%9B%BE/" title="UML类图"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/09/18/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Docker-Alist%E5%AE%B9%E5%99%A8+PicGoApp+%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/" title="Docker-Alist容器+PicGoApp+夸克网盘搭建个人图床"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
