@@ -7,7 +7,8 @@ tags:   # 添加博文标签
 	- npm
 	- nodejs
 categories:   # 添加博文分类
-	- nodejs
+	- 经验
+password: 767136280
 ---
 
 ## 一、下载nodejs
