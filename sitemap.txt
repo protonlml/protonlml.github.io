@@ -1,3 +1,4 @@
+https://protonlml.github.io/2019/10/02/mysql/1.mysql1~4%E7%AB%A0%E5%AD%A6%E4%B9%A0/
 https://protonlml.github.io/2019/09/22/java%E5%9F%BA%E7%A1%80/3.%E6%95%B0%E7%BB%84/
 https://protonlml.github.io/2024/01/01/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%8C%82%E5%B9%B4%E5%85%BD/
 https://protonlml.github.io/2019/10/01/mysql/0.Docker%E4%B8%AD%E5%AE%89%E8%A3%85mysql8.0.22/
@@ -110,16 +111,16 @@ https://protonlml.github.io/tags/maven/
 https://protonlml.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/
 https://protonlml.github.io/tags/UML%E7%B1%BB%E5%9B%BE/
 https://protonlml.github.io/tags/javaScript/
-https://protonlml.github.io/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/
 https://protonlml.github.io/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/
 https://protonlml.github.io/tags/%E7%BB%8F%E9%AA%8C/
 https://protonlml.github.io/tags/npm/
 https://protonlml.github.io/tags/nodejs/
+https://protonlml.github.io/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/
 https://protonlml.github.io/categories/mysql8-0-22/
 https://protonlml.github.io/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/
 https://protonlml.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/
 https://protonlml.github.io/categories/java/
 https://protonlml.github.io/categories/java/maven/
-https://protonlml.github.io/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/
 https://protonlml.github.io/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/
 https://protonlml.github.io/categories/%E7%BB%8F%E9%AA%8C/
+https://protonlml.github.io/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/
