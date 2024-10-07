@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>3.mysql第6章多表联合查询.md | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="多表联合查询.md  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3.mysql第6章多表联合查询.md">
+<meta property="og:url" content="https://protonlml.github.io/2019/10/03/mysql/3.mysql%E7%AC%AC6%E7%AB%A0%E5%A4%9A%E8%A1%A8%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多表联合查询.md  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-03T02:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-07T16:28:47.569Z">
+<meta property="article:author" content="𝚲𝚳𝚲">
+<meta property="article:tag" content="mysql8.0.22">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://protonlml.github.io/2019/10/03/mysql/3.mysql%E7%AC%AC6%E7%AB%A0%E5%A4%9A%E8%A1%A8%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">𝚲𝚳𝚲</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">◙</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql8-0-22/">mysql8.0.22</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">14</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">47</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">83</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/01/01/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%8C%82%E5%B9%B4%E5%85%BD/" class="title">悬挂年兽 喜增龙年</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-01-01T03:00:00.000Z" itemprop="datePublished">2024-01-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/17/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/matery%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">matery主题的使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-17T03:00:00.000Z" itemprop="datePublished">2020-03-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/%E7%BB%8F%E9%AA%8C/3.git%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="title">3.git初始化仓库的两种方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T06:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/java/maven/">maven</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/java%E5%9F%BA%E7%A1%80/Maven/" class="title">Maven</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T03:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mysql8-0-22/">mysql8.0.22</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/03/mysql/3.mysql%E7%AC%AC6%E7%AB%A0%E5%A4%9A%E8%A1%A8%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" class="title">3.mysql第6章多表联合查询.md</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-03T02:00:00.000Z" itemprop="datePublished">2019-10-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-mysql/3.mysql第6章多表联合查询" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      3.mysql第6章多表联合查询.md
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/10/03/mysql/3.mysql%E7%AC%AC6%E7%AB%A0%E5%A4%9A%E8%A1%A8%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" class="article-date">
+	  <time datetime="2019-10-03T02:00:00.000Z" itemprop="datePublished">2019-10-03</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/mysql8-0-22/">mysql8.0.22</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/03/mysql/3.mysql%E7%AC%AC6%E7%AB%A0%E5%A4%9A%E8%A1%A8%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1><center>多表联合查询.md</center></h1>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  第六章：多表联查</span><br><span class="line">        在现实情况中，查询字段不在同一张表中，就需要多张表进行联合查询</span><br><span class="line">        多表联查，需要有 连接条件</span><br><span class="line">  注意：在多表联查的时候，多张表请务必取别名，使用别名，指定字段是哪个表中的，这样提高查询的速度</span><br><span class="line"></span><br><span class="line">  sql 的执行顺序是：</span><br><span class="line">        1.先执行from 挑出表</span><br><span class="line">            from 表1，表2.(挑出这两个表来)</span><br><span class="line">        2.执行where 筛选条件，以及后面的语句</span><br><span class="line">            where 筛选条件</span><br><span class="line">            order by</span><br><span class="line">            limit 0,10;</span><br><span class="line">        3.最后挑选出需要的字段</span><br><span class="line">            select 指定字段</span><br><span class="line">  所以在from 后面给表起了别名，就会覆盖原表名，在后续的order by ...等等的语句中，必须使用表的别名来指定</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">## 查询员工表</span><br><span class="line">select * from employees;</span><br><span class="line">## 查询部门表</span><br><span class="line">select * from departments;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">   sql  99版本的写法</span><br><span class="line">        多表联查</span><br><span class="line">        两个 交表，又叫两个表联查</span><br><span class="line">    多表查询的分类</span><br><span class="line">        角度1： 等值连接 vs 非等值连接</span><br><span class="line">        角度2： 自连接 vs 非自连接</span><br><span class="line">        角度3： 内连接 VS 外连接</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">## 将 员工表和部门表进行联合查询</span><br><span class="line">## 这种92写法 不用</span><br><span class="line">## 等值连接</span><br><span class="line">select *</span><br><span class="line">from employees e,departments d</span><br><span class="line">where e.department_id=d.department_id;</span><br><span class="line"></span><br><span class="line">## 非等值连接</span><br><span class="line">select * from employees e ,  job_grades jg</span><br><span class="line">where e.salary between jg.lowest_sal and jg.highest_sal;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  自连接 VS 非自连接</span><br><span class="line">    表：表，自己连接自己</span><br><span class="line"> */</span><br><span class="line"># 自连接，练习：查询员工id 员工姓名 及其管理者id以及姓名</span><br><span class="line"># 思路：管理者也是员工，员工表自己连接自己，将一张表看作是 员工表，另一张表看作是 管理者表</span><br><span class="line"># 内连接：使用 join  on  (取两个表交集的结果，满足on 条件的所有结果)</span><br><span class="line"># 得到的结果是 满足on 后面的 条件的</span><br><span class="line">select e.employee_id ,e.last_name,e.manager_id,gl.employee_id,gl.last_name,gl.manager_id from</span><br><span class="line">employees e join employees gl</span><br><span class="line">on e.employee_id=gl.manager_id</span><br><span class="line">order by e.salary desc ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  内连接vs外连接</span><br><span class="line"></span><br><span class="line">  内连接：合并具有同一列的两个以上的表的行，结果集中 不包含一个表与另一个表不匹配的行</span><br><span class="line">  外连接：合并具有同一列的两个以上的表的行,结果集中除了包含一个表与另一个表匹配的行之外,还查询到了左表或右表中不匹配的行。</span><br><span class="line">            左外连接：查询的结果集中，包含左表的所有值(左表中不匹配的行,也会存在)，以及on后面条件，两个表之间匹配的行</span><br><span class="line">            右外连接：查询的结果集中，包含右表的所有值(右表中不匹配的行,也会存在)，以及on后面条件，两个表之间匹配的行</span><br><span class="line">            满外连接：左表，右表所有的匹配的行取出来，也包括有 左表不匹配的行，以及右表不匹配的行。</span><br><span class="line">    左外连接:两个表在连接过程中除了返回满足连接条件的行以外，还返回左表中不满足条件的行。</span><br><span class="line">    右外连接:两个表在连接过程中除了返回满足连接条件的行以外，还返回右表中不满足条件的行。</span><br><span class="line"> */</span><br><span class="line">/**</span><br><span class="line">  内连接</span><br><span class="line">   employees员工表107行数据。 departments是 部门表</span><br><span class="line">  # 下面语句结果集有106行，因为employees员工表中有一个人的 department_id为null 它没有部门，所以结果中没有它</span><br><span class="line">    # 其他所有人都有 department_id ，所有人都有部门。所以结果 106条（取两表匹配的行组成结果集，取交集）</span><br><span class="line">  练习：查询员工 last name 姓名 ,department_name部门姓名 信息（这里面是查询员工的，部门信息，有的员工没有存在任何一个部门那么结果就不返回，这里是内连接取交集）</span><br><span class="line"> */</span><br><span class="line">select *</span><br><span class="line">from employees e  join departments d on e.department_id=d.department_id;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  employees员工表107行数据。 departments是 部门表</span><br><span class="line">   练习：查询所有的员工 last name 姓名 ,department_name部门姓名 信息</span><br><span class="line">  （这里面是查询所有员工的，部门信息，即使员工不存在部门，员工信息也要返回，所以是 左外连接 查询，查询结果是 所有员工匹配所有部门的行，以及包括不存在部门的员工信息行也在结果集中）</span><br><span class="line"># 左外连接</span><br><span class="line"># 结果是 左表所有值，以及 满足条件的交集值</span><br><span class="line"># 结果107行，虽然employees员工表中King的 department_id为null 它没有部门，但是这个left join 左表所有员工都展示出来，交表部分没有值就null 着</span><br><span class="line">#                                                                               department_id</span><br><span class="line"># 178,Kimberely,Grant,KGRANT,011.44.1644.429263,1999-05-24,SA_REP,7000,0.15,149,    null,       null,null,null,</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line">select *</span><br><span class="line">from employees e left join departments d on e.department_id=d.department_id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  满外连接</span><br><span class="line">   mysql 不支持满外连接 FULL JOIN ON</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<hr>
+<hr>
+<p>© 版权声明</p>
+<escape>
+
+<div>
+    <h3 align="center"  style="color: brown;" >版权声明</h3>
+    <table>
+           <tr>
+            <ol>
+                <li>本网站名称：𝚲𝚳𝚲</li>
+                <li>𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。</li>
+                <li>本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。</li>
+                <li>本站一切资源不代表本站立场，并不代表本站赞同其观点和对其真实性负责。</li>
+                <li>本站一律禁止以任何方式发布或转载任何违法的相关信息，访客发现请举报</li> 
+                <li>本站资源大多存储在云盘，如发现链接失效，请联系我，我会第一时间更新。</li>
+                <li>本站强烈打击盗版/破解等有损他人权益和违法作为，请支持正版！</li>  
+            </ol>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+</escape>
+
+<hr>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://protonlml.github.io/2019/10/03/mysql/3.mysql%E7%AC%AC6%E7%AB%A0%E5%A4%9A%E8%A1%A8%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" title="3.mysql第6章多表联合查询.md" target="_blank" rel="external">https://protonlml.github.io/2019/10/03/mysql/3.mysql第6章多表联合查询/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">𝚲𝚳𝚲</span><small class="ml-1x">◙</small></a></h3>
+        <div>业精于勤，荒于嬉；行成于思，毁于随！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/10/java%E5%9F%BA%E7%A1%80/Maven/" title="Maven"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/10/03/mysql/2.mysql%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E5%92%8C%E5%88%86%E9%A1%B5/" title="2.mysql第5章排序和分页"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2019 - 2024 𝚲𝚳𝚲
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>
