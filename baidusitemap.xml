@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://protonlml.github.io/2019/10/03/mysql/4.%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2024-10-11</lastmod>
+  </url>
+  <url>
     <loc>https://protonlml.github.io/2019/10/03/mysql/3.mysql%E7%AC%AC6%E7%AB%A0%E5%A4%9A%E8%A1%A8%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/</loc>
-    <lastmod>2024-10-09</lastmod>
+    <lastmod>2024-10-11</lastmod>
   </url>
   <url>
     <loc>https://protonlml.github.io/2019/10/01/mysql/%E5%AF%B9Mysql%E4%B8%AD%E7%9A%84sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
