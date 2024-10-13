@@ -24,7 +24,7 @@ categories:   # 添加博文分类
 
 ![image-20241008225541514](https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202410082255599.png)
 
-
+上图 ④和⑤颠倒一下顺序
 
 ```mysql
 # where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下
@@ -47,7 +47,33 @@ on d.department_id = e.department_id  读作 部门中有员工的行取出来�
 
 
 
+## 你需要记住 SELECT 查询时的两个顺序:
 
+### 1. 关键字的顺序是不能颠倒的:
+
+####  ``SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ... LIMIT...``
+
+### 2.SELECT 语句的执行顺序(在 MySQL 和 Oracle 中,SELECT 执行顺序基本相同):
+
+#### ``FROM -> WHERE -> GROUP BY -> HAVING -> SELECT 的字段 -> DISTINCT -> ORDER BY -> LIMIT``
+
+### 3.比如你写了一个 SQL 语句,那么它的关键字顺序和执行顺序是下面这样的:
+
+```mysql
+SELECT DISTINCT player_id, player_name, count(*) as num # 顺序 5
+FROM player JOIN team ON player.team_id = team.team_id # 顺序 1
+WHERE height > 1.80 # 顺序 2
+GROUP BY player.team_id # 顺序 3
+HAVING num > 2 # 顺序 4
+ORDER BY num DESC # 顺序 6
+LIMIT 2 # 顺序 7
+```
+
+- #### 在 SELECT 语句执行这些步骤的时候,每个步骤都会产生一个 虚拟表 ,然后将这个虚拟表传入下一个步骤中作为输入。需要注意的是,这些步骤隐含在 SQL 的执行过程中,对于我们来说是不可见的。
+
+### 同时因为 SQL 是一门类似英语的结构化查询语言,所以我们在写 SELECT 语句的时候,还要注意相应的关键字顺序,
+
+### 所谓底层运行的原理,就是我们刚才讲到的执行顺序。
 
 
 
