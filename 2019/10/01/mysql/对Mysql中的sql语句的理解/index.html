@@ -18,17 +18,17 @@
   
   
   <title>对Mysql中的sql语句的理解 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="对Mysql中的sql语句的理解      理解SQL语句的执行顺序 1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。   123# where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下# on 后面可以读作, e员工表中有 部门的行,取出来.   通用句式 表中 有 xxx 的值取出来 。      123456如上：from employ">
+  <meta name="description" content="对Mysql中的sql语句的理解      理解SQL语句的执行顺序 1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。   上图 ④和⑤颠倒一下顺序 123# where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下# on 后面可以读作, e员工表中有 部门的行,取出来.   通用句式 表中 有 xxx 的值取出来 。      123456如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对Mysql中的sql语句的理解">
 <meta property="og:url" content="https://protonlml.github.io/2019/10/01/mysql/%E5%AF%B9Mysql%E4%B8%AD%E7%9A%84sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="对Mysql中的sql语句的理解      理解SQL语句的执行顺序 1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。   123# where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下# on 后面可以读作, e员工表中有 部门的行,取出来.   通用句式 表中 有 xxx 的值取出来 。      123456如上：from employ">
+<meta property="og:description" content="对Mysql中的sql语句的理解      理解SQL语句的执行顺序 1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。   上图 ④和⑤颠倒一下顺序 123# where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下# on 后面可以读作, e员工表中有 部门的行,取出来.   通用句式 表中 有 xxx 的值取出来 。      123456如">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202410082255599.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202410082311840.png">
 <meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-09T14:15:19.068Z">
+<meta property="article:modified_time" content="2024-10-13T15:57:49.017Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="mysql8.0.22">
 <meta name="twitter:card" content="summary">
@@ -206,7 +206,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql8-0-22/">mysql8.0.22</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">14</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql8-0-22/">mysql8.0.22</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">47</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">47</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -226,7 +226,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">83</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">83</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -305,10 +305,10 @@
                 <a class="category-link" href="/categories/mysql8-0-22/">mysql8.0.22</a>
               </p>
               <p class="item-title">
-                <a href="/2019/10/03/mysql/4.%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0/" class="title">4.mysql单行函数</a>
+                <a href="/2019/10/03/mysql/5.mysql%E7%AC%AC8%E7%AB%A0%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" class="title">5.mysql第8章聚合函数</a>
               </p>
               <p class="item-date">
-                <time datetime="2019-10-03T03:00:00.000Z" itemprop="datePublished">2019-10-03</time>
+                <time datetime="2019-10-03T05:00:00.000Z" itemprop="datePublished">2019-10-03</time>
               </p>
             </div>
           </li>
@@ -363,10 +363,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/01/mysql/%E5%AF%B9Mysql%E4%B8%AD%E7%9A%84sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%90%86%E8%A7%A3/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 415(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 726(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -383,6 +383,7 @@
 <p>1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202410082255599.png" alt="image-20241008225541514"></p>
+<p>上图 ④和⑤颠倒一下顺序</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下</span><br><span class="line"># on 后面可以读作, e员工表中有 部门的行,取出来.</span><br><span class="line">   通用句式 表中 有 xxx 的值取出来 。 </span><br></pre></td></tr></table></figure>
 
 
@@ -392,11 +393,12 @@
 
 
 
+<h2 id="你需要记住-SELECT-查询时的两个顺序"><a href="#你需要记住-SELECT-查询时的两个顺序" class="headerlink" title="你需要记住 SELECT 查询时的两个顺序:"></a>你需要记住 SELECT 查询时的两个顺序:</h2><h3 id="1-关键字的顺序是不能颠倒的"><a href="#1-关键字的顺序是不能颠倒的" class="headerlink" title="1. 关键字的顺序是不能颠倒的:"></a>1. 关键字的顺序是不能颠倒的:</h3><h4 id="SELECT-FROM-WHERE-GROUP-BY-HAVING-ORDER-BY-LIMIT"><a href="#SELECT-FROM-WHERE-GROUP-BY-HAVING-ORDER-BY-LIMIT" class="headerlink" title="SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ... LIMIT..."></a><code>SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ... LIMIT...</code></h4><h3 id="2-SELECT-语句的执行顺序-在-MySQL-和-Oracle-中-SELECT-执行顺序基本相同"><a href="#2-SELECT-语句的执行顺序-在-MySQL-和-Oracle-中-SELECT-执行顺序基本相同" class="headerlink" title="2.SELECT 语句的执行顺序(在 MySQL 和 Oracle 中,SELECT 执行顺序基本相同):"></a>2.SELECT 语句的执行顺序(在 MySQL 和 Oracle 中,SELECT 执行顺序基本相同):</h3><h4 id="FROM-WHERE-GROUP-BY-HAVING-SELECT-的字段-DISTINCT-ORDER-BY-LIMIT"><a href="#FROM-WHERE-GROUP-BY-HAVING-SELECT-的字段-DISTINCT-ORDER-BY-LIMIT" class="headerlink" title="FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT 的字段 -&gt; DISTINCT -&gt; ORDER BY -&gt; LIMIT"></a><code>FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT 的字段 -&gt; DISTINCT -&gt; ORDER BY -&gt; LIMIT</code></h4><h3 id="3-比如你写了一个-SQL-语句-那么它的关键字顺序和执行顺序是下面这样的"><a href="#3-比如你写了一个-SQL-语句-那么它的关键字顺序和执行顺序是下面这样的" class="headerlink" title="3.比如你写了一个 SQL 语句,那么它的关键字顺序和执行顺序是下面这样的:"></a>3.比如你写了一个 SQL 语句,那么它的关键字顺序和执行顺序是下面这样的:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT player_id, player_name, count(*) as num # 顺序 5</span><br><span class="line">FROM player JOIN team ON player.team_id = team.team_id # 顺序 1</span><br><span class="line">WHERE height &gt; 1.80 # 顺序 2</span><br><span class="line">GROUP BY player.team_id # 顺序 3</span><br><span class="line">HAVING num &gt; 2 # 顺序 4</span><br><span class="line">ORDER BY num DESC # 顺序 6</span><br><span class="line">LIMIT 2 # 顺序 7</span><br></pre></td></tr></table></figure>
 
-
-
-
-<hr>
+<ul>
+<li><h4 id="在-SELECT-语句执行这些步骤的时候-每个步骤都会产生一个-虚拟表-然后将这个虚拟表传入下一个步骤中作为输入。需要注意的是-这些步骤隐含在-SQL-的执行过程中-对于我们来说是不可见的。"><a href="#在-SELECT-语句执行这些步骤的时候-每个步骤都会产生一个-虚拟表-然后将这个虚拟表传入下一个步骤中作为输入。需要注意的是-这些步骤隐含在-SQL-的执行过程中-对于我们来说是不可见的。" class="headerlink" title="在 SELECT 语句执行这些步骤的时候,每个步骤都会产生一个 虚拟表 ,然后将这个虚拟表传入下一个步骤中作为输入。需要注意的是,这些步骤隐含在 SQL 的执行过程中,对于我们来说是不可见的。"></a>在 SELECT 语句执行这些步骤的时候,每个步骤都会产生一个 虚拟表 ,然后将这个虚拟表传入下一个步骤中作为输入。需要注意的是,这些步骤隐含在 SQL 的执行过程中,对于我们来说是不可见的。</h4></li>
+</ul>
+<h3 id="同时因为-SQL-是一门类似英语的结构化查询语言-所以我们在写-SELECT-语句的时候-还要注意相应的关键字顺序"><a href="#同时因为-SQL-是一门类似英语的结构化查询语言-所以我们在写-SELECT-语句的时候-还要注意相应的关键字顺序" class="headerlink" title="同时因为 SQL 是一门类似英语的结构化查询语言,所以我们在写 SELECT 语句的时候,还要注意相应的关键字顺序,"></a>同时因为 SQL 是一门类似英语的结构化查询语言,所以我们在写 SELECT 语句的时候,还要注意相应的关键字顺序,</h3><h3 id="所谓底层运行的原理-就是我们刚才讲到的执行顺序。"><a href="#所谓底层运行的原理-就是我们刚才讲到的执行顺序。" class="headerlink" title="所谓底层运行的原理,就是我们刚才讲到的执行顺序。"></a>所谓底层运行的原理,就是我们刚才讲到的执行顺序。</h3><hr>
 <hr>
 <p>© 版权声明</p>
 <escape>
