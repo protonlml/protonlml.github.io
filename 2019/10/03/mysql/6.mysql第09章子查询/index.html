@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>6.mysql第09章子查询 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="子查询    一、子查询12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6.mysql第09章子查询">
+<meta property="og:url" content="https://protonlml.github.io/2019/10/03/mysql/6.mysql%E7%AC%AC09%E7%AB%A0%E5%AD%90%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="子查询    一、子查询12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-03T06:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-23T17:42:24.019Z">
+<meta property="article:author" content="𝚲𝚳𝚲">
+<meta property="article:tag" content="mysql8.0.22">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://protonlml.github.io/2019/10/03/mysql/6.mysql%E7%AC%AC09%E7%AB%A0%E5%AD%90%E6%9F%A5%E8%AF%A2/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">𝚲𝚳𝚲</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">◙</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql8-0-22/">mysql8.0.22</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">14</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">47</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">83</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/01/01/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%8C%82%E5%B9%B4%E5%85%BD/" class="title">悬挂年兽 喜增龙年</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-01-01T03:00:00.000Z" itemprop="datePublished">2024-01-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/17/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/matery%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">matery主题的使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-17T03:00:00.000Z" itemprop="datePublished">2020-03-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/%E7%BB%8F%E9%AA%8C/3.git%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="title">3.git初始化仓库的两种方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T06:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/java/maven/">maven</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/java%E5%9F%BA%E7%A1%80/Maven/" class="title">Maven</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T03:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mysql8-0-22/">mysql8.0.22</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/03/mysql/6.mysql%E7%AC%AC09%E7%AB%A0%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="title">6.mysql第09章子查询</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-03T06:00:00.000Z" itemprop="datePublished">2019-10-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-mysql/6.mysql第09章子查询" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      6.mysql第09章子查询
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/10/03/mysql/6.mysql%E7%AC%AC09%E7%AB%A0%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="article-date">
+	  <time datetime="2019-10-03T06:00:00.000Z" itemprop="datePublished">2019-10-03</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/mysql8-0-22/">mysql8.0.22</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/03/mysql/6.mysql%E7%AC%AC09%E7%AB%A0%E5%AD%90%E6%9F%A5%E8%AF%A2/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.5k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 15(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1><center>子查询</center></h1>
+
+
+
+<h3 id="一、子查询"><a href="#一、子查询" class="headerlink" title="一、子查询"></a>一、子查询</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  子查询:</span><br><span class="line"> */</span><br><span class="line"># 需求：员工表中，比Abel的工资高的都有那些</span><br><span class="line"></span><br><span class="line">select last_name,salary</span><br><span class="line">from employees</span><br><span class="line">where salary&gt;(select salary</span><br><span class="line">              from employees</span><br><span class="line">              where last_name=&#x27;Abel&#x27;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  子查询的分类</span><br><span class="line">  我们按内查询的结果返回一条还是多条记录,将子查询分为 单行子查询 、 多行子查询 。</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">    单行子查询：</span><br><span class="line">  因为，单行子查询的返回结果，只有一行，就一个值，所以可使用 = &gt; &gt;= &lt; &lt;= &lt;&gt; 进行比较操作</span><br><span class="line">  例如：</span><br><span class="line">  题目:查询工资大于149号员工工资的员工的信息</span><br><span class="line"> */</span><br><span class="line">select last_name,salary</span><br><span class="line">from employees</span><br><span class="line">where salary&gt;(</span><br><span class="line">    select salary from employees where employee_id=&#x27;149&#x27; #10500</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"># 题目:返回job_id与141号员工相同,salary比143号员工多的员工姓名,job_id和工资</span><br><span class="line"></span><br><span class="line">select  last_name,job_id,salary</span><br><span class="line">from employees</span><br><span class="line">where job_id=(select job_id from employees where employee_id=&#x27;141&#x27;)</span><br><span class="line">and salary&gt;(select salary from employees where employee_id=&#x27;141&#x27;);</span><br><span class="line"></span><br><span class="line"># 题目:返回公司工资最少的员工的last_name,job_id和salary</span><br><span class="line">select last_name,job_id,salary</span><br><span class="line">from employees</span><br><span class="line">where salary=(</span><br><span class="line">    select min(salary) from employees</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"># 题目:查询与141号或174号员工的manager_id和department_id相同的其他员工的employee_id, manager_id,department_id</span><br><span class="line">select employee_id,manager_id,department_id</span><br><span class="line">from employees</span><br><span class="line">where manager_id in (select  manager_id from employees where employee_id in(141,174))</span><br><span class="line">and department_id in (select  department_id from employees where employee_id in(141,174))</span><br><span class="line">and employee_id not in (141,174);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">   HAVING 中的子查询</span><br><span class="line">    首先执行子查询。</span><br><span class="line">    向主查询中的HAVING 子句返回结果。</span><br><span class="line"> */</span><br><span class="line"># 题目:查询最低工资</span><br><span class="line"># 大于 50号部门最低工资</span><br><span class="line"># 的部门 id和其最低工资</span><br><span class="line">select  department_id,min(salary)</span><br><span class="line">from employees e</span><br><span class="line">group by department_id</span><br><span class="line">having min(salary) &gt; (</span><br><span class="line">                select min(salary)</span><br><span class="line">                from employees</span><br><span class="line">                where department_id=50</span><br><span class="line">                group by department_id</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">   CASE中的子查询</span><br><span class="line">    在CASE表达式中使用单列子查询:</span><br><span class="line"> */</span><br><span class="line">#</span><br><span class="line"># 题目:显式员工的 employee_id,last_name和location。</span><br><span class="line"># 其中,若员工department_id</span><br><span class="line"># 与   location_id为1800 的department_id相同,20</span><br><span class="line"># 则location为’Canada’,其余则为’USA’。</span><br><span class="line"></span><br><span class="line">select employee_id,last_name, (case department_id</span><br><span class="line">                                when (</span><br><span class="line">                                    select department_id from departments</span><br><span class="line">                                    where location_id=1800</span><br><span class="line">                                    ) then &#x27;Canada&#x27;</span><br><span class="line">                                else &#x27;USA&#x27; end ) location</span><br><span class="line"></span><br><span class="line">from employees;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*-------------------------------------------------------------------------------------------------------*/</span><br><span class="line">/**</span><br><span class="line">  多行子查询</span><br><span class="line">   子查询的结果，是多行的，所以使用多行比较操作符</span><br><span class="line">多行比较操作符</span><br><span class="line">    in 等于列表中的任意一个</span><br><span class="line">    ANY 需要和单行比较操作符一起使用,和子查询返回的某一个值比较</span><br><span class="line">    ALL 需要和单行比较操作符一起使用,和子查询返回的所有值比较</span><br><span class="line">    SOME 实际上是ANY的别名,作用相同,一般常使用ANY</span><br><span class="line"> */</span><br><span class="line"># 题目:返回</span><br><span class="line"># 其它job_id中比   job_id为‘IT_PROG’部门 任一工资低</span><br><span class="line"># 的 员工的员工号、姓名、job_id 以及salary</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># select d.department_id,e.salary</span><br><span class="line"># from employees e join departments d</span><br><span class="line">#     on e.department_id=d.department_id</span><br><span class="line"># where e.job_id=&#x27;IT_PROG&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select employee_id,last_name,job_id,salary</span><br><span class="line">from employees</span><br><span class="line">where salary&lt; any(</span><br><span class="line">    select salary from employees where job_id=&#x27;IT_PROG&#x27;</span><br><span class="line">    )</span><br><span class="line">and job_id &lt;&gt; &#x27;IT_PROG&#x27;;</span><br><span class="line"></span><br><span class="line">select * from departments;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 题目:查询平均工资最低的部门id</span><br><span class="line"># 将 虚拟表。作为 from后面的表进行查询</span><br><span class="line"># 查询了员工所在的所有部门的 平均工资</span><br><span class="line">select department_id,avg(salary) t_dep_gr_avgsalary</span><br><span class="line">from employees</span><br><span class="line">group by department_id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 平均工资最低是多少</span><br><span class="line">select  min(t_dep_gr_avgsalary)</span><br><span class="line">from (select avg(salary) t_dep_gr_avgsalary</span><br><span class="line">from employees</span><br><span class="line">group by department_id) dept_avg_sal ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select department_id,avg(salary) t_dep_gr_avgsalary</span><br><span class="line">from employees</span><br><span class="line">group by department_id</span><br><span class="line">having avg(salary) = (select  min(t_dep_gr_avgsalary)</span><br><span class="line">from (select avg(salary) t_dep_gr_avgsalary</span><br><span class="line">from employees</span><br><span class="line">group by department_id) dept_avg_sal);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  相关子查询：外部的表，存在于内部子查询当中</span><br><span class="line"></span><br><span class="line">    如果子查询的执行依赖于外部查询,通常情况下都是因为子查询中的表用到了外部的表,并进行了条件</span><br><span class="line">    关联,因此每执行一次外部查询,子查询都要重新计算一次,这样的子查询就称之为 关联子查询 。</span><br><span class="line"></span><br><span class="line">        步骤是： 1.外查询，先查询到了107条记录。</span><br><span class="line">                2.将第一条记录取出来，送进子查询中，送进来的这条记录，使用外表的这条记录，获取到employee_id。查出子查询的结果</span><br><span class="line">                3.将子查询的结果，返回到外查询，继续外查询语句的过滤条件，得到最终结果</span><br><span class="line"></span><br><span class="line">  题目:查询员工中工资 大于 本部门平均工资的员工的last_name,salary和其department_id</span><br><span class="line">   :这里的相关子查询，子查询中使用主查询中的列</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">select last_name, e.employee_id ,salary</span><br><span class="line">from employees e</span><br><span class="line">where salary &gt; (select avg(salary)</span><br><span class="line">                from employees em</span><br><span class="line">                where em.department_id=e.employee_id</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  相关子查询， 子查询在 from 后面</span><br><span class="line">  from型的子查询:子查询是作为from的一部分,子查询要用()引起来,并且要给这个子查询取别</span><br><span class="line">    名, 把它当成一张“临时的虚拟的表”来使用。</span><br><span class="line"> */</span><br><span class="line"> #:查询员工中工资大于本部门平均工资的员工的last_name,salary和其department_id</span><br><span class="line">SELECT last_name,salary,e1.department_id</span><br><span class="line">FROM employees e1,(</span><br><span class="line">                    SELECT department_id,AVG(salary) dept_avg_sal</span><br><span class="line">                    FROM employees</span><br><span class="line">                    GROUP BY department_id) e2</span><br><span class="line">WHERE e1.`department_id` = e2.department_id</span><br><span class="line">AND e2.dept_avg_sal &lt; e1.`salary`;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  在ORDER BY 中使用 相关子查询:</span><br><span class="line">  题目:查询员工的id,salary,按照department_name 排序</span><br><span class="line"> */</span><br><span class="line">select  distinct department_name</span><br><span class="line">from employees e2  left join departments d</span><br><span class="line">on e2.department_id = d.department_id;</span><br><span class="line"></span><br><span class="line"># select e1.last_name, e1.employee_id,e1.salary</span><br><span class="line"># from employees e1</span><br><span class="line"># order by (select  distinct department_name</span><br><span class="line"># from employees e2  left join departments d</span><br><span class="line"># on e2.department_id = d.department_id</span><br><span class="line">#     where e1.employee_id=e2.employee_id) asc;</span><br><span class="line"></span><br><span class="line">SELECT employee_id, salary</span><br><span class="line">FROM employees e</span><br><span class="line">ORDER BY (</span><br><span class="line">             SELECT department_name</span><br><span class="line">             FROM departments d</span><br><span class="line">             WHERE e.`department_id` = d.`department_id`</span><br><span class="line">         );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  EXISTS 与 NOT EXISTS关键字</span><br><span class="line">  关联子查询通常也会和 EXISTS操作符一起来使用,用来检查在子查询中是否存在满足条件的行。</span><br><span class="line">        如果在子查询中不存在满足条件的行:</span><br><span class="line">        条件返回 FALSE</span><br><span class="line">        继续在子查询中查找</span><br><span class="line">        如果在子查询中存在满足条件的行:</span><br><span class="line">        不在子查询中继续查找</span><br><span class="line">        条件返回 TRUE</span><br><span class="line">        NOT EXISTS关键字表示如果不存在某种条件,则返回TRUE,否则返回FALSE。</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">#  题目:查询公司 管理者的 employee_id, last_name, job_id,department_id 信息</span><br><span class="line"># 方法一：表自连接</span><br><span class="line">SELECT DISTINCT e1.employee_id, e1.last_name, e1.job_id, e1.department_id</span><br><span class="line">FROM</span><br><span class="line"> employees e1 JOIN employees e2</span><br><span class="line">WHERE e1.employee_id = e2.manager_id;</span><br><span class="line"># 方法二、</span><br><span class="line">SELECT employee_id, last_name, job_id, department_id</span><br><span class="line">FROM employees e1</span><br><span class="line">WHERE EXISTS(SELECT *</span><br><span class="line">             FROM employees e2</span><br><span class="line">             WHERE e2.manager_id =</span><br><span class="line">                   e1.employee_id);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查询    departments表 中 不存在于 employees表中的部门     的department_id和department_name</span><br><span class="line">SELECT department_id, department_name</span><br><span class="line">FROM departments d</span><br><span class="line">WHERE NOT EXISTS (SELECT &#x27;X&#x27;</span><br><span class="line">FROM</span><br><span class="line"> employees</span><br><span class="line">WHERE</span><br><span class="line"> department_id = d.department_id);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  ------------------------------------------------------------------------</span><br><span class="line">  子查询练习</span><br><span class="line"> */</span><br><span class="line">#1.查询和Zlotkey相同部门的员工姓名和工资</span><br><span class="line"></span><br><span class="line">select e1.department_id ,e1.last_name,e1.salary from employees e1</span><br><span class="line">where  e1.department_id =(select department_id from employees e2 where e2.last_name=&#x27;Zlotkey&#x27;);</span><br><span class="line"></span><br><span class="line">#2.查询  工资比公司平均工资高的  员工的员工号,姓名和工资。</span><br><span class="line">select employee_id,last_name,salary</span><br><span class="line">from employees</span><br><span class="line">where salary&gt;(select avg(salary) from employees);</span><br><span class="line">#公司的平均工资</span><br><span class="line">select avg(salary) from employees;</span><br><span class="line"></span><br><span class="line">#3.选择工资大于 所有JOB_ID = &#x27;SA_MAN&#x27;的员工的工资 的员工的last_name, job_id, salary</span><br><span class="line"></span><br><span class="line">select last_name,job_id,salary</span><br><span class="line">from employees</span><br><span class="line">where salary&gt; all(select salary from employees</span><br><span class="line">where job_id=&#x27;SA_MAN&#x27;);</span><br><span class="line">#所有JOB_ID = &#x27;SA_MAN&#x27;的员工的工资</span><br><span class="line">select salary from employees</span><br><span class="line">where job_id=&#x27;SA_MAN&#x27;</span><br><span class="line"></span><br><span class="line">#4.查询   和姓名中包含字母u的员工 在 相同部门 的员工   的员工号和姓名</span><br><span class="line">select employee_id,last_name</span><br><span class="line">from employees</span><br><span class="line">where department_id in (select distinct department_id  from employees</span><br><span class="line">where last_name like &#x27;%U%&#x27;);</span><br><span class="line"># 查询和   姓名中包含字母u的员工 在相同部门的员工</span><br><span class="line"># 查询姓名中包含字母u的员工 的部门id</span><br><span class="line">select distinct department_id  from employees</span><br><span class="line">where last_name like &#x27;%U%&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#5.查询在 部门的location_id为1700的部门工作的 员工的员工号</span><br><span class="line"></span><br><span class="line">select employee_id ,last_name</span><br><span class="line">from employees</span><br><span class="line">where department_id in(</span><br><span class="line">                        select department_id</span><br><span class="line">                        from departments</span><br><span class="line">                        where location_id=&#x27;1700&#x27;</span><br><span class="line">                      );</span><br><span class="line"></span><br><span class="line"># 查询 location_id为1700的部门id号</span><br><span class="line">select department_id</span><br><span class="line">from departments</span><br><span class="line">where location_id=&#x27;1700&#x27;;</span><br><span class="line"></span><br><span class="line">#6.查询管理者是King的员工姓名和工资</span><br><span class="line"></span><br><span class="line">select last_name, salary,manager_id</span><br><span class="line">from employees</span><br><span class="line">where manager_id=(select employee_id</span><br><span class="line">from employees</span><br><span class="line">where last_name=&#x27;King&#x27; and manager_id is null);</span><br><span class="line"># 查询King 管理者的 employee_id</span><br><span class="line">select employee_id</span><br><span class="line">from employees</span><br><span class="line">where last_name=&#x27;King&#x27; and manager_id is null ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#7.查询工资最低的员工信息: last_name, salary</span><br><span class="line">select last_name,salary</span><br><span class="line">from employees</span><br><span class="line">where salary=(select min(salary) from employees);</span><br><span class="line"></span><br><span class="line">#查询员工表的最低工资是多少</span><br><span class="line">select min(salary)</span><br><span class="line">from employees;</span><br><span class="line"></span><br><span class="line">#8.查询平均工资 最低的部门信息</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#查找各个部门的平均工资</span><br><span class="line">select  avg(salary) avg_salary</span><br><span class="line">from employees</span><br><span class="line">group by department_id;</span><br><span class="line"># 查找部门的最低工资</span><br><span class="line">select min(avg_salary)</span><br><span class="line">from (select  avg(salary) avg_salary</span><br><span class="line">from employees</span><br><span class="line">group by department_id) t_avg_em;</span><br><span class="line"># 查找最低工资的部门</span><br><span class="line">select *</span><br><span class="line">from departments</span><br><span class="line">where department_id=(</span><br><span class="line">        select department_id from employees</span><br><span class="line">        group by department_id</span><br><span class="line">        having avg(salary)=(</span><br><span class="line">                            select min(avg_salary)</span><br><span class="line">                            from (</span><br><span class="line">                            select  avg(salary) avg_salary</span><br><span class="line">                            from employees</span><br><span class="line">                            group by department_id) t_avg_em</span><br><span class="line">                            )</span><br><span class="line">                    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#9.查询平均工资 最低的部门 信息  和  该部门的平均工资(相关子查询)</span><br><span class="line">select  department_id,avg(salary)</span><br><span class="line">from employees</span><br><span class="line">group by department_id</span><br><span class="line">having avg(salary)&lt;=ALL (</span><br><span class="line">    #求出每个部门的平均工资</span><br><span class="line">                select avg(salary)</span><br><span class="line">                from employees</span><br><span class="line">                group by department_id</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># 记住一点：这种子查询，就抓住，子查询后出来的值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#10.查询平均工资最高的 job 信息</span><br><span class="line"># 注意：看题目，题目要查job信息，肯定是 from jobs表,然后再去凑条件</span><br><span class="line">select * from jobs;</span><br><span class="line"></span><br><span class="line"># 查询每个工种的 平均工资</span><br><span class="line">select job_id,avg(salary)</span><br><span class="line">from employees</span><br><span class="line">group by job_id;</span><br><span class="line"></span><br><span class="line"># 查询  平均工资最高的 工种 job_id</span><br><span class="line">select job_id</span><br><span class="line">from employees</span><br><span class="line">group by job_id</span><br><span class="line">having avg(salary)&gt;=ALL (</span><br><span class="line">        select avg(salary)</span><br><span class="line">        from employees</span><br><span class="line">        group by job_id</span><br><span class="line">);</span><br><span class="line">#最终</span><br><span class="line">select * from jobs</span><br><span class="line">where job_id=(select job_id</span><br><span class="line">from employees</span><br><span class="line">group by job_id</span><br><span class="line">having avg(salary)&gt;=ALL (</span><br><span class="line">        select avg(salary)</span><br><span class="line">        from employees</span><br><span class="line">        group by job_id</span><br><span class="line">));</span><br><span class="line"></span><br><span class="line">#11.查询 平均工资  高于 公司平均工资 的部门有哪些?</span><br><span class="line">select * from</span><br><span class="line">departments;</span><br><span class="line"></span><br><span class="line">#查询公司的平均工资</span><br><span class="line">select avg(salary)</span><br><span class="line">from employees;</span><br><span class="line"></span><br><span class="line"># 查询部门的平均工资</span><br><span class="line">select department_id,avg(salary)</span><br><span class="line">from employees</span><br><span class="line">group by department_id;</span><br><span class="line"></span><br><span class="line"># 查询 平均工资  高于 公司平均工资 的部门有哪些?</span><br><span class="line">select department_id,avg(salary)</span><br><span class="line">from employees</span><br><span class="line">where department_id is not null</span><br><span class="line">group by department_id</span><br><span class="line">having avg(salary) &gt;(</span><br><span class="line">    select avg(salary)</span><br><span class="line">    from employees</span><br><span class="line">    ) ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#12.查询出公司中所有 manager(管理者) 的详细信息</span><br><span class="line"># manager也是员工</span><br><span class="line"># 这题只要是，将employees表，想象成两张表，一张是员工表，一张是 管理者表。</span><br><span class="line"># 只要 员工表的 员工id=管理者表中的 管理id ,那么这个人这条记录就是管理者</span><br><span class="line"># 自连接查询</span><br><span class="line">select * from employees;</span><br><span class="line"></span><br><span class="line">select DISTINCT em.employee_id, em.last_name, em.salary</span><br><span class="line">from employees em join employees ma</span><br><span class="line">on em.employee_id=ma.manager_id;</span><br><span class="line">#方法2</span><br><span class="line">SELECT employee_id, last_name, salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE employee_id IN (</span><br><span class="line">    SELECT DISTINCT manager_id</span><br><span class="line">    FROM employees</span><br><span class="line">);</span><br><span class="line">#相关子查询   查询第一行时， 外查询的条件，进入到内查询，内查询执行使用外查询条件。完毕。 跳出内查询，到外查询继续执行</span><br><span class="line">#方式3:  where 后面判断 存在 EXISTS 存在返回true</span><br><span class="line">SELECT employee_id, last_name, salary</span><br><span class="line">FROM employees e1</span><br><span class="line">WHERE EXISTS(SELECT *</span><br><span class="line">             FROM employees e2</span><br><span class="line">             WHERE e2.manager_id = e1.employee_id);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#13.各个部门中 最高工资中 最低的那个部门的 最低工资是多少?</span><br><span class="line"># 求各个部门的最高工资</span><br><span class="line"># 将各个部门的最高工资进行比较，最低的那个部门的工资是多少</span><br><span class="line"></span><br><span class="line">#从最高工资中找到最低工资</span><br><span class="line">select min(mx_salary)</span><br><span class="line">from (</span><br><span class="line">    # 求各个部门的最高工资</span><br><span class="line">    select  max(salary) mx_salary</span><br><span class="line">    from employees</span><br><span class="line">    group by department_id ) a;</span><br><span class="line"></span><br><span class="line"># 抓住核心思想，求什么就先把字段写好，后面再往上面凑</span><br><span class="line">select department_id, salary</span><br><span class="line">from employees</span><br><span class="line">where department_id =</span><br><span class="line">(select department_id</span><br><span class="line">from employees</span><br><span class="line">group by department_id</span><br><span class="line">having max(salary) =</span><br><span class="line">       (select max(salary) m_sa</span><br><span class="line">        from employees</span><br><span class="line">        group by department_id</span><br><span class="line">        order by m_sa</span><br><span class="line">        limit 0,1</span><br><span class="line">       ));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#14.查询平均工资最高的部门的 manager 的详细信息: last_name, department_id, email, salary</span><br><span class="line"># 求平均工资最高的部门id</span><br><span class="line">select department_id</span><br><span class="line">from employees</span><br><span class="line">group by department_id</span><br><span class="line">having avg(salary)&gt;=ALL (</span><br><span class="line">    select avg(salary)</span><br><span class="line">    from employees</span><br><span class="line">    group by department_id</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">#求这个平均工资最高的部门中，多个管理者的 id</span><br><span class="line">select distinct manager_id</span><br><span class="line">from employees</span><br><span class="line">where department_id  =(</span><br><span class="line">    #查询平均工资最高的部门</span><br><span class="line">    select department_id</span><br><span class="line">    from employees</span><br><span class="line">    group by department_id</span><br><span class="line">    having avg(salary) &gt;= ALL (</span><br><span class="line">        #每个部门的平均工资</span><br><span class="line">        select avg(salary)</span><br><span class="line">        from employees</span><br><span class="line">        group by department_id</span><br><span class="line">    )</span><br><span class="line">);</span><br><span class="line"># 查询员工表</span><br><span class="line">select employee_id, last_name, department_id, email, salary</span><br><span class="line">from employees</span><br><span class="line">where employee_id in (</span><br><span class="line">    select distinct manager_id</span><br><span class="line">    from employees</span><br><span class="line">    where department_id = (</span><br><span class="line">        #查询平均工资最高的部门</span><br><span class="line">        select department_id</span><br><span class="line">        from employees</span><br><span class="line">        group by department_id</span><br><span class="line">        having avg(salary) &gt;= ALL (</span><br><span class="line">            #每个部门的平均工资</span><br><span class="line">            select avg(salary)</span><br><span class="line">            from employees</span><br><span class="line">            group by department_id</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#15. 查询部门的部门号,其中不包括job_id是&quot;ST_CLERK&quot;的部门号</span><br><span class="line"></span><br><span class="line"># 查询所有部门，然后排除 Job_id是&quot;ST_CLERK&quot;的部门</span><br><span class="line"></span><br><span class="line"># 查询 Job_id是&quot;ST_CLERK&quot;的 所有部门id</span><br><span class="line">select department_id</span><br><span class="line">from employees</span><br><span class="line">group by department_id,job_id</span><br><span class="line">having job_id=&#x27;ST_CLERK&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select department_id</span><br><span class="line">from departments</span><br><span class="line">where department_id not in(</span><br><span class="line">        select department_id</span><br><span class="line">        from employees</span><br><span class="line">        group by department_id,job_id</span><br><span class="line">        having job_id=&#x27;ST_CLERK&#x27;</span><br><span class="line">    );</span><br><span class="line">#相关子查询，将部门表作为主体，条件来判断是不是为真。满足就输出，不满足就继续下一行</span><br><span class="line">SELECT department_id</span><br><span class="line">FROM departments d</span><br><span class="line">WHERE NOT EXISTS(</span><br><span class="line">        SELECT *</span><br><span class="line">        FROM employees e</span><br><span class="line">        WHERE d.`department_id` = e.`department_id`</span><br><span class="line">          AND job_id = &#x27;ST_CLERK&#x27;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#16. 选择所有 没有管理者的员工的last_name</span><br><span class="line"></span><br><span class="line"># 查询 管理者的id为null的 员工信息</span><br><span class="line"></span><br><span class="line">select *</span><br><span class="line">from employees</span><br><span class="line">where manager_id is null ;</span><br><span class="line"></span><br><span class="line"># 查询所有管理者的id</span><br><span class="line"># 员工的管理者，与其匹配，不在里面的 记录一行</span><br><span class="line"></span><br><span class="line">select *</span><br><span class="line">from employees e1 # e1看作员工表</span><br><span class="line">where not exists(</span><br><span class="line">        select * from employees e2 #e2看作管理员表</span><br><span class="line">        where e1.manager_id=e2.employee_id</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">#17.查询员工号、姓名、雇用时间、工资, 其中员工的 管理者为 &#x27;De Haan&#x27;</span><br><span class="line"></span><br><span class="line"># 查询 last_name=&#x27;De Haan&#x27;的员工号</span><br><span class="line">select * from employees where last_name=&#x27;De Haan&#x27;;# employee_id =102</span><br><span class="line"></span><br><span class="line">select employee_id,last_name,hire_date,salary</span><br><span class="line">from employees</span><br><span class="line">where manager_id=(</span><br><span class="line">    select employee_id from employees where last_name=&#x27;De Haan&#x27;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#18.查询   各部门中工资 比本部门平均工资高    的员工的员工号, 姓名和工资(相关子查询)</span><br><span class="line"></span><br><span class="line">#查询各个部门中的工资(所有人的工资)</span><br><span class="line"># 必须以部门和人分组，不能以部门和工资分组，工资有可能 两个人一样的。也被合并了。错误的</span><br><span class="line">select employee_id, last_name, salary</span><br><span class="line">from employees e1</span><br><span class="line">group by department_id, employee_id</span><br><span class="line">having salary&gt;(</span><br><span class="line">    select  AVG(salary)</span><br><span class="line">    from employees e2</span><br><span class="line">    where e1.department_id=e2.department_id</span><br><span class="line">    group by department_id</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 错误的分组</span><br><span class="line">select department_id,salary</span><br><span class="line">from employees</span><br><span class="line">group by department_id, salary;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查询各个部门的 平均工资</span><br><span class="line">select department_id,AVG(salary)</span><br><span class="line">from employees</span><br><span class="line">group by department_id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#19.查询每个部门下的部门人数大于 5 的部门名称(相关子查询)</span><br><span class="line"></span><br><span class="line"># 查询每个部门，部门下的 人数</span><br><span class="line"># 思考，部门表，和 员工表 相关查询</span><br><span class="line"></span><br><span class="line">select *</span><br><span class="line">from departments d</span><br><span class="line">where 5&lt;(</span><br><span class="line">    select count(1)</span><br><span class="line">    from employees e</span><br><span class="line">    where d.department_id=e.department_id</span><br><span class="line">    ) ;</span><br><span class="line"></span><br><span class="line"># 某个部门下的人数</span><br><span class="line">select count(1)</span><br><span class="line">from employees</span><br><span class="line">where department_id=&#x27;90&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#20.查询每个国家下的部门个数大于 2 的国家编号(相关子查询)</span><br><span class="line"></span><br><span class="line">select * from countries;</span><br><span class="line"></span><br><span class="line"># 查看部门在哪国家</span><br><span class="line"></span><br><span class="line">select *</span><br><span class="line">from departments;</span><br><span class="line">select *</span><br><span class="line">from locations;</span><br><span class="line"></span><br><span class="line"># 查询国家countries表</span><br><span class="line"></span><br><span class="line">select * from countries  c</span><br><span class="line">where 2&lt;(</span><br><span class="line">        select count(1)</span><br><span class="line">        from departments d  join locations l</span><br><span class="line">        on d.location_id=l.location_id</span><br><span class="line">        where  c.country_id=l.country_id</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 所有部门所在的城市</span><br><span class="line">select d.department_id,l.country_id</span><br><span class="line">from departments d  join locations l</span><br><span class="line">on d.location_id=l.location_id;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SELECT country_id</span><br><span class="line">FROM locations l</span><br><span class="line">WHERE 2 &lt; (</span><br><span class="line">    SELECT COUNT(*)</span><br><span class="line">    FROM departments d</span><br><span class="line">    WHERE l.`location_id` = d.`location_id`</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<hr>
+<hr>
+<p>© 版权声明</p>
+<escape>
+
+<div>
+    <h3 align="center"  style="color: brown;" >版权声明</h3>
+    <table>
+           <tr>
+            <ol>
+                <li>本网站名称：𝚲𝚳𝚲</li>
+                <li>𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。</li>
+                <li>本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。</li>
+                <li>本站一切资源不代表本站立场，并不代表本站赞同其观点和对其真实性负责。</li>
+                <li>本站一律禁止以任何方式发布或转载任何违法的相关信息，访客发现请举报</li> 
+                <li>本站资源大多存储在云盘，如发现链接失效，请联系我，我会第一时间更新。</li>
+                <li>本站强烈打击盗版/破解等有损他人权益和违法作为，请支持正版！</li>  
+            </ol>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+</escape>
+
+<hr>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://protonlml.github.io/2019/10/03/mysql/6.mysql%E7%AC%AC09%E7%AB%A0%E5%AD%90%E6%9F%A5%E8%AF%A2/" title="6.mysql第09章子查询" target="_blank" rel="external">https://protonlml.github.io/2019/10/03/mysql/6.mysql第09章子查询/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">𝚲𝚳𝚲</span><small class="ml-1x">◙</small></a></h3>
+        <div>业精于勤，荒于嬉；行成于思，毁于随！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/10/java%E5%9F%BA%E7%A1%80/Maven/" title="Maven"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/10/03/mysql/5.mysql%E7%AC%AC8%E7%AB%A0%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" title="5.mysql第8章聚合函数"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2019 - 2024 𝚲𝚳𝚲
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>
