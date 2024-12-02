@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>第一章 WEB概述 | 𝚲𝚳𝚲的博客</title>
+  <meta name="description" content="第一章 WEB概述1.1 JAVAWEB简介 用Java技术来解决相关web互联网领域的技术栈.使用JAVAEE技术体系开发企业级互联网项目. 项目规模和架构模式与JAVASE阶段有着很大的差别. 在互联网项目下,首先需要明白客户端和服务器的概念   客户端 :与用户进行交互，用于接收用户的输入(操作)、展示服务器端的数据以及向服务器传递数据   手机APP     微信小程序     PC端程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章 WEB概述">
+<meta property="og:url" content="https://protonlml.github.io/2019/10/08/javaweb/01_%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第一章 WEB概述1.1 JAVAWEB简介 用Java技术来解决相关web互联网领域的技术栈.使用JAVAEE技术体系开发企业级互联网项目. 项目规模和架构模式与JAVASE阶段有着很大的差别. 在互联网项目下,首先需要明白客户端和服务器的概念   客户端 :与用户进行交互，用于接收用户的输入(操作)、展示服务器端的数据以及向服务器传递数据   手机APP     微信小程序     PC端程序">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022118645.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119082.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119206.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119238.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119671.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119655.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119179.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119485.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119062.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022120544.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022120930.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022120694.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022120305.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022121095.png">
+<meta property="article:published_time" content="2019-10-08T01:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-02T13:21:18.452Z">
+<meta property="article:author" content="𝚲𝚳𝚲">
+<meta property="article:tag" content="javaweb">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022118645.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://protonlml.github.io/2019/10/08/javaweb/01_%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%BF%B0/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">𝚲𝚳𝚲</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">◙</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE/">IDEA快捷键</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Servlet/">Servlet</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">50</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/maven/">maven</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javaweb/">javaweb</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql8-0-22/">mysql8.0.22</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/">工具类</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/">常见算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">搭建图床</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a><span class="category-list-count">15</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alist/" rel="tag">Alist</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picgo/" rel="tag">Picgo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pure%E4%B8%BB%E9%A2%98/" rel="tag">Pure主题</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML%E7%B1%BB%E5%9B%BE/" rel="tag">UML类图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaweb/" rel="tag">javaweb</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">47</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/matery%E4%B8%BB%E9%A2%98/" rel="tag">matery主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8-0-22/" rel="tag">mysql8.0.22</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95/" rel="tag">常见算法</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="tag">经验</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">项目自动化构建工具</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">83</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1995/09/">九月 1995</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1969/10/">十月 1969</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1968/10/">十月 1968</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/01/01/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%8C%82%E5%B9%B4%E5%85%BD/" class="title">悬挂年兽 喜增龙年</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-01-01T03:00:00.000Z" itemprop="datePublished">2024-01-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/03/17/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/matery%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">matery主题的使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-17T03:00:00.000Z" itemprop="datePublished">2020-03-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/%E7%BB%8F%E9%AA%8C/3.git%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="title">3.git初始化仓库的两种方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T06:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/java/maven/">maven</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/10/java%E5%9F%BA%E7%A1%80/Maven/" class="title">Maven</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T03:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/javaweb/">javaweb</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/10/08/javaweb/08_%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%BE%AE%E5%A4%B4%E6%9D%A1%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" class="title">第八章 微头条项目开发</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-08T08:00:00.000Z" itemprop="datePublished">2019-10-08</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-javaweb/01_第一章 概述" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第一章 WEB概述
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/10/08/javaweb/01_%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%BF%B0/" class="article-date">
+	  <time datetime="2019-10-08T01:00:00.000Z" itemprop="datePublished">2019-10-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/javaweb/">javaweb</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/javaweb/" rel="tag">javaweb</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/08/javaweb/01_%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%BF%B0/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="第一章-WEB概述"><a href="#第一章-WEB概述" class="headerlink" title="第一章 WEB概述"></a>第一章 WEB概述</h1><h2 id="1-1-JAVAWEB简介"><a href="#1-1-JAVAWEB简介" class="headerlink" title="1.1 JAVAWEB简介"></a>1.1 JAVAWEB简介</h2><blockquote>
+<p>用Java技术来解决相关web互联网领域的技术栈.使用JAVAEE技术体系开发企业级互联网项目. 项目规模和架构模式与JAVASE阶段有着很大的差别. 在互联网项目下,首先需要明白客户端和服务器的概念</p>
+</blockquote>
+<blockquote>
+<p>客户端 :与用户进行交互，用于接收用户的输入(操作)、展示服务器端的数据以及向服务器传递数据</p>
+</blockquote>
+<ul>
+<li>手机APP</li>
+</ul>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022118645.png" alt="1681181342911" style="zoom: 67%;" />
+
+<ul>
+<li>微信小程序</li>
+</ul>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119082.png" alt="1681181399123" style="zoom: 50%;" />
+
+<ul>
+<li>PC端程序</li>
+</ul>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119206.png" alt="1681181558166" style="zoom:33%;" />
+
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119238.png" alt="1681181668235" style="zoom:33%;" />
+
+<ul>
+<li>PC浏览器</li>
+</ul>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119671.png" alt="1681181764764" style="zoom: 33%;" />
+
+<ul>
+<li>其他设备</li>
+</ul>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119655.png" alt="1681181829641" style="zoom: 50%;" />
+
+
+
+
+
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119179.png" alt="1681181884366" style="zoom: 50%;" />
+
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119485.png" alt="1681181975807" style="zoom: 80%;" />
+
+<blockquote>
+<p>服务端:与客户端进行交互，接收客户端的数据、处理具体的业务逻辑、传递给客户端其需要的数据</p>
+</blockquote>
+<ul>
+<li>“服务器”是一个非常宽泛的概念，<strong>从硬件而言:</strong> 服务器是计算机的一种，它比普通计算机运行更快、负载更高、价格更贵。服务器在网络中为其它客户机（如PC机、智能手机、ATM等终端甚至是火车系统等大型设备）提供计算或者应用服务。<strong>从软件而言:</strong> 服务器其实就是安装在计算机上的一个软件，根据其作用的不同又可以分为各种不同的服务器，例如应用服务器、数据库服务器、Redis服务器、DNS服务器、ftp服务器等等</li>
+</ul>
+<p><strong>综上所述:</strong> 用我们自己的话来总结的话，服务器其实就是一台(或者一个集群)安装了服务器软件的高性能计算机</p>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022119062.png" alt="1681182451912" style="zoom: 33%;" />
+
+
+
+<h2 id="1-2-JAVAWEB技术栈"><a href="#1-2-JAVAWEB技术栈" class="headerlink" title="1.2 JAVAWEB技术栈"></a>1.2 JAVAWEB技术栈</h2><blockquote>
+<p>前端部分</p>
+</blockquote>
+<p>HTML CSS  JavaScript ES6 Nodejs npm vite vue3 router pinia  axios  element-plus …</p>
+<blockquote>
+<p>后端部分</p>
+</blockquote>
+<p>HTTP xml Tomcat  Servlet   Request   Response  Cookie  Sesssion  Filter Listener MySQL JDBC  Druid  Jackson lombok jwt …</p>
+<blockquote>
+<p>图解</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022120544.png" alt="1681177316138"></p>
+<h2 id="1-3-JAVAWEB交互模式"><a href="#1-3-JAVAWEB交互模式" class="headerlink" title="1.3  JAVAWEB交互模式"></a>1.3  JAVAWEB交互模式</h2><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022120930.png" alt="1681182819066" style="zoom:50%;" />
+
+<blockquote>
+<p>请求</p>
+</blockquote>
+<p>客户端向服务端传递数据的主要方式之一,客户端主动向服务端发送请求,可以携带数据,交给服务端处理. 请求只能是客户端向服务端</p>
+<blockquote>
+<p>响应</p>
+</blockquote>
+<p>服务端向客户端传递数据的主要方式之一,在接收请求后开始对数据进行处理,将结果反馈给客户端使用.响应只能是服务端向客户端</p>
+<h2 id="1-4-JAVAWEB的CS和BS模式"><a href="#1-4-JAVAWEB的CS和BS模式" class="headerlink" title="1.4 JAVAWEB的CS和BS模式"></a>1.4 JAVAWEB的CS和BS模式</h2><p>根据客户端的不同,我们可以将JAVA的互联网项目运行模式分为CS模式和BS模式</p>
+<blockquote>
+<p>CS模式  Client-Server模式   客户端-服务端模式, 该模式特点如下</p>
+</blockquote>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022120694.png" alt="1681192888853" style="zoom:50%;" />
+
+<p>1 程序分两部分,一部分是客户端需要安装的程序,一部分是要部署在服务器上的程序</p>
+<p>2 用户需要在硬件设备或者操作系统中,下载安装特定的客户端程序才可以使用</p>
+<p>3 程序运行的压力由客户端和服务端共同承担</p>
+<p>4 可以借助客户端运算资源,对数据继续处理,一般可以有较好的画质和展现效果</p>
+<p>5 程序更新时,往往需要同时更新客户端和服务端两部分</p>
+<p>6 跨平台性能一般,不同的平台未必都有对应的客户端程序</p>
+<p>7 开发成本较高,要为不同的客户端开发不同客户端程序</p>
+<blockquote>
+<p>BS模式 Browser-Server模式</p>
+</blockquote>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022120305.png" alt="1681192907280" style="zoom:50%;" />
+
+<p>1 程序就一部分,只要部署在服务器上即可</p>
+<p>2 无论用户使用什么设备和操作系统,只要有一个安装任意一款浏览器即可</p>
+<p>3 程序运行的压力主要由服务端承担</p>
+<p>4 客户端承担的计算压力小,可以对数据进行简单的继续处理,但是不像CS模式那些可以获得较好的画质和展现效果</p>
+<p>5 程序更新时,只需要同时服务端部分</p>
+<p>6 跨平台性能优秀,只要有一个浏览器,到处都可以使用</p>
+<p>7 开发成本略低,不必为不同的客户端开发不同客户端程序</p>
+<blockquote>
+<p>模式选择</p>
+</blockquote>
+<ul>
+<li>对于我们JAVA程序员来说,我们开发的是服务端代码,所有无论前端是何种类型的服务端,我们只要按照接口文档要求开发后端功能即可,尤其是在当前前后端分离模式开发为主的时代背景下,我们可以在几乎不接触前端的状态下完成开发</li>
+</ul>
+<h2 id="1-5-JAVAWEB实现前后端分离"><a href="#1-5-JAVAWEB实现前后端分离" class="headerlink" title="1.5 JAVAWEB实现前后端分离"></a>1.5 JAVAWEB实现前后端分离</h2><blockquote>
+<p>非前后端分离</p>
+</blockquote>
+<ul>
+<li>1 开发不分离: 程序员既要编写后端代码,又要去修改甚至编写前端代码,程序员的工作压力较大</li>
+<li>2 部署不分离: 使用了后端动态页面技术(JSP,Thymeleaf等),前端代码不能脱离后端服务器环境,必须部署在一起</li>
+</ul>
+<blockquote>
+<p>前后端分离</p>
+</blockquote>
+<ul>
+<li>1 开发分离:后端程序员只要按照接口文档去编写后端代码,无需编写或者关系前端代码,前后端程序员压力都降低</li>
+<li>2 部署分离:前端使用前端的页面动态技术,通过VUE等框架,工程化项目,前端项目可以部署到独立的服务器上</li>
+</ul>
+<img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202412022121095.png" alt="1681193247981" style="zoom: 80%;" />
+
+
+
+
+
+<hr>
+<hr>
+<p>© 版权声明</p>
+<escape>
+
+<div>
+    <h3 align="center"  style="color: brown;" >版权声明</h3>
+    <table>
+           <tr>
+            <ol>
+                <li>本网站名称：𝚲𝚳𝚲</li>
+                <li>𝚲𝚳𝚲提供的资源仅供您个人用于非商业性目的。</li>
+                <li>本站文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系我进行删除处理。</li>
+                <li>本站一切资源不代表本站立场，并不代表本站赞同其观点和对其真实性负责。</li>
+                <li>本站一律禁止以任何方式发布或转载任何违法的相关信息，访客发现请举报</li> 
+                <li>本站资源大多存储在云盘，如发现链接失效，请联系我，我会第一时间更新。</li>
+                <li>本站强烈打击盗版/破解等有损他人权益和违法作为，请支持正版！</li>  
+            </ol>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+</escape>
+
+<hr>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://protonlml.github.io/2019/10/08/javaweb/01_%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%BF%B0/" title="第一章 WEB概述" target="_blank" rel="external">https://protonlml.github.io/2019/10/08/javaweb/01_第一章 概述/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">𝚲𝚳𝚲</span><small class="ml-1x">◙</small></a></h3>
+        <div>业精于勤，荒于嬉；行成于思，毁于随！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/10/08/javaweb/02_%E7%AC%AC%E4%BA%8C%E7%AB%A0%20HTML&CSS/" title="第二章 HTML&amp;CSS"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/10/07/javaweb/2.Servlet/" title="2.Servlet"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">老板发财！老板发财！老板发财！</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/protonlml" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2019 - 2024 𝚲𝚳𝚲
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</html>
