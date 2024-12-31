@@ -18,12 +18,12 @@
   
   
   <title>37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树) | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树（二叉查找树为了提高查询效率）  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历    3.后序遍历    4.层序遍历      五、二叉查找树的弊端  因为二叉查找树。有这样的弊端，所以就出现了平衡二叉树  六、平衡二叉树 下列不是平衡二叉树    二叉树结构的演变   © 版权声明">
+  <meta name="description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树（二叉查找树为了提高查询效率）  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历  注意：右子树，从最下面开始      3.后序遍历    4.层序遍历    怎么记？前序遍历，中序遍历，后序遍历 顺序：当前节点-&gt;左子节点-&gt;右子节点  （当前节点 在最前面，前序遍历）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="37.集合进阶-04-数据结构(二叉树,二叉查找树,平衡二叉树)">
 <meta property="og:url" content="https://protonlml.github.io/2019/09/25/java%E5%9F%BA%E7%A1%80/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树（二叉查找树为了提高查询效率）  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历    3.后序遍历    4.层序遍历      五、二叉查找树的弊端  因为二叉查找树。有这样的弊端，所以就出现了平衡二叉树  六、平衡二叉树 下列不是平衡二叉树    二叉树结构的演变   © 版权声明">
+<meta property="og:description" content="数据结构(二叉树,二叉查找树,平衡二叉树)    一、二叉树（二叉查找树为了提高查询效率）  二、二叉查找树的添加原理 三、查找节点 四、所有二叉树的遍历方式 1.前序遍历    2.中序遍历  注意：右子树，从最下面开始      3.后序遍历    4.层序遍历    怎么记？前序遍历，中序遍历，后序遍历 顺序：当前节点-&gt;左子节点-&gt;右子节点  （当前节点 在最前面，前序遍历）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252305197.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252313174.png">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261025158.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261035625.png">
 <meta property="article:published_time" content="2019-09-24T23:09:00.000Z">
-<meta property="article:modified_time" content="2024-06-26T02:36:00.705Z">
+<meta property="article:modified_time" content="2024-12-21T13:54:14.970Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
@@ -374,7 +374,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/25/java%E5%9F%BA%E7%A1%80/37.%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-04-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84(%E4%BA%8C%E5%8F%89%E6%A0%91,%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91,%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 327(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 381(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -397,8 +397,12 @@
 <li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406252326494.png" alt="image-20240625232625441"></li>
 </ul>
 </li>
-<li><h3 id="2-中序遍历"><a href="#2-中序遍历" class="headerlink" title="2.中序遍历"></a>2.中序遍历</h3><ul>
-<li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261009739.png" alt="image-20240626100946265"></li>
+<li><h3 id="2-中序遍历"><a href="#2-中序遍历" class="headerlink" title="2.中序遍历"></a>2.中序遍历</h3></li>
+<li><ul>
+<li><p>注意：右子树，从最下面开始</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261009739.png" alt="image-20240626100946265"></p>
+</li>
 </ul>
 </li>
 <li><h3 id="3-后序遍历"><a href="#3-后序遍历" class="headerlink" title="3.后序遍历"></a>3.后序遍历</h3><ul>
@@ -408,6 +412,9 @@
 <li><h3 id="4-层序遍历"><a href="#4-层序遍历" class="headerlink" title="4.层序遍历"></a>4.层序遍历</h3><ul>
 <li><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261010307.png" alt="image-20240626101050663"></li>
 </ul>
+</li>
+<li><h4 id="怎么记？前序遍历，中序遍历，后序遍历"><a href="#怎么记？前序遍历，中序遍历，后序遍历" class="headerlink" title="怎么记？前序遍历，中序遍历，后序遍历"></a>怎么记？前序遍历，中序遍历，后序遍历</h4></li>
+<li><p>顺序：当前节点-&gt;左子节点-&gt;右子节点  （当前节点 在最前面，前序遍历）</p>
 </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202406261011102.png" alt="image-20240626101154821"></p>
@@ -593,7 +600,7 @@
 
     <div class="copyright">
     	
-        &copy; 2019 - 2024 𝚲𝚳𝚲
+        &copy; 2019 - 2025 𝚲𝚳𝚲
         
         <div class="publishby">
         	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
