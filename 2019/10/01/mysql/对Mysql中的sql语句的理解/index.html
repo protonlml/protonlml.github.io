@@ -18,17 +18,17 @@
   
   
   <title>对Mysql中的sql语句的理解 | 𝚲𝚳𝚲的博客</title>
-  <meta name="description" content="对Mysql中的sql语句的理解      理解SQL语句的执行顺序 1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。   上图 ④和⑤颠倒一下顺序 123# where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下# on 后面可以读作, e员工表中有 部门的行,取出来.   通用句式 表中 有 xxx 的值取出来 。      123456如">
+  <meta name="description" content="对Mysql中的sql语句的理解      理解SQL语句的执行顺序 1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。   上图 ④和⑤颠倒一下顺序 123# where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下# on 后面可以读作, e员工表中有 部门的行,取出来.   通用句式 表中 有 xxx 的值取出来 。   一般使用，左外连接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对Mysql中的sql语句的理解">
 <meta property="og:url" content="https://protonlml.github.io/2019/10/01/mysql/%E5%AF%B9Mysql%E4%B8%AD%E7%9A%84sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="对Mysql中的sql语句的理解      理解SQL语句的执行顺序 1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。   上图 ④和⑤颠倒一下顺序 123# where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下# on 后面可以读作, e员工表中有 部门的行,取出来.   通用句式 表中 有 xxx 的值取出来 。      123456如">
+<meta property="og:description" content="对Mysql中的sql语句的理解      理解SQL语句的执行顺序 1.理解sql的执行顺序，对理解整个sql语句想要表达的什么内容，尤为重要。   上图 ④和⑤颠倒一下顺序 123# where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下# on 后面可以读作, e员工表中有 部门的行,取出来.   通用句式 表中 有 xxx 的值取出来 。   一般使用，左外连接">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202410082255599.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202410082311840.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202501242359937.png">
 <meta property="article:published_time" content="2019-09-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-13T15:57:49.017Z">
+<meta property="article:modified_time" content="2025-01-24T16:00:34.682Z">
 <meta property="article:author" content="𝚲𝚳𝚲">
 <meta property="article:tag" content="mysql8.0.22">
 <meta name="twitter:card" content="summary">
@@ -363,10 +363,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/01/mysql/%E5%AF%B9Mysql%E4%B8%AD%E7%9A%84sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%90%86%E8%A7%A3/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 726(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 918(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
@@ -386,10 +386,12 @@
 <p>上图 ④和⑤颠倒一下顺序</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># where或者on  后面的过滤条件,可以读作,得到 满足 条件所存在的行.如下</span><br><span class="line"># on 后面可以读作, e员工表中有 部门的行,取出来.</span><br><span class="line">   通用句式 表中 有 xxx 的值取出来 。 </span><br></pre></td></tr></table></figure>
 
+<h2 id="一般使用，左外连接-left-join-on-左边是-1-右边是-多"><a href="#一般使用，左外连接-left-join-on-左边是-1-右边是-多" class="headerlink" title="一般使用，左外连接   left join  on    左边是 1 右边是 多"></a>一般使用，左外连接   left join  on    左边是 1 右边是 多</h2><p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202501242359937.png" alt="image-20250124235830612"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 在join 交表的时候，要思考。 一对多的关系</span><br><span class="line"># 一般使用 左外连接 left join  左边是1右边是多</span><br><span class="line"># 如下：部门表 left join 员工表</span><br><span class="line"># 一个部门 对应 多个员工</span><br><span class="line"># 查询的结果，是left join  ,左表部门表所有数据,以及满足条件的右表   员工表在所有部门 的 成员</span><br><span class="line"># 所有部门，有的部门可能没有员工，那么 员工列就为null</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查询 没有员工的 部门</span><br><span class="line">select d.department_name,e.employee_id</span><br><span class="line">from departments d left join employees e</span><br><span class="line">    on d.department_id = e.department_id   # 员工在当前这个部门中的 所有员工记录</span><br><span class="line">    where e.department_id is null ;</span><br><span class="line"></span><br><span class="line">#看到on 后面这个条件 就想， 结果大概是什么样子， 1对多的关系</span><br><span class="line">#  因为是1对多，1个部门 有多个员工， 那么结果集数据表中， 右边多个员工列 可能在同一个部门中，所以左边部门列 字段会有重复</span><br><span class="line">#  又因为left join 左外连接  左表部门表中，是所有部门列都查出来了，可能有的部门没有员工，那么右边员工列 字段会有null</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="https://raw.githubusercontent.com/protonlml/blogimages/master/imgs/202410082311840.png" alt="image-20241008231137358"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">如上：</span><br><span class="line">from employees e join departments d </span><br><span class="line">on d.department_id = e.department_id 后面可以读作：部门中有员工的数据 取出来</span><br><span class="line">----------------------------------------------------------------------------</span><br><span class="line">from employees e right join departments d </span><br><span class="line">on d.department_id = e.department_id  读作 部门中有员工的行取出来，右因 right join departments（右外连接departments） 所以departments部门中没有员工的行也去出来。就是连接后  departments这一边所有的数据都出来，不管这个部门有没有员工都取出来</span><br></pre></td></tr></table></figure>
+
+
 
 
 
